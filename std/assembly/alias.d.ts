@@ -1,0 +1,1 @@
+declare type types = Uint8Array;
