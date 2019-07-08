@@ -3,7 +3,7 @@ import { Serializable } from "./serializable";
 /**
  * internal memory HEADER SIZE. NEVER used by users.
  */
-const HEADER_SIZE = (offsetof<String>() + 1) & ~1; // 2 byte aligned
+//const HEADER_SIZE = (offsetof<String>() + 1) & ~1; // 2 byte aligned
 /**
  * internal class, not for external users.
  */
