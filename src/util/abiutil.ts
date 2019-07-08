@@ -1,5 +1,6 @@
 import { ClassPrototype, Element, ElementKind, TypeDefinition, Class } from "../program";
 import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration } from "../ast";
+import { Signature } from "../types";
 
 export class IndentUtil{
     private body: Array<string> = new Array<string>();
@@ -53,11 +54,12 @@ export class AbiHelper {
       ["boolean", "bool"],
       ["string", "string"],
       ["String", "string"],
-      ["account_name", "name"],
-      ["permission_name", "name"],
-      ["action_name", "name"],
-      ["weight_type", "uint16"],
-      ["Asset", "asset"]
+      ["bytes", "bytes"],
+        ["hash160", "hash160"],
+        ["hash256", "hash256"],
+        ["hash512", "hash512"],
+        ["publicKey", "publicKey"],
+      ["signature","signature"]
     ]);
   }
 

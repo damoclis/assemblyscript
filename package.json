@@ -1,14 +1,14 @@
 {
-  "name": "assemblyscript",
-  "version": "0.7.0",
-  "author": "Daniel Wirtz <dcode+assemblyscript@dcode.io>",
+  "name": "dmcscript",
+  "version": "0.1.1",
+  "author": "Qiangyuzhou <qiangyuzhou@zju.edu.cn>",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AssemblyScript/assemblyscript.git"
+    "url": "https://github.com/ultrain-os/ultrascript.git"
   },
   "bugs": {
-    "url": "https://github.com/AssemblyScript/assemblyscript/issues"
+    "url": "https://github.com/ultrain-os/ultrascript/issues"
   },
   "dependencies": {
     "@protobufjs/utf8": "^1.1.0",
