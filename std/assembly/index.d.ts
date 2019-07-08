@@ -1564,7 +1564,11 @@ declare function lazy(...args: any[]): any;
 declare function start(...args: any[]): any;
 
 /** Object serializable interface */
-interface Serializable { }
+interface Serializable { 
+    deserialize(ds: DataStream): void;
+    serialize(ds : DataStream) : void;
+    key(): string;
+}
 
 
 declare class DataStream {

@@ -123,6 +123,7 @@ export class AbiData{
     return false;
   }
 
+
   private resolveFuncPrototype(prototype: FunctionPrototype):void{
     let declaration = <FunctionDeclaration>prototype.declaration;
     let funcName = declaration.name.range.toString();

@@ -1,1 +1,1 @@
-declare type types = Uint8Array;
+declare class Bytes extends Uint8Array{ }

@@ -7,6 +7,8 @@ import { Serializable } from "./serializable";
 /**
  * internal class, not for external users.
  */
+
+
 export class DSHelper {
     static serializeComplexVector<T extends Serializable>(arr: T[]): DataStream {
         let len = DataStream.measureComplexVector<T>(arr);
