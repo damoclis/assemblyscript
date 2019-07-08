@@ -1562,3 +1562,31 @@ declare function lazy(...args: any[]): any;
 
 /** Annotates a function as the explicit start function. */
 declare function start(...args: any[]): any;
+
+/** Object serializable interface */
+interface Serializable { }
+
+
+declare class DataStream {
+  buffer: u32;
+  len: u32;
+  pos: u32;
+  static measure<T extends Serializable>(obj: T): u32;
+
+  constructor(buffer: u32, len: u32);
+  size(): u32;
+  readVarint32(): u32;
+  writeVarint32(value: u32): void;
+  write<T>(value: T): void;
+  read<T>(): T;
+  toArray<T>(): T[];
+  readStringVector():string[];
+  //writeStringVector(arr: string[]):void;
+  readVector<T>(): T[];
+  writeVector<T>(arr: T[]): void;
+  readComplexVector<T extends Serializable>(): T[];
+  writeComplexVector<T extends Serializable>(arr: T[]): void;
+  readString(): string;
+  //writeString(str: string): void;
+  writeDouble(d: f64): void;
+}
