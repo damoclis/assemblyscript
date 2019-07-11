@@ -3,7 +3,8 @@ import { Serializable } from "./serializable";
 /**
  * internal memory HEADER SIZE. NEVER used by users.
  */
-//const HEADER_SIZE = (offsetof<String>() + 1) & ~1; // 2 byte aligned
+const HEADER_SIZE = (offsetof<String>() + 1) & ~1; // 2 byte aligned
+
 /**
  * internal class, not for external users.
  */
@@ -155,13 +156,13 @@ export class DataStream {
         return arr;
     }
 
-    // writeStringVector(arr: string[]): void {
-    //     let len: u32 = arr.length;
-    //     this.writeVarint32(len);
-    //     for (let i: u32 = 0; i < len; i++) {
-    //         this.writeString(arr[i]);
-    //     }
-    // }
+    writeStringVector(arr: string[]): void {
+        let len: u32 = arr.length;
+        this.writeVarint32(len);
+        for (let i: u32 = 0; i < len; i++) {
+            this.writeString(arr[i]);
+        }
+    }
 
     readVector<T>(): T[] {
         let len = this.readVarint32();
@@ -217,21 +218,20 @@ export class DataStream {
         var data = new Uint8Array(len);
         memory.copy(changetype<usize>(data.buffer), this.buffer + this.pos, len);
         this.pos += len;
-        //return String.fromUTF8(changetype<usize>(data.buffer), len );
-        return "";
+        return String.UTF8.decodeUnsafe(changetype<usize>(data.buffer), len );
     }
 
-    // writeString(str: string): void {
-    //     var len: u32 = <u32>str.lengthUTF8 - 1;
-    //     this.writeVarint32(len);
-    //     if (len == 0) return;
+    writeString(str: string): void {
+        var len = String.UTF8.byteLength(str);
+        this.writeVarint32(len);
+        if (len == 0) return;
 
-    //     if (!this.isMeasureMode()) {
-    //         let ptr = str.toUTF8();
-    //         memory.copy(this.buffer + this.pos, <usize>ptr, len);
-    //     }
-    //     this.pos += len;
-    // }
+        if (!this.isMeasureMode()) {
+            let ptr = changetype<usize>(str);
+            memory.copy(this.buffer + this.pos, <usize>ptr, len);
+        }
+        this.pos += len;
+    }
 
     writeDouble(d: f64): void {}
     readDouble(): f64 { return 0.0; }

@@ -1585,12 +1585,12 @@ declare class DataStream {
   read<T>(): T;
   toArray<T>(): T[];
   readStringVector():string[];
-  //writeStringVector(arr: string[]):void;
+  writeStringVector(arr: string[]):void;
   readVector<T>(): T[];
   writeVector<T>(arr: T[]): void;
   readComplexVector<T extends Serializable>(): T[];
   writeComplexVector<T extends Serializable>(arr: T[]): void;
   readString(): string;
-  //writeString(str: string): void;
+  writeString(str: string): void;
   writeDouble(d: f64): void;
 }
