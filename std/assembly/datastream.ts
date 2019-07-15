@@ -1,5 +1,6 @@
 import { toUTF8Array } from "./utf8util";
 import { Serializable } from "./serializable";
+import { Uint8Array } from "typedarray";
 /**
  * internal memory HEADER SIZE. NEVER used by users.
  */
@@ -8,6 +9,7 @@ const HEADER_SIZE = (offsetof<String>() + 1) & ~1; // 2 byte aligned
 /**
  * internal class, not for external users.
  */
+
 
 
 export class DSHelper {

@@ -1182,6 +1182,7 @@ export enum DecoratorKind {
   SEALED,
   INLINE,
   ACTION,
+  DATABASE,
   EXTERNAL,
   BUILTIN,
   LAZY,

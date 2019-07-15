@@ -556,6 +556,11 @@ exports.main = function main(argv, options, callback) {
     });
   }
 
+  {
+    exports.abiInfo = program.getAbiInfo();
+    
+  }
+
   // Prepare output
   if (!args.noEmit) {
     let hasStdout = false;

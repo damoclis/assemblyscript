@@ -1,9 +1,10 @@
 //refer to EOS's and Ultrain's doc
 
 import { Program, Element, ElementKind, ClassPrototype, FunctionPrototype } from "./program";
-import {IndentUtil, AstUtil, TypeAnalyzer} from "./util/abiutil";
+import {IndentUtil, AstUtil, TypeAnalyzer, AbiType} from "./util/abiutil";
 import { indent } from "./util";
-import { DecoratorKind, FunctionDeclaration,ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode} from "./ast";
+import { DecoratorKind, FunctionDeclaration,ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode, BreakStatement, Expression} from "./ast";
+import { Strings } from "./util/primitiveutil";
 
 
 
@@ -43,7 +44,7 @@ class ActionDef{
 class TableDef{
   name: string;
   type: string;
-  ndex_type: string = "i64";
+  index_type: string = "i64";
   keys_names: string[] = ["currency"];
   keys_types: string[] = ["uint64"];
   constructor(name: string, type: string) {
@@ -60,7 +61,7 @@ class AbiDef{
   tables: Array<TableDef> = new Array<TableDef>();
 }
 
-export class AbiData{
+export class AbiData {
   abi: AbiDef = new AbiDef();
   program: Program;
 
@@ -74,7 +75,7 @@ export class AbiData{
     this.init();
   }
 
-  private init():void{
+  private init(): void {
     //Todo: serializeGenerator
 
     let indenter = new IndentUtil();
@@ -89,11 +90,15 @@ export class AbiData{
         }
       }
     }
+
+    console.log(indenter.content.join("\n"));
   }
 
   //get the attach code (apply function)
   //valid only for the class extends Contract!
-  private resolveClassPrototype(prototype: ClassPrototype):Array<string>{
+  private resolveClassPrototype(prototype: ClassPrototype): Array<string> {
+    //resolve the database decorator for every class
+    this.getDatabaseInfo(prototype);
     if (prototype.instanceMembers && AstUtil.extendedContract(prototype)) {
       let body = new Array<string>();
       let actionDecorate = false;
@@ -102,17 +107,111 @@ export class AbiData{
 
       body.push(`  let ${contractInstance}=new ${contractName}();`);
       body.push(`  let ds = ${contractInstance}.getDataStream();`);
+      
 
       //resolve the func with the action decorator
       for (let [key, instance] of prototype.instanceMembers) {
         if (this.isActionFuncPrototype(instance)) {
           actionDecorate = true;
           let funcProto = <FunctionPrototype>instance;
-          this.resolveFuncPrototype(funcProto)
+          this.resolveFuncPrototype(funcProto);
+
+          let declaration = <FunctionDeclaration>funcProto.declaration;
+          let funcName = declaration.name.range.toString();
+          let signature = declaration.signature;
+          body.push(`  if (${contractInstance}).isAction(${funcName})){`)
+
+          let allParams = new Array<string>();
+          //insert the code to get the actionData and call the action
+          for (let i = 0; i < signature.parameters.length; i++) {
+            let param = signature.parameters[i];
+            let typeInfo = new TypeAnalyzer(funcProto, <NamedTypeNode>param.type);
+            let paramName = param.name.range.toString();
+            allParams.push(paramName);
+            //if the param is not array type
+            if (typeInfo.abiType != AbiType.ARRAY) {
+              switch (typeInfo.abiType) {
+                case AbiType.STRING:
+                  body.push(`    let ${paramName}=ds.readString();`);
+                  break;
+                case AbiType.NUMBER:
+                  body.push(`    let ${paramName}=ds.read<${typeInfo.typeName}>()`);
+                  break;
+                default:
+                  //first resolve the calss type.
+                  let ele = funcProto.lookup(typeInfo.typeName);
+                  let classProto = <ClassPrototype>ele;
+                  this.classToStruct(classProto);
+                  body.push(`    let ${paramName}=new ${typeInfo.typeName}();`)
+                  body.push(`    ${paramName}.deserialize(ds)`);
+              }
+            } else {  //if the param type is Array
+              let argAbiType = typeInfo.getArrayArgAbiType();
+              let argTypeName = typeInfo.getArrayArgType();
+              switch (argAbiType) {
+                case AbiType.NUMBER:
+                  body.push(`    let ${paramName}=ds.readvector<${argTypeName}>();`);
+                  break;
+                case AbiType.STRING:
+                  body.push(`    let ${paramName}=ds.readStringVector();`);
+                  break;
+                default:
+                  body.push(`    let ${paramName}=ds.readComplexVector<${argTypeName}>();`);
+                  break;
+              }
+            }
+          }
+
+          //insert the return code 
+          let returnTypeInfo = new TypeAnalyzer(funcProto, <NamedTypeNode>signature.returnType);
+          if (returnTypeInfo.typeName == "void") {
+            body.push(`    ${contractInstance}.${funcName}(${allParams.join(",")});`);
+          } else {
+            //todo...
+          }
+
+          body.push("  }");
         }
       }
+      if (actionDecorate) {
+        return body;
+      }
     }
+
+
     return new Array();
+  }
+
+  //resolve the database decorators
+  private getDatabaseInfo(prototype: ClassPrototype) :void{
+    let decorators = prototype.decoratorNodes;
+    if (!decorators) {
+      return;
+    }
+    for (let decorator of decorators) {
+      //Decorator argument must have only one argument
+      if (decorator.decoratorKind == DecoratorKind.DATABASE && decorator.arguments) {
+        if (decorator.arguments.length != 1) {
+          throw new Error("Database decorator must have only one argument!");
+        }
+        let type = prototype.name;  
+        let name = this.getString(prototype, decorator.arguments[0]);
+        this.abi.tables.push(new TableDef(name, type));
+        
+        this.classToStruct(prototype);
+      }
+    }
+  }
+
+  //get the string:
+  //1. delete the quotation
+  //Todo: 2. get the string from the constant
+  private getString(ele: Element, expr: Expression): string{
+    let arg: string = expr.range.toString();
+    if (Strings.isAroundQuotation(arg)) {
+      return arg.substring(1, arg.length - 1);
+    }
+    return "";
   }
 
   private isActionFuncPrototype(element: Element): bool{
@@ -205,5 +304,7 @@ export class AbiData{
       this.structLookup.set(struct.name, struct);
     }
   }
+
+
 
 }

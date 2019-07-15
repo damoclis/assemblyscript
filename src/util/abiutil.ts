@@ -30,6 +30,10 @@ export class IndentUtil{
             this.body.push(row);
         }
     }
+
+    get content(): string[]{
+        return this.body;
+    }
 }
 
 export class AbiHelper {
@@ -143,7 +147,7 @@ export class TypeAnalyzer{
         this.parent = parent;
         this.typeNode = typeNode;
         this.typeName = typeNode.name.range.toString();
-        this.getAbiType();
+        this.abiType=this.getAbiType();
     }
 
     private getAbiType(): AbiType{
@@ -212,6 +216,7 @@ export class TypeAnalyzer{
         return [this.typeName];
     }
 
+    //find the source Abi Type
     findSourceAbiType(typeName: string): string{
         var abiType: string | null = AbiHelper.abiTypeLookup.get(typeName);
         if (abiType) {
@@ -224,5 +229,37 @@ export class TypeAnalyzer{
             return this.findSourceAbiType(aliasTypeName);
         }
         return typeName;
+    }
+
+    //find the source type (not abi!!!)
+    findSourceAsType(typeName: string): string{
+        let element = this.lookupElement(typeName);
+        if (element && element.kind == ElementKind.TYPEDEFINITION) {
+            let typeDefine = <TypeDefinition>element;
+            let aliasTypeName = typeDefine.typeNode.range.toString();
+            return this.findSourceAsType(aliasTypeName);
+        }
+        return typeName;
+    }
+
+
+
+    getArrayArgAbiType(): AbiType{
+        let typeName = this.getArgs()[0];
+        if (AstUtil.isString(typeName)) {
+            return AbiType.STRING;
+        }
+
+        //find the sourceAsElement
+        let sourceTypeName = this.findSourceAsType(typeName);
+        let sourceType = this.lookupElement(sourceTypeName);
+        if (sourceType != null && sourceType.kind == ElementKind.CLASS_PROTOTYPE) {
+            return AbiType.CLASS;
+        }
+        return AbiType.NUMBER;
+    }
+
+    getArrayArgType(): string{
+        return this.getArgs()[0];
     }
 }

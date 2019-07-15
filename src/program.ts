@@ -100,6 +100,7 @@ import {
 import {
   Flow
 } from "./flow";
+import { AbiData } from "./abi";
 
 /** Represents a yet unresolved `import`. */
 class QueuedImport {
@@ -416,6 +417,11 @@ export class Program extends DiagnosticEmitter {
     this.nativeFile = nativeFile;
     this.filesByName.set(nativeFile.internalName, nativeFile);
     this.resolver = new Resolver(this);
+  }
+
+  getAbiInfo(): AbiData{
+    let abiData = new AbiData(this);
+    return abiData;
   }
 
   /** Writes a common runtime header to the specified buffer. */
