@@ -4661,6 +4661,7 @@ declare module 'assemblyscript/src/abi' {
 	export class AbiData {
 	    abi: AbiDef;
 	    program: Program;
+	    code: string;
 	    typeLookup: Map<string, string>;
 	    structLookup: Map<string, StructDef>;
 	    elementLookup: Map<string, Element>;

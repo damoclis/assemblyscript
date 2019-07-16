@@ -1,7 +1,7 @@
 import { DataStream } from "./datastream"
 
 export class Bytes extends Uint8Array {
-    static fromHexToBytes(hex: string): Bytes {
+    static fromHex(hex: string): Bytes {
         if (hex.substr(0, 2) == "0x") {
             hex = hex.substr(2);
         }
@@ -18,7 +18,7 @@ export class Bytes extends Uint8Array {
         return bytes
     }
 
-    static fromU8ArrayToBytes(arr: Array<u8>): Bytes {
+    static fromU8Array(arr: Array<u8>): Bytes {
         let bytes = new Bytes(arr.length);
         for (let i = 0; i < arr.length; i++) {
             bytes[i] = arr[i]
@@ -73,7 +73,7 @@ export class Bytes extends Uint8Array {
         for (let i = 0; i < b2.length; i++) {
             newBytes.push(b2[i])
         }
-        return Bytes.fromU8ArrayToBytes(newBytes);
+        return Bytes.fromU8Array(newBytes);
     }
 
     wrapDataStream(): DataStream {

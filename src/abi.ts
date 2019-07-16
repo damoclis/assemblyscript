@@ -64,6 +64,7 @@ class AbiDef{
 export class AbiData {
   abi: AbiDef = new AbiDef();
   program: Program;
+  code: string = "";
 
   typeLookup: Map<string, string> = new Map();
   structLookup: Map<string, StructDef> = new Map();
@@ -91,7 +92,8 @@ export class AbiData {
       }
     }
 
-    console.log(indenter.content.join("\n"));
+    this.code = indenter.content.join("\n");
+    console.log(this.code);
   }
 
   //get the attach code (apply function)
