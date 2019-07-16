@@ -1,7 +1,7 @@
 import { DataStream } from "./datastream"
 
 export class Bytes extends Uint8Array {
-    static HexToBytes(hex: string): Bytes {
+    static fromHexToBytes(hex: string): Bytes {
         if (hex.substr(0, 2) == "0x") {
             hex = hex.substr(2);
         }
@@ -18,7 +18,7 @@ export class Bytes extends Uint8Array {
         return bytes
     }
 
-    static U8ArrayToBytes(arr: Array<u8>): Bytes {
+    static fromU8ArrayToBytes(arr: Array<u8>): Bytes {
         let bytes = new Bytes(arr.length);
         for (let i = 0; i < arr.length; i++) {
             bytes[i] = arr[i]
@@ -26,11 +26,11 @@ export class Bytes extends Uint8Array {
         return bytes;
     }
 
-    Hex(): string {
+    toHex(): string {
         let b = this;
         let hexTable = "0123456789abcdef".split('');
         let hex = "";
-        let rb = b.SwapEndian()
+        let rb = b.swapEndian()
         for (let i = 0; i < rb.length; i++) {
             let byte: u8 = rb[i];
             hex += hexTable[byte >> 4]
@@ -40,12 +40,12 @@ export class Bytes extends Uint8Array {
     }
 
 
-    SwapEndian(): Bytes {
-        let clone = this.CloneBytes();
+    swapEndian(): Bytes {
+        let clone = this.cloneBytes();
         return <Bytes>(clone.reverse());
     }
 
-    CloneBytes(): Bytes {
+    cloneBytes(): Bytes {
         let bytes = this;
         let clone = new Bytes(bytes.length);
         for (let i = 0; i < bytes.length; i++) {
@@ -54,7 +54,7 @@ export class Bytes extends Uint8Array {
         return clone;
     }
 
-    BytesToU8Array(): Array<u8> {
+    toU8Array(): Array<u8> {
         let bytes = this;
         const arr = new Array<u8>(bytes.length)
         for (let i = 0; i < bytes.length; i++) {
@@ -64,7 +64,7 @@ export class Bytes extends Uint8Array {
     }
 
     // Concat two different bytes and returns a new bytes.
-    ConcatBytes(b2: Bytes): Bytes {
+    concat(b2: Bytes): Bytes {
         let b1 = this;
         const newBytes = new Array<u8>();
         for (let i = 0; i < b1.length; i++) {
@@ -73,13 +73,13 @@ export class Bytes extends Uint8Array {
         for (let i = 0; i < b2.length; i++) {
             newBytes.push(b2[i])
         }
-        return Bytes.U8ArrayToBytes(newBytes);
+        return Bytes.fromU8ArrayToBytes(newBytes);
     }
 
-    WrapDataStream(): DataStream {
+    wrapDataStream(): DataStream {
         let bytes = new Bytes(this.length);
         let ds = new DataStream(changetype<usize>(bytes.buffer), this.length);
-        ds.writeVector<u8>(this.BytesToU8Array());
+        ds.writeVector<u8>(this.toU8Array());
         return ds;
     }
 }
