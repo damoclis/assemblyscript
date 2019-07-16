@@ -26,6 +26,14 @@ export class Bytes extends Uint8Array {
         return bytes;
     }
 
+    static fromString(str: string): Bytes {
+        const bytes = new Bytes(str.length)
+        const buffer = String.UTF8.encode(str)
+
+        memory.copy(changetype<usize>(bytes.buffer), changetype<usize>(buffer), buffer.byteLength);
+        return bytes;
+    }
+
     toHex(): string {
         let b = this;
         let hexTable = "0123456789abcdef".split('');
@@ -82,4 +90,10 @@ export class Bytes extends Uint8Array {
         ds.writeVector<u8>(this.toU8Array());
         return ds;
     }
+
+    toString(): string {
+        let bytes = this;
+        return String.UTF8.decode(bytes.buffer);
+    }
+
 }

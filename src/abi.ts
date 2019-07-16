@@ -94,6 +94,7 @@ export class AbiData {
 
     this.code = indenter.content.join("\n");
     console.log(this.code);
+    console.log("init done!");
   }
 
   //get the attach code (apply function)
