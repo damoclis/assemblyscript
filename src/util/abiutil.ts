@@ -10,6 +10,7 @@ export class IndentUtil{
     constructor(indentNum: i32=0) {
         while (indentNum >= 0) {
             this.padding += this.indent1;
+            indentNum--;
         }
     }
 
