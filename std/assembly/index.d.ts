@@ -1563,6 +1563,12 @@ declare function lazy(...args: any[]): any;
 /** Annotates a function as the explicit start function. */
 declare function start(...args: any[]): any;
 
+/** Annotates a function or method as action of contract */
+declare function action(...args: any[]): any;
+
+/** Annotates a class as the type of the database */
+declare function database(constructor: Function): void;
+
 /** Object serializable interface */
 interface Serializable { 
     deserialize(ds: DataStream): void;
