@@ -64,7 +64,7 @@ export class Bytes extends Uint8Array {
     }
 
     // Concat two different bytes and returns a new bytes.
-    static ConcatBytes(b2: Bytes): Bytes {
+    ConcatBytes(b2: Bytes): Bytes {
         let b1 = this;
         const newBytes = new Array<u8>();
         for (let i = 0; i < b1.length; i++) {
@@ -73,7 +73,7 @@ export class Bytes extends Uint8Array {
         for (let i = 0; i < b2.length; i++) {
             newBytes.push(b2[i])
         }
-        return this.U8ArrayToBytes(newBytes);
+        return Bytes.U8ArrayToBytes(newBytes);
     }
 
     WrapDataStream(): DataStream {
