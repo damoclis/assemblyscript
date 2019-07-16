@@ -204,152 +204,6 @@ declare module 'assemblyscript/src/common' {
 	export { Typeinfo, TypeinfoFlags } from 'assemblyscript/std/assembly/shared/typeinfo';
 
 }
-declare module 'assemblyscript/src/diagnosticMessages.generated' {
-	/**
-	 * Generated from diagnosticsMessages.json. Do not edit.
-	 * @module diagnostics
-	 */ /***/
-	/** Enum of available diagnostic codes. */
-	export enum DiagnosticCode {
-	    Operation_not_supported = 100,
-	    Operation_is_unsafe = 101,
-	    User_defined_0 = 102,
-	    Conversion_from_type_0_to_1_requires_an_explicit_cast = 200,
-	    Conversion_from_type_0_to_1_will_require_an_explicit_cast_when_switching_between_32_64_bit = 201,
-	    Type_0_cannot_be_changed_to_type_1 = 202,
-	    Type_0_cannot_be_reinterpreted_as_type_1 = 203,
-	    Basic_type_0_cannot_be_nullable = 204,
-	    Cannot_export_a_mutable_global = 205,
-	    Mutable_value_cannot_be_inlined = 206,
-	    Unmanaged_classes_cannot_extend_managed_classes_and_vice_versa = 207,
-	    Unmanaged_classes_cannot_implement_interfaces = 208,
-	    Invalid_regular_expression_flags = 209,
-	    Implementation_0_must_match_the_signature_1 = 210,
-	    Class_0_is_sealed_and_cannot_be_extended = 211,
-	    Decorator_0_is_not_valid_here = 212,
-	    Duplicate_decorator = 213,
-	    An_allocator_must_be_present_to_use_0 = 214,
-	    Optional_parameter_must_have_an_initializer = 215,
-	    Constructor_of_class_0_must_not_require_any_arguments = 216,
-	    Function_0_cannot_be_inlined_into_itself = 217,
-	    Cannot_access_method_0_without_calling_it_as_it_requires_this_to_be_set = 218,
-	    Optional_properties_are_not_supported = 219,
-	    Expression_must_be_a_compile_time_constant = 220,
-	    Module_cannot_have_multiple_start_functions = 221,
-	    _0_must_be_a_value_between_1_and_2_inclusive = 222,
-	    _0_must_be_a_power_of_two = 223,
-	    TODO_Cannot_inline_inferred_calls_and_specific_internals_yet = 224,
-	    Expression_is_never_null = 225,
-	    Unterminated_string_literal = 1002,
-	    Identifier_expected = 1003,
-	    _0_expected = 1005,
-	    A_file_cannot_have_a_reference_to_itself = 1006,
-	    Trailing_comma_not_allowed = 1009,
-	    Unexpected_token = 1012,
-	    A_rest_parameter_must_be_last_in_a_parameter_list = 1014,
-	    Parameter_cannot_have_question_mark_and_initializer = 1015,
-	    A_required_parameter_cannot_follow_an_optional_parameter = 1016,
-	    Statements_are_not_allowed_in_ambient_contexts = 1036,
-	    Initializers_are_not_allowed_in_ambient_contexts = 1039,
-	    _0_modifier_cannot_be_used_here = 1042,
-	    A_rest_parameter_cannot_be_optional = 1047,
-	    A_rest_parameter_cannot_have_an_initializer = 1048,
-	    A_set_accessor_must_have_exactly_one_parameter = 1049,
-	    A_set_accessor_parameter_cannot_have_an_initializer = 1052,
-	    A_get_accessor_cannot_have_parameters = 1054,
-	    Enum_member_must_have_initializer = 1061,
-	    Type_parameters_cannot_appear_on_a_constructor_declaration = 1092,
-	    Type_annotation_cannot_appear_on_a_constructor_declaration = 1093,
-	    An_accessor_cannot_have_type_parameters = 1094,
-	    A_set_accessor_cannot_have_a_return_type_annotation = 1095,
-	    Type_parameter_list_cannot_be_empty = 1098,
-	    A_continue_statement_can_only_be_used_within_an_enclosing_iteration_statement = 1104,
-	    A_break_statement_can_only_be_used_within_an_enclosing_iteration_or_switch_statement = 1105,
-	    A_return_statement_can_only_be_used_within_a_function_body = 1108,
-	    Expression_expected = 1109,
-	    Type_expected = 1110,
-	    A_default_clause_cannot_appear_more_than_once_in_a_switch_statement = 1113,
-	    Duplicate_label_0 = 1114,
-	    An_export_assignment_cannot_have_modifiers = 1120,
-	    Octal_literals_are_not_allowed_in_strict_mode = 1121,
-	    Digit_expected = 1124,
-	    Hexadecimal_digit_expected = 1125,
-	    Unexpected_end_of_text = 1126,
-	    Invalid_character = 1127,
-	    _case_or_default_expected = 1130,
-	    _super_must_be_followed_by_an_argument_list_or_member_access = 1034,
-	    A_declare_modifier_cannot_be_used_in_an_already_ambient_context = 1038,
-	    Type_argument_expected = 1140,
-	    String_literal_expected = 1141,
-	    Line_break_not_permitted_here = 1142,
-	    Declaration_expected = 1146,
-	    _const_declarations_must_be_initialized = 1155,
-	    Unterminated_regular_expression_literal = 1161,
-	    Interface_declaration_cannot_have_implements_clause = 1176,
-	    Binary_digit_expected = 1177,
-	    Octal_digit_expected = 1178,
-	    An_implementation_cannot_be_declared_in_ambient_contexts = 1183,
-	    An_extended_Unicode_escape_value_must_be_between_0x0_and_0x10FFFF_inclusive = 1198,
-	    Unterminated_Unicode_escape_sequence = 1199,
-	    Decorators_are_not_valid_here = 1206,
-	    _abstract_modifier_can_only_appear_on_a_class_method_or_property_declaration = 1242,
-	    Method_0_cannot_have_an_implementation_because_it_is_marked_abstract = 1245,
-	    A_definite_assignment_assertion_is_not_permitted_in_this_context = 1255,
-	    A_class_may_only_extend_another_class = 1311,
-	    A_parameter_property_cannot_be_declared_using_a_rest_parameter = 1317,
-	    Duplicate_identifier_0 = 2300,
-	    Cannot_find_name_0 = 2304,
-	    Module_0_has_no_exported_member_1 = 2305,
-	    Generic_type_0_requires_1_type_argument_s = 2314,
-	    Type_0_is_not_generic = 2315,
-	    Type_0_is_not_assignable_to_type_1 = 2322,
-	    Index_signature_is_missing_in_type_0 = 2329,
-	    _this_cannot_be_referenced_in_current_location = 2332,
-	    _super_can_only_be_referenced_in_a_derived_class = 2335,
-	    Super_calls_are_not_permitted_outside_constructors_or_in_nested_functions_inside_constructors = 2337,
-	    Property_0_does_not_exist_on_type_1 = 2339,
-	    Cannot_invoke_an_expression_whose_type_lacks_a_call_signature_Type_0_has_no_compatible_call_signatures = 2349,
-	    Cannot_use_new_with_an_expression_whose_type_lacks_a_construct_signature = 2351,
-	    A_function_whose_declared_type_is_not_void_must_return_a_value = 2355,
-	    The_operand_of_an_increment_or_decrement_operator_must_be_a_variable_or_a_property_access = 2357,
-	    The_left_hand_side_of_an_assignment_expression_must_be_a_variable_or_a_property_access = 2364,
-	    Operator_0_cannot_be_applied_to_types_1_and_2 = 2365,
-	    A_super_call_must_be_the_first_statement_in_the_constructor = 2376,
-	    Constructors_for_derived_classes_must_contain_a_super_call = 2377,
-	    _get_and_set_accessor_must_have_the_same_type = 2380,
-	    Constructor_implementation_is_missing = 2390,
-	    Function_implementation_is_missing_or_not_immediately_following_the_declaration = 2391,
-	    Multiple_constructor_implementations_are_not_allowed = 2392,
-	    Duplicate_function_implementation = 2393,
-	    Individual_declarations_in_merged_declaration_0_must_be_all_exported_or_all_local = 2395,
-	    A_namespace_declaration_cannot_be_located_prior_to_a_class_or_function_with_which_it_is_merged = 2434,
-	    Type_0_has_no_property_1 = 2460,
-	    The_0_operator_cannot_be_applied_to_type_1 = 2469,
-	    In_const_enum_declarations_member_initializer_must_be_constant_expression = 2474,
-	    Export_declaration_conflicts_with_exported_declaration_of_0 = 2484,
-	    Object_is_possibly_null = 2531,
-	    Cannot_assign_to_0_because_it_is_a_constant_or_a_read_only_property = 2540,
-	    The_target_of_an_assignment_must_be_a_variable_or_a_property_access = 2541,
-	    Index_signature_in_type_0_only_permits_reading = 2542,
-	    Expected_0_arguments_but_got_1 = 2554,
-	    Expected_at_least_0_arguments_but_got_1 = 2555,
-	    Expected_0_type_arguments_but_got_1 = 2558,
-	    A_member_initializer_in_a_enum_declaration_cannot_reference_members_declared_after_it_including_members_defined_in_other_enums = 2651,
-	    Constructor_of_class_0_is_private_and_only_accessible_within_the_class_declaration = 2673,
-	    Constructor_of_class_0_is_protected_and_only_accessible_within_the_class_declaration = 2674,
-	    Namespace_0_has_no_exported_member_1 = 2694,
-	    Required_type_parameters_may_not_follow_optional_type_parameters = 2706,
-	    Duplicate_property_0 = 2718,
-	    File_0_not_found = 6054,
-	    Numeric_separators_are_not_allowed_here = 6188,
-	    Multiple_consecutive_numeric_separators_are_not_permitted = 6189,
-	    _super_must_be_called_before_accessing_this_in_the_constructor_of_a_derived_class = 17009,
-	    _super_must_be_called_before_accessing_a_property_of_super_in_the_constructor_of_a_derived_class = 17011
-	}
-	/** Translates a diagnostic code to its respective string. */
-	export function diagnosticCodeToString(code: DiagnosticCode): string;
-
-}
 declare module 'assemblyscript/src/util/bitset' {
 	/** @module util */ /***/
 	/** Tests if the bit at the specified index is set within a 64-bit map. */
@@ -569,92 +423,6 @@ declare module 'assemblyscript/src/util/index' {
 	export * from 'assemblyscript/src/util/binary';
 	/** Tests if `x` is a power of two. */
 	export function isPowerOf2(x: i32): bool;
-
-}
-declare module 'assemblyscript/src/diagnostics' {
-	/**
-	 * Shared diagnostic handling inherited by the parser and the compiler.
-	 * @module diagnostics
-	 * @preferred
-	 */ /***/
-	import { Range } from 'assemblyscript/src/ast';
-	import { DiagnosticCode } from 'assemblyscript/src/diagnosticMessages.generated';
-	export { DiagnosticCode, diagnosticCodeToString } from 'assemblyscript/src/diagnosticMessages.generated';
-	/** Indicates the category of a {@link DiagnosticMessage}. */
-	export enum DiagnosticCategory {
-	    /** Informatory message. */
-	    INFO = 0,
-	    /** Warning message. */
-	    WARNING = 1,
-	    /** Error message. */
-	    ERROR = 2
-	}
-	/** Returns the string representation of the specified diagnostic category. */
-	export function diagnosticCategoryToString(category: DiagnosticCategory): string;
-	/** ANSI escape sequence for blue foreground. */
-	export const COLOR_BLUE: string;
-	/** ANSI escape sequence for yellow foreground. */
-	export const COLOR_YELLOW: string;
-	/** ANSI escape sequence for red foreground. */
-	export const COLOR_RED: string;
-	/** ANSI escape sequence to reset the foreground color. */
-	export const COLOR_RESET: string;
-	/** Returns the ANSI escape sequence for the specified category. */
-	export function diagnosticCategoryToColor(category: DiagnosticCategory): string;
-	/** Represents a diagnostic message. */
-	export class DiagnosticMessage {
-	    /** Message code. */
-	    code: i32;
-	    /** Message category. */
-	    category: DiagnosticCategory;
-	    /** Message text. */
-	    message: string;
-	    /** Respective source range, if any. */
-	    range: Range | null;
-	    /** Related range, if any. */
-	    relatedRange: Range | null;
-	    /** Constructs a new diagnostic message. */
-	    private constructor();
-	    /** Creates a new diagnostic message of the specified category. */
-	    static create(code: DiagnosticCode, category: DiagnosticCategory, arg0?: string | null, arg1?: string | null, arg2?: string | null): DiagnosticMessage;
-	    /** Creates a new informatory diagnostic message. */
-	    static createInfo(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
-	    /** Creates a new warning diagnostic message. */
-	    static createWarning(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
-	    /** Creates a new error diagnostic message. */
-	    static createError(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
-	    /** Adds a source range to this message. */
-	    withRange(range: Range): this;
-	    /** Adds a related source range to this message. */
-	    withRelatedRange(range: Range): this;
-	    /** Converts this message to a string. */
-	    toString(): string;
-	}
-	/** Formats a diagnostic message, optionally with terminal colors and source context. */
-	export function formatDiagnosticMessage(message: DiagnosticMessage, useColors?: bool, showContext?: bool): string;
-	/** Formats the diagnostic context for the specified range, optionally with terminal colors. */
-	export function formatDiagnosticContext(range: Range, useColors?: bool): string;
-	/** Base class of all diagnostic emitters. */
-	export abstract class DiagnosticEmitter {
-	    /** Diagnostic messages emitted so far. */
-	    diagnostics: DiagnosticMessage[];
-	    /** Initializes this diagnostic emitter. */
-	    protected constructor(diagnostics?: DiagnosticMessage[] | null);
-	    /** Emits a diagnostic message of the specified category. */
-	    emitDiagnostic(code: DiagnosticCode, category: DiagnosticCategory, range: Range, relatedRange: Range | null, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits an informatory diagnostic message. */
-	    info(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits an informatory diagnostic message with a related range. */
-	    infoRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits a warning diagnostic message. */
-	    warning(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits a warning diagnostic message with a related range. */
-	    warningRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits an error diagnostic message. */
-	    error(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	    /** Emits an error diagnostic message with a related range. */
-	    errorRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
-	}
 
 }
 declare module 'assemblyscript/src/tokenizer' {
@@ -1109,10 +877,12 @@ declare module 'assemblyscript/src/ast' {
 	    UNMANAGED = 6,
 	    SEALED = 7,
 	    INLINE = 8,
-	    EXTERNAL = 9,
-	    BUILTIN = 10,
-	    LAZY = 11,
-	    UNSAFE = 12
+	    ACTION = 9,
+	    DATABASE = 10,
+	    EXTERNAL = 11,
+	    BUILTIN = 12,
+	    LAZY = 13,
+	    UNSAFE = 14
 	}
 	/** Returns the kind of the specified decorator. Defaults to {@link DecoratorKind.CUSTOM}. */
 	export function decoratorNameToKind(name: Expression): DecoratorKind;
@@ -1701,6 +1471,238 @@ declare module 'assemblyscript/src/ast' {
 	export function mangleInternalPath(path: string): string;
 	/** Tests if the specified type node represents an omitted type. */
 	export function isTypeOmitted(type: TypeNode): bool;
+
+}
+declare module 'assemblyscript/src/diagnosticMessages.generated' {
+	/**
+	 * Generated from diagnosticsMessages.json. Do not edit.
+	 * @module diagnostics
+	 */ /***/
+	/** Enum of available diagnostic codes. */
+	export enum DiagnosticCode {
+	    Operation_not_supported = 100,
+	    Operation_is_unsafe = 101,
+	    User_defined_0 = 102,
+	    Conversion_from_type_0_to_1_requires_an_explicit_cast = 200,
+	    Conversion_from_type_0_to_1_will_require_an_explicit_cast_when_switching_between_32_64_bit = 201,
+	    Type_0_cannot_be_changed_to_type_1 = 202,
+	    Type_0_cannot_be_reinterpreted_as_type_1 = 203,
+	    Basic_type_0_cannot_be_nullable = 204,
+	    Cannot_export_a_mutable_global = 205,
+	    Mutable_value_cannot_be_inlined = 206,
+	    Unmanaged_classes_cannot_extend_managed_classes_and_vice_versa = 207,
+	    Unmanaged_classes_cannot_implement_interfaces = 208,
+	    Invalid_regular_expression_flags = 209,
+	    Implementation_0_must_match_the_signature_1 = 210,
+	    Class_0_is_sealed_and_cannot_be_extended = 211,
+	    Decorator_0_is_not_valid_here = 212,
+	    Duplicate_decorator = 213,
+	    An_allocator_must_be_present_to_use_0 = 214,
+	    Optional_parameter_must_have_an_initializer = 215,
+	    Constructor_of_class_0_must_not_require_any_arguments = 216,
+	    Function_0_cannot_be_inlined_into_itself = 217,
+	    Cannot_access_method_0_without_calling_it_as_it_requires_this_to_be_set = 218,
+	    Optional_properties_are_not_supported = 219,
+	    Expression_must_be_a_compile_time_constant = 220,
+	    Module_cannot_have_multiple_start_functions = 221,
+	    _0_must_be_a_value_between_1_and_2_inclusive = 222,
+	    _0_must_be_a_power_of_two = 223,
+	    TODO_Cannot_inline_inferred_calls_and_specific_internals_yet = 224,
+	    Expression_is_never_null = 225,
+	    Unterminated_string_literal = 1002,
+	    Identifier_expected = 1003,
+	    _0_expected = 1005,
+	    A_file_cannot_have_a_reference_to_itself = 1006,
+	    Trailing_comma_not_allowed = 1009,
+	    Unexpected_token = 1012,
+	    A_rest_parameter_must_be_last_in_a_parameter_list = 1014,
+	    Parameter_cannot_have_question_mark_and_initializer = 1015,
+	    A_required_parameter_cannot_follow_an_optional_parameter = 1016,
+	    Statements_are_not_allowed_in_ambient_contexts = 1036,
+	    Initializers_are_not_allowed_in_ambient_contexts = 1039,
+	    _0_modifier_cannot_be_used_here = 1042,
+	    A_rest_parameter_cannot_be_optional = 1047,
+	    A_rest_parameter_cannot_have_an_initializer = 1048,
+	    A_set_accessor_must_have_exactly_one_parameter = 1049,
+	    A_set_accessor_parameter_cannot_have_an_initializer = 1052,
+	    A_get_accessor_cannot_have_parameters = 1054,
+	    Enum_member_must_have_initializer = 1061,
+	    Type_parameters_cannot_appear_on_a_constructor_declaration = 1092,
+	    Type_annotation_cannot_appear_on_a_constructor_declaration = 1093,
+	    An_accessor_cannot_have_type_parameters = 1094,
+	    A_set_accessor_cannot_have_a_return_type_annotation = 1095,
+	    Type_parameter_list_cannot_be_empty = 1098,
+	    A_continue_statement_can_only_be_used_within_an_enclosing_iteration_statement = 1104,
+	    A_break_statement_can_only_be_used_within_an_enclosing_iteration_or_switch_statement = 1105,
+	    A_return_statement_can_only_be_used_within_a_function_body = 1108,
+	    Expression_expected = 1109,
+	    Type_expected = 1110,
+	    A_default_clause_cannot_appear_more_than_once_in_a_switch_statement = 1113,
+	    Duplicate_label_0 = 1114,
+	    An_export_assignment_cannot_have_modifiers = 1120,
+	    Octal_literals_are_not_allowed_in_strict_mode = 1121,
+	    Digit_expected = 1124,
+	    Hexadecimal_digit_expected = 1125,
+	    Unexpected_end_of_text = 1126,
+	    Invalid_character = 1127,
+	    _case_or_default_expected = 1130,
+	    _super_must_be_followed_by_an_argument_list_or_member_access = 1034,
+	    A_declare_modifier_cannot_be_used_in_an_already_ambient_context = 1038,
+	    Type_argument_expected = 1140,
+	    String_literal_expected = 1141,
+	    Line_break_not_permitted_here = 1142,
+	    Declaration_expected = 1146,
+	    _const_declarations_must_be_initialized = 1155,
+	    Unterminated_regular_expression_literal = 1161,
+	    Interface_declaration_cannot_have_implements_clause = 1176,
+	    Binary_digit_expected = 1177,
+	    Octal_digit_expected = 1178,
+	    An_implementation_cannot_be_declared_in_ambient_contexts = 1183,
+	    An_extended_Unicode_escape_value_must_be_between_0x0_and_0x10FFFF_inclusive = 1198,
+	    Unterminated_Unicode_escape_sequence = 1199,
+	    Decorators_are_not_valid_here = 1206,
+	    _abstract_modifier_can_only_appear_on_a_class_method_or_property_declaration = 1242,
+	    Method_0_cannot_have_an_implementation_because_it_is_marked_abstract = 1245,
+	    A_definite_assignment_assertion_is_not_permitted_in_this_context = 1255,
+	    A_class_may_only_extend_another_class = 1311,
+	    A_parameter_property_cannot_be_declared_using_a_rest_parameter = 1317,
+	    Duplicate_identifier_0 = 2300,
+	    Cannot_find_name_0 = 2304,
+	    Module_0_has_no_exported_member_1 = 2305,
+	    Generic_type_0_requires_1_type_argument_s = 2314,
+	    Type_0_is_not_generic = 2315,
+	    Type_0_is_not_assignable_to_type_1 = 2322,
+	    Index_signature_is_missing_in_type_0 = 2329,
+	    _this_cannot_be_referenced_in_current_location = 2332,
+	    _super_can_only_be_referenced_in_a_derived_class = 2335,
+	    Super_calls_are_not_permitted_outside_constructors_or_in_nested_functions_inside_constructors = 2337,
+	    Property_0_does_not_exist_on_type_1 = 2339,
+	    Cannot_invoke_an_expression_whose_type_lacks_a_call_signature_Type_0_has_no_compatible_call_signatures = 2349,
+	    Cannot_use_new_with_an_expression_whose_type_lacks_a_construct_signature = 2351,
+	    A_function_whose_declared_type_is_not_void_must_return_a_value = 2355,
+	    The_operand_of_an_increment_or_decrement_operator_must_be_a_variable_or_a_property_access = 2357,
+	    The_left_hand_side_of_an_assignment_expression_must_be_a_variable_or_a_property_access = 2364,
+	    Operator_0_cannot_be_applied_to_types_1_and_2 = 2365,
+	    A_super_call_must_be_the_first_statement_in_the_constructor = 2376,
+	    Constructors_for_derived_classes_must_contain_a_super_call = 2377,
+	    _get_and_set_accessor_must_have_the_same_type = 2380,
+	    Constructor_implementation_is_missing = 2390,
+	    Function_implementation_is_missing_or_not_immediately_following_the_declaration = 2391,
+	    Multiple_constructor_implementations_are_not_allowed = 2392,
+	    Duplicate_function_implementation = 2393,
+	    Individual_declarations_in_merged_declaration_0_must_be_all_exported_or_all_local = 2395,
+	    A_namespace_declaration_cannot_be_located_prior_to_a_class_or_function_with_which_it_is_merged = 2434,
+	    Type_0_has_no_property_1 = 2460,
+	    The_0_operator_cannot_be_applied_to_type_1 = 2469,
+	    In_const_enum_declarations_member_initializer_must_be_constant_expression = 2474,
+	    Export_declaration_conflicts_with_exported_declaration_of_0 = 2484,
+	    Object_is_possibly_null = 2531,
+	    Cannot_assign_to_0_because_it_is_a_constant_or_a_read_only_property = 2540,
+	    The_target_of_an_assignment_must_be_a_variable_or_a_property_access = 2541,
+	    Index_signature_in_type_0_only_permits_reading = 2542,
+	    Expected_0_arguments_but_got_1 = 2554,
+	    Expected_at_least_0_arguments_but_got_1 = 2555,
+	    Expected_0_type_arguments_but_got_1 = 2558,
+	    A_member_initializer_in_a_enum_declaration_cannot_reference_members_declared_after_it_including_members_defined_in_other_enums = 2651,
+	    Constructor_of_class_0_is_private_and_only_accessible_within_the_class_declaration = 2673,
+	    Constructor_of_class_0_is_protected_and_only_accessible_within_the_class_declaration = 2674,
+	    Namespace_0_has_no_exported_member_1 = 2694,
+	    Required_type_parameters_may_not_follow_optional_type_parameters = 2706,
+	    Duplicate_property_0 = 2718,
+	    File_0_not_found = 6054,
+	    Numeric_separators_are_not_allowed_here = 6188,
+	    Multiple_consecutive_numeric_separators_are_not_permitted = 6189,
+	    _super_must_be_called_before_accessing_this_in_the_constructor_of_a_derived_class = 17009,
+	    _super_must_be_called_before_accessing_a_property_of_super_in_the_constructor_of_a_derived_class = 17011
+	}
+	/** Translates a diagnostic code to its respective string. */
+	export function diagnosticCodeToString(code: DiagnosticCode): string;
+
+}
+declare module 'assemblyscript/src/diagnostics' {
+	/**
+	 * Shared diagnostic handling inherited by the parser and the compiler.
+	 * @module diagnostics
+	 * @preferred
+	 */ /***/
+	import { Range } from 'assemblyscript/src/ast';
+	import { DiagnosticCode } from 'assemblyscript/src/diagnosticMessages.generated';
+	export { DiagnosticCode, diagnosticCodeToString } from 'assemblyscript/src/diagnosticMessages.generated';
+	/** Indicates the category of a {@link DiagnosticMessage}. */
+	export enum DiagnosticCategory {
+	    /** Informatory message. */
+	    INFO = 0,
+	    /** Warning message. */
+	    WARNING = 1,
+	    /** Error message. */
+	    ERROR = 2
+	}
+	/** Returns the string representation of the specified diagnostic category. */
+	export function diagnosticCategoryToString(category: DiagnosticCategory): string;
+	/** ANSI escape sequence for blue foreground. */
+	export const COLOR_BLUE: string;
+	/** ANSI escape sequence for yellow foreground. */
+	export const COLOR_YELLOW: string;
+	/** ANSI escape sequence for red foreground. */
+	export const COLOR_RED: string;
+	/** ANSI escape sequence to reset the foreground color. */
+	export const COLOR_RESET: string;
+	/** Returns the ANSI escape sequence for the specified category. */
+	export function diagnosticCategoryToColor(category: DiagnosticCategory): string;
+	/** Represents a diagnostic message. */
+	export class DiagnosticMessage {
+	    /** Message code. */
+	    code: i32;
+	    /** Message category. */
+	    category: DiagnosticCategory;
+	    /** Message text. */
+	    message: string;
+	    /** Respective source range, if any. */
+	    range: Range | null;
+	    /** Related range, if any. */
+	    relatedRange: Range | null;
+	    /** Constructs a new diagnostic message. */
+	    private constructor();
+	    /** Creates a new diagnostic message of the specified category. */
+	    static create(code: DiagnosticCode, category: DiagnosticCategory, arg0?: string | null, arg1?: string | null, arg2?: string | null): DiagnosticMessage;
+	    /** Creates a new informatory diagnostic message. */
+	    static createInfo(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
+	    /** Creates a new warning diagnostic message. */
+	    static createWarning(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
+	    /** Creates a new error diagnostic message. */
+	    static createError(code: DiagnosticCode, arg0?: string | null, arg1?: string | null): DiagnosticMessage;
+	    /** Adds a source range to this message. */
+	    withRange(range: Range): this;
+	    /** Adds a related source range to this message. */
+	    withRelatedRange(range: Range): this;
+	    /** Converts this message to a string. */
+	    toString(): string;
+	}
+	/** Formats a diagnostic message, optionally with terminal colors and source context. */
+	export function formatDiagnosticMessage(message: DiagnosticMessage, useColors?: bool, showContext?: bool): string;
+	/** Formats the diagnostic context for the specified range, optionally with terminal colors. */
+	export function formatDiagnosticContext(range: Range, useColors?: bool): string;
+	/** Base class of all diagnostic emitters. */
+	export abstract class DiagnosticEmitter {
+	    /** Diagnostic messages emitted so far. */
+	    diagnostics: DiagnosticMessage[];
+	    /** Initializes this diagnostic emitter. */
+	    protected constructor(diagnostics?: DiagnosticMessage[] | null);
+	    /** Emits a diagnostic message of the specified category. */
+	    emitDiagnostic(code: DiagnosticCode, category: DiagnosticCategory, range: Range, relatedRange: Range | null, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits an informatory diagnostic message. */
+	    info(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits an informatory diagnostic message with a related range. */
+	    infoRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits a warning diagnostic message. */
+	    warning(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits a warning diagnostic message with a related range. */
+	    warningRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits an error diagnostic message. */
+	    error(code: DiagnosticCode, range: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	    /** Emits an error diagnostic message with a related range. */
+	    errorRelated(code: DiagnosticCode, range: Range, relatedRange: Range, arg0?: string | null, arg1?: string | null, arg2?: string | null): void;
+	}
 
 }
 declare module 'assemblyscript/src/module' {
@@ -2885,6 +2887,782 @@ declare module 'assemblyscript/src/resolver' {
 	}
 
 }
+declare module 'assemblyscript/src/builtins' {
+	/**
+	 * Built-in elements providing WebAssembly core functionality.
+	 * @module builtins
+	 */ /***/
+	import { Compiler } from 'assemblyscript/src/compiler';
+	import { Node, Expression, CallExpression } from 'assemblyscript/src/ast';
+	import { Type } from 'assemblyscript/src/types';
+	import { ExpressionRef } from 'assemblyscript/src/module';
+	import { FunctionPrototype } from 'assemblyscript/src/program';
+	/** Symbols of various compiler built-ins. */
+	export namespace BuiltinSymbols {
+	    const isInteger = "~lib/builtins/isInteger";
+	    const isFloat = "~lib/builtins/isFloat";
+	    const isBoolean = "~lib/builtins/isBoolean";
+	    const isSigned = "~lib/builtins/isSigned";
+	    const isReference = "~lib/builtins/isReference";
+	    const isString = "~lib/builtins/isString";
+	    const isArray = "~lib/builtins/isArray";
+	    const isArrayLike = "~lib/builtins/isArrayLike";
+	    const isFunction = "~lib/builtins/isFunction";
+	    const isNullable = "~lib/builtins/isNullable";
+	    const isDefined = "~lib/builtins/isDefined";
+	    const isConstant = "~lib/builtins/isConstant";
+	    const isManaged = "~lib/builtins/isManaged";
+	    const clz = "~lib/builtins/clz";
+	    const ctz = "~lib/builtins/ctz";
+	    const popcnt = "~lib/builtins/popcnt";
+	    const rotl = "~lib/builtins/rotl";
+	    const rotr = "~lib/builtins/rotr";
+	    const abs = "~lib/builtins/abs";
+	    const max = "~lib/builtins/max";
+	    const min = "~lib/builtins/min";
+	    const ceil = "~lib/builtins/ceil";
+	    const floor = "~lib/builtins/floor";
+	    const copysign = "~lib/builtins/copysign";
+	    const nearest = "~lib/builtins/nearest";
+	    const reinterpret = "~lib/builtins/reinterpret";
+	    const sqrt = "~lib/builtins/sqrt";
+	    const trunc = "~lib/builtins/trunc";
+	    const load = "~lib/builtins/load";
+	    const store = "~lib/builtins/store";
+	    const atomic_load = "~lib/builtins/atomic.load";
+	    const atomic_store = "~lib/builtins/atomic.store";
+	    const atomic_add = "~lib/builtins/atomic.add";
+	    const atomic_sub = "~lib/builtins/atomic.sub";
+	    const atomic_and = "~lib/builtins/atomic.and";
+	    const atomic_or = "~lib/builtins/atomic.or";
+	    const atomic_xor = "~lib/builtins/atomic.xor";
+	    const atomic_xchg = "~lib/builtins/atomic.xchg";
+	    const atomic_cmpxchg = "~lib/builtins/atomic.cmpxchg";
+	    const atomic_wait = "~lib/builtins/atomic.wait";
+	    const atomic_notify = "~lib/builtins/atomic.notify";
+	    const sizeof = "~lib/builtins/sizeof";
+	    const alignof = "~lib/builtins/alignof";
+	    const offsetof = "~lib/builtins/offsetof";
+	    const select = "~lib/builtins/select";
+	    const unreachable = "~lib/builtins/unreachable";
+	    const changetype = "~lib/builtins/changetype";
+	    const assert = "~lib/builtins/assert";
+	    const unchecked = "~lib/builtins/unchecked";
+	    const call_direct = "~lib/builtins/call_direct";
+	    const call_indirect = "~lib/builtins/call_indirect";
+	    const instantiate = "~lib/builtins/instantiate";
+	    const idof = "~lib/builtins/idof";
+	    const i8 = "~lib/builtins/i8";
+	    const i16 = "~lib/builtins/i16";
+	    const i32 = "~lib/builtins/i32";
+	    const i64 = "~lib/builtins/i64";
+	    const isize = "~lib/builtins/isize";
+	    const u8 = "~lib/builtins/u8";
+	    const u16 = "~lib/builtins/u16";
+	    const u32 = "~lib/builtins/u32";
+	    const u64 = "~lib/builtins/u64";
+	    const usize = "~lib/builtins/usize";
+	    const bool = "~lib/builtins/bool";
+	    const f32 = "~lib/builtins/f32";
+	    const f64 = "~lib/builtins/f64";
+	    const v128 = "~lib/builtins/v128";
+	    const void_ = "~lib/builtins/void";
+	    const i32_clz = "~lib/builtins/i32.clz";
+	    const i64_clz = "~lib/builtins/i64.clz";
+	    const i32_ctz = "~lib/builtins/i32.ctz";
+	    const i64_ctz = "~lib/builtins/i64.ctz";
+	    const i32_popcnt = "~lib/builtins/i32.popcnt";
+	    const i64_popcnt = "~lib/builtins/i64.popcnt";
+	    const i32_rotl = "~lib/builtins/i32.rotl";
+	    const i64_rotl = "~lib/builtins/i64.rotl";
+	    const i32_rotr = "~lib/builtins/i32.rotr";
+	    const i64_rotr = "~lib/builtins/i64.rotr";
+	    const f32_abs = "~lib/builtins/f32.abs";
+	    const f64_abs = "~lib/builtins/f64.abs";
+	    const f32_max = "~lib/builtins/f32.max";
+	    const f64_max = "~lib/builtins/f64.max";
+	    const f32_min = "~lib/builtins/f32.min";
+	    const f64_min = "~lib/builtins/f64.min";
+	    const f32_ceil = "~lib/builtins/f32.ceil";
+	    const f64_ceil = "~lib/builtins/f64.ceil";
+	    const f32_floor = "~lib/builtins/f32.floor";
+	    const f64_floor = "~lib/builtins/f64.floor";
+	    const f32_copysign = "~lib/builtins/f32.copysign";
+	    const f64_copysign = "~lib/builtins/f64.copysign";
+	    const f32_nearest = "~lib/builtins/f32.nearest";
+	    const f64_nearest = "~lib/builtins/f64.nearest";
+	    const i32_reinterpret_f32 = "~lib/builtins/i32.reinterpret_f32";
+	    const i64_reinterpret_f64 = "~lib/builtins/i64.reinterpret_f64";
+	    const f32_reinterpret_i32 = "~lib/builtins/f32.reinterpret_i32";
+	    const f64_reinterpret_i64 = "~lib/builtins/f64.reinterpret_i64";
+	    const f32_sqrt = "~lib/builtins/f32.sqrt";
+	    const f64_sqrt = "~lib/builtins/f64.sqrt";
+	    const f32_trunc = "~lib/builtins/f32.trunc";
+	    const f64_trunc = "~lib/builtins/f64.trunc";
+	    const i32_load8_s = "~lib/builtins/i32.load8_s";
+	    const i32_load8_u = "~lib/builtins/i32.load8_u";
+	    const i32_load16_s = "~lib/builtins/i32.load16_s";
+	    const i32_load16_u = "~lib/builtins/i32.load16_u";
+	    const i32_load = "~lib/builtins/i32.load";
+	    const i64_load8_s = "~lib/builtins/i64.load8_s";
+	    const i64_load8_u = "~lib/builtins/i64.load8_u";
+	    const i64_load16_s = "~lib/builtins/i64.load16_s";
+	    const i64_load16_u = "~lib/builtins/i64.load16_u";
+	    const i64_load32_s = "~lib/builtins/i64.load32_s";
+	    const i64_load32_u = "~lib/builtins/i64.load32_u";
+	    const i64_load = "~lib/builtins/i64.load";
+	    const f32_load = "~lib/builtins/f32.load";
+	    const f64_load = "~lib/builtins/f64.load";
+	    const i32_store8 = "~lib/builtins/i32.store8";
+	    const i32_store16 = "~lib/builtins/i32.store16";
+	    const i32_store = "~lib/builtins/i32.store";
+	    const i64_store8 = "~lib/builtins/i64.store8";
+	    const i64_store16 = "~lib/builtins/i64.store16";
+	    const i64_store32 = "~lib/builtins/i64.store32";
+	    const i64_store = "~lib/builtins/i64.store";
+	    const f32_store = "~lib/builtins/f32.store";
+	    const f64_store = "~lib/builtins/f64.store";
+	    const i32_atomic_load8_u = "~lib/builtins/i32.atomic.load8_u";
+	    const i32_atomic_load16_u = "~lib/builtins/i32.atomic.load16_u";
+	    const i32_atomic_load = "~lib/builtins/i32.atomic.load";
+	    const i64_atomic_load8_u = "~lib/builtins/i64.atomic.load8_u";
+	    const i64_atomic_load16_u = "~lib/builtins/i64.atomic.load16_u";
+	    const i64_atomic_load32_u = "~lib/builtins/i64.atomic.load32_u";
+	    const i64_atomic_load = "~lib/builtins/i64.atomic.load";
+	    const i32_atomic_store8 = "~lib/builtins/i32.atomic.store8";
+	    const i32_atomic_store16 = "~lib/builtins/i32.atomic.store16";
+	    const i32_atomic_store = "~lib/builtins/i32.atomic.store";
+	    const i64_atomic_store8 = "~lib/builtins/i64.atomic.store8";
+	    const i64_atomic_store16 = "~lib/builtins/i64.atomic.store16";
+	    const i64_atomic_store32 = "~lib/builtins/i64.atomic.store32";
+	    const i64_atomic_store = "~lib/builtins/i64.atomic.store";
+	    const i32_atomic_rmw8_add_u = "~lib/builtins/i32.atomic.rmw8.add_u";
+	    const i32_atomic_rmw16_add_u = "~lib/builtins/i32.atomic.rmw16.add_u";
+	    const i32_atomic_rmw_add = "~lib/builtins/i32.atomic.rmw.add";
+	    const i64_atomic_rmw8_add_u = "~lib/builtins/i64.atomic.rmw8.add_u";
+	    const i64_atomic_rmw16_add_u = "~lib/builtins/i64.atomic.rmw16.add_u";
+	    const i64_atomic_rmw32_add_u = "~lib/builtins/i64.atomic.rmw32.add_u";
+	    const i64_atomic_rmw_add = "~lib/builtins/i64.atomic.rmw.add";
+	    const i32_atomic_rmw8_sub_u = "~lib/builtins/i32.atomic.rmw8.sub_u";
+	    const i32_atomic_rmw16_sub_u = "~lib/builtins/i32.atomic.rmw16.sub_u";
+	    const i32_atomic_rmw_sub = "~lib/builtins/i32.atomic.rmw.sub";
+	    const i64_atomic_rmw8_sub_u = "~lib/builtins/i64.atomic.rmw8.sub_u";
+	    const i64_atomic_rmw16_sub_u = "~lib/builtins/i64.atomic.rmw16.sub_u";
+	    const i64_atomic_rmw32_sub_u = "~lib/builtins/i64.atomic.rmw32.sub_u";
+	    const i64_atomic_rmw_sub = "~lib/builtins/i64.atomic.rmw.sub";
+	    const i32_atomic_rmw8_and_u = "~lib/builtins/i32.atomic.rmw8.and_u";
+	    const i32_atomic_rmw16_and_u = "~lib/builtins/i32.atomic.rmw16.and_u";
+	    const i32_atomic_rmw_and = "~lib/builtins/i32.atomic.rmw.and";
+	    const i64_atomic_rmw8_and_u = "~lib/builtins/i64.atomic.rmw8.and_u";
+	    const i64_atomic_rmw16_and_u = "~lib/builtins/i64.atomic.rmw16.and_u";
+	    const i64_atomic_rmw32_and_u = "~lib/builtins/i64.atomic.rmw32.and_u";
+	    const i64_atomic_rmw_and = "~lib/builtins/i64.atomic.rmw.and";
+	    const i32_atomic_rmw8_or_u = "~lib/builtins/i32.atomic.rmw8.or_u";
+	    const i32_atomic_rmw16_or_u = "~lib/builtins/i32.atomic.rmw16.or_u";
+	    const i32_atomic_rmw_or = "~lib/builtins/i32.atomic.rmw.or";
+	    const i64_atomic_rmw8_or_u = "~lib/builtins/i64.atomic.rmw8.or_u";
+	    const i64_atomic_rmw16_or_u = "~lib/builtins/i64.atomic.rmw16.or_u";
+	    const i64_atomic_rmw32_or_u = "~lib/builtins/i64.atomic.rmw32.or_u";
+	    const i64_atomic_rmw_or = "~lib/builtins/i64.atomic.rmw.or";
+	    const i32_atomic_rmw8_u_xor = "~lib/builtins/i32.atomic.rmw8.xor_u";
+	    const i32_atomic_rmw16_u_xor = "~lib/builtins/i32.atomic.rmw16.xor_u";
+	    const i32_atomic_rmw_xor = "~lib/builtins/i32.atomic.rmw.xor";
+	    const i64_atomic_rmw8_xor_u = "~lib/builtins/i64.atomic.rmw8.xor_u";
+	    const i64_atomic_rmw16_xor_u = "~lib/builtins/i64.atomic.rmw16.xor_u";
+	    const i64_atomic_rmw32_xor_u = "~lib/builtins/i64.atomic.rmw32.xor_u";
+	    const i64_atomic_rmw_xor = "~lib/builtins/i64.atomic.rmw.xor";
+	    const i32_atomic_rmw8_xchg_u = "~lib/builtins/i32.atomic.rmw8.xchg_u";
+	    const i32_atomic_rmw16_xchg_u = "~lib/builtins/i32.atomic.rmw16.xchg_u";
+	    const i32_atomic_rmw_xchg = "~lib/builtins/i32.atomic.rmw.xchg";
+	    const i64_atomic_rmw8_xchg_u = "~lib/builtins/i64.atomic.rmw8.xchg_u";
+	    const i64_atomic_rmw16_xchg_u = "~lib/builtins/i64.atomic.rmw16.xchg_u";
+	    const i64_atomic_rmw32_xchg_u = "~lib/builtins/i64.atomic.rmw32.xchg_u";
+	    const i64_atomic_rmw_xchg = "~lib/builtins/i64.atomic.rmw.xchg";
+	    const i32_atomic_rmw8_cmpxchg_u = "~lib/builtins/i32.atomic.rmw8.cmpxchg_u";
+	    const i32_atomic_rmw16_cmpxchg_u = "~lib/builtins/i32.atomic.rmw16.cmpxchg_u";
+	    const i32_atomic_rmw_cmpxchg = "~lib/builtins/i32.atomic.rmw.cmpxchg";
+	    const i64_atomic_rmw8_cmpxchg_u = "~lib/builtins/i64.atomic.rmw8.cmpxchg_u";
+	    const i64_atomic_rmw16_cmpxchg_u = "~lib/builtins/i64.atomic.rmw16.cmpxchg_u";
+	    const i64_atomic_rmw32_cmpxchg_u = "~lib/builtins/i64.atomic.rmw32.cmpxchg_u";
+	    const i64_atomic_rmw_cmpxchg = "~lib/builtins/i64.atomic.rmw.cmpxchg";
+	    const i32_wait = "~lib/builtins/i32.wait";
+	    const i64_wait = "~lib/builtins/i64.wait";
+	    const v128_splat = "~lib/builtins/v128.splat";
+	    const v128_extract_lane = "~lib/builtins/v128.extract_lane";
+	    const v128_replace_lane = "~lib/builtins/v128.replace_lane";
+	    const v128_shuffle = "~lib/builtins/v128.shuffle";
+	    const v128_load = "~lib/builtins/v128.load";
+	    const v128_store = "~lib/builtins/v128.store";
+	    const v128_add = "~lib/builtins/v128.add";
+	    const v128_sub = "~lib/builtins/v128.sub";
+	    const v128_mul = "~lib/builtins/v128.mul";
+	    const v128_div = "~lib/builtins/v128.div";
+	    const v128_neg = "~lib/builtins/v128.neg";
+	    const v128_add_saturate = "~lib/builtins/v128.add_saturate";
+	    const v128_sub_saturate = "~lib/builtins/v128.sub_saturate";
+	    const v128_shl = "~lib/builtins/v128.shl";
+	    const v128_shr = "~lib/builtins/v128.shr";
+	    const v128_and = "~lib/builtins/v128.and";
+	    const v128_or = "~lib/builtins/v128.or";
+	    const v128_xor = "~lib/builtins/v128.xor";
+	    const v128_not = "~lib/builtins/v128.not";
+	    const v128_bitselect = "~lib/builtins/v128.bitselect";
+	    const v128_any_true = "~lib/builtins/v128.any_true";
+	    const v128_all_true = "~lib/builtins/v128.all_true";
+	    const v128_min = "~lib/builtins/v128.min";
+	    const v128_max = "~lib/builtins/v128.max";
+	    const v128_abs = "~lib/builtins/v128.abs";
+	    const v128_sqrt = "~lib/builtins/v128.sqrt";
+	    const v128_eq = "~lib/builtins/v128.eq";
+	    const v128_ne = "~lib/builtins/v128.ne";
+	    const v128_lt = "~lib/builtins/v128.lt";
+	    const v128_le = "~lib/builtins/v128.le";
+	    const v128_gt = "~lib/builtins/v128.gt";
+	    const v128_ge = "~lib/builtins/v128.ge";
+	    const v128_convert = "~lib/builtins/v128.convert";
+	    const v128_trunc = "~lib/builtins/v128.trunc";
+	    const i8x16 = "~lib/builtins/i8x16";
+	    const i16x8 = "~lib/builtins/i16x8";
+	    const i32x4 = "~lib/builtins/i32x4";
+	    const i64x2 = "~lib/builtins/i64x2";
+	    const f32x4 = "~lib/builtins/f32x4";
+	    const f64x2 = "~lib/builtins/f64x2";
+	    const i8x16_splat = "~lib/builtins/i8x16.splat";
+	    const i8x16_extract_lane_s = "~lib/builtins/i8x16.extract_lane_s";
+	    const i8x16_extract_lane_u = "~lib/builtins/i8x16.extract_lane_u";
+	    const i8x16_replace_lane = "~lib/builtins/i8x16.replace_lane";
+	    const i8x16_add = "~lib/builtins/i8x16.add";
+	    const i8x16_sub = "~lib/builtins/i8x16.sub";
+	    const i8x16_mul = "~lib/builtins/i8x16.mul";
+	    const i8x16_neg = "~lib/builtins/i8x16.neg";
+	    const i8x16_add_saturate_s = "~lib/builtins/i8x16.add_saturate_s";
+	    const i8x16_add_saturate_u = "~lib/builtins/i8x16.add_saturate_u";
+	    const i8x16_sub_saturate_s = "~lib/builtins/i8x16.sub_saturate_s";
+	    const i8x16_sub_saturate_u = "~lib/builtins/i8x16.sub_saturate_u";
+	    const i8x16_shl = "~lib/builtins/i8x16.shl";
+	    const i8x16_shr_s = "~lib/builtins/i8x16.shr_s";
+	    const i8x16_shr_u = "~lib/builtins/i8x16.shr_u";
+	    const i8x16_any_true = "~lib/builtins/i8x16.any_true";
+	    const i8x16_all_true = "~lib/builtins/i8x16.all_true";
+	    const i8x16_eq = "~lib/builtins/i8x16.eq";
+	    const i8x16_ne = "~lib/builtins/i8x16.ne";
+	    const i8x16_lt_s = "~lib/builtins/i8x16.lt_s";
+	    const i8x16_lt_u = "~lib/builtins/i8x16.lt_u";
+	    const i8x16_le_s = "~lib/builtins/i8x16.le_s";
+	    const i8x16_le_u = "~lib/builtins/i8x16.le_u";
+	    const i8x16_gt_s = "~lib/builtins/i8x16.gt_s";
+	    const i8x16_gt_u = "~lib/builtins/i8x16.gt_u";
+	    const i8x16_ge_s = "~lib/builtins/i8x16.ge_s";
+	    const i8x16_ge_u = "~lib/builtins/i8x16.ge_u";
+	    const i16x8_splat = "~lib/builtins/i16x8.splat";
+	    const i16x8_extract_lane_s = "~lib/builtins/i16x8.extract_lane_s";
+	    const i16x8_extract_lane_u = "~lib/builtins/i16x8.extract_lane_u";
+	    const i16x8_replace_lane = "~lib/builtins/i16x8.replace_lane";
+	    const i16x8_add = "~lib/builtins/i16x8.add";
+	    const i16x8_sub = "~lib/builtins/i16x8.sub";
+	    const i16x8_mul = "~lib/builtins/i16x8.mul";
+	    const i16x8_neg = "~lib/builtins/i16x8.neg";
+	    const i16x8_add_saturate_s = "~lib/builtins/i16x8.add_saturate_s";
+	    const i16x8_add_saturate_u = "~lib/builtins/i16x8.add_saturate_u";
+	    const i16x8_sub_saturate_s = "~lib/builtins/i16x8.sub_saturate_s";
+	    const i16x8_sub_saturate_u = "~lib/builtins/i16x8.sub_saturate_u";
+	    const i16x8_shl = "~lib/builtins/i16x8.shl";
+	    const i16x8_shr_s = "~lib/builtins/i16x8.shr_s";
+	    const i16x8_shr_u = "~lib/builtins/i16x8.shr_u";
+	    const i16x8_any_true = "~lib/builtins/i16x8.any_true";
+	    const i16x8_all_true = "~lib/builtins/i16x8.all_true";
+	    const i16x8_eq = "~lib/builtins/i16x8.eq";
+	    const i16x8_ne = "~lib/builtins/i16x8.ne";
+	    const i16x8_lt_s = "~lib/builtins/i16x8.lt_s";
+	    const i16x8_lt_u = "~lib/builtins/i16x8.lt_u";
+	    const i16x8_le_s = "~lib/builtins/i16x8.le_s";
+	    const i16x8_le_u = "~lib/builtins/i16x8.le_u";
+	    const i16x8_gt_s = "~lib/builtins/i16x8.gt_s";
+	    const i16x8_gt_u = "~lib/builtins/i16x8.gt_u";
+	    const i16x8_ge_s = "~lib/builtins/i16x8.ge_s";
+	    const i16x8_ge_u = "~lib/builtins/i16x8.ge_u";
+	    const i32x4_splat = "~lib/builtins/i32x4.splat";
+	    const i32x4_extract_lane = "~lib/builtins/i32x4.extract_lane";
+	    const i32x4_replace_lane = "~lib/builtins/i32x4.replace_lane";
+	    const i32x4_add = "~lib/builtins/i32x4.add";
+	    const i32x4_sub = "~lib/builtins/i32x4.sub";
+	    const i32x4_mul = "~lib/builtins/i32x4.mul";
+	    const i32x4_neg = "~lib/builtins/i32x4.neg";
+	    const i32x4_shl = "~lib/builtins/i32x4.shl";
+	    const i32x4_shr_s = "~lib/builtins/i32x4.shr_s";
+	    const i32x4_shr_u = "~lib/builtins/i32x4.shr_u";
+	    const i32x4_any_true = "~lib/builtins/i32x4.any_true";
+	    const i32x4_all_true = "~lib/builtins/i32x4.all_true";
+	    const i32x4_eq = "~lib/builtins/i32x4.eq";
+	    const i32x4_ne = "~lib/builtins/i32x4.ne";
+	    const i32x4_lt_s = "~lib/builtins/i32x4.lt_s";
+	    const i32x4_lt_u = "~lib/builtins/i32x4.lt_u";
+	    const i32x4_le_s = "~lib/builtins/i32x4.le_s";
+	    const i32x4_le_u = "~lib/builtins/i32x4.le_u";
+	    const i32x4_gt_s = "~lib/builtins/i32x4.gt_s";
+	    const i32x4_gt_u = "~lib/builtins/i32x4.gt_u";
+	    const i32x4_ge_s = "~lib/builtins/i32x4.ge_s";
+	    const i32x4_ge_u = "~lib/builtins/i32x4.ge_u";
+	    const i32x4_trunc_s_f32x4_sat = "~lib/builtins/i32x4.trunc_s_f32x4_sat";
+	    const i32x4_trunc_u_f32x4_sat = "~lib/builtins/i32x4.trunc_u_f32x4_sat";
+	    const i64x2_splat = "~lib/builtins/i64x2.splat";
+	    const i64x2_extract_lane = "~lib/builtins/i64x2.extract_lane";
+	    const i64x2_replace_lane = "~lib/builtins/i64x2.replace_lane";
+	    const i64x2_add = "~lib/builtins/i64x2.add";
+	    const i64x2_sub = "~lib/builtins/i64x2.sub";
+	    const i64x2_neg = "~lib/builtins/i64x2.neg";
+	    const i64x2_shl = "~lib/builtins/i64x2.shl";
+	    const i64x2_shr_s = "~lib/builtins/i64x2.shr_s";
+	    const i64x2_shr_u = "~lib/builtins/i64x2.shr_u";
+	    const i64x2_any_true = "~lib/builtins/i64x2.any_true";
+	    const i64x2_all_true = "~lib/builtins/i64x2.all_true";
+	    const i64x2_trunc_s_f64x2_sat = "~lib/builtins/i64x2.trunc_s_f64x2_sat";
+	    const i64x2_trunc_u_f64x2_sat = "~lib/builtins/i64x2.trunc_u_f64x2_sat";
+	    const f32x4_splat = "~lib/builtins/f32x4.splat";
+	    const f32x4_extract_lane = "~lib/builtins/f32x4.extract_lane";
+	    const f32x4_replace_lane = "~lib/builtins/f32x4.replace_lane";
+	    const f32x4_add = "~lib/builtins/f32x4.add";
+	    const f32x4_sub = "~lib/builtins/f32x4.sub";
+	    const f32x4_mul = "~lib/builtins/f32x4.mul";
+	    const f32x4_div = "~lib/builtins/f32x4.div";
+	    const f32x4_neg = "~lib/builtins/f32x4.neg";
+	    const f32x4_min = "~lib/builtins/f32x4.min";
+	    const f32x4_max = "~lib/builtins/f32x4.max";
+	    const f32x4_abs = "~lib/builtins/f32x4.abs";
+	    const f32x4_sqrt = "~lib/builtins/f32x4.sqrt";
+	    const f32x4_eq = "~lib/builtins/f32x4.eq";
+	    const f32x4_ne = "~lib/builtins/f32x4.ne";
+	    const f32x4_lt = "~lib/builtins/f32x4.lt";
+	    const f32x4_le = "~lib/builtins/f32x4.le";
+	    const f32x4_gt = "~lib/builtins/f32x4.gt";
+	    const f32x4_ge = "~lib/builtins/f32x4.ge";
+	    const f32x4_convert_s_i32x4 = "~lib/builtins/f32x4.convert_s_i32x4";
+	    const f32x4_convert_u_i32x4 = "~lib/builtins/f32x4.convert_u_i32x4";
+	    const f64x2_splat = "~lib/builtins/f64x2.splat";
+	    const f64x2_extract_lane = "~lib/builtins/f64x2.extract_lane";
+	    const f64x2_replace_lane = "~lib/builtins/f64x2.replace_lane";
+	    const f64x2_add = "~lib/builtins/f64x2.add";
+	    const f64x2_sub = "~lib/builtins/f64x2.sub";
+	    const f64x2_mul = "~lib/builtins/f64x2.mul";
+	    const f64x2_div = "~lib/builtins/f64x2.div";
+	    const f64x2_neg = "~lib/builtins/f64x2.neg";
+	    const f64x2_min = "~lib/builtins/f64x2.min";
+	    const f64x2_max = "~lib/builtins/f64x2.max";
+	    const f64x2_abs = "~lib/builtins/f64x2.abs";
+	    const f64x2_sqrt = "~lib/builtins/f64x2.sqrt";
+	    const f64x2_eq = "~lib/builtins/f64x2.eq";
+	    const f64x2_ne = "~lib/builtins/f64x2.ne";
+	    const f64x2_lt = "~lib/builtins/f64x2.lt";
+	    const f64x2_le = "~lib/builtins/f64x2.le";
+	    const f64x2_gt = "~lib/builtins/f64x2.gt";
+	    const f64x2_ge = "~lib/builtins/f64x2.ge";
+	    const f64x2_convert_s_i64x2 = "~lib/builtins/f64x2.convert_s_i64x2";
+	    const f64x2_convert_u_i64x2 = "~lib/builtins/f64x2.convert_u_i64x2";
+	    const v8x16_shuffle = "~lib/builtins/v8x16.shuffle";
+	    const heap_base = "~lib/heap/__heap_base";
+	    const rtti_base = "~lib/rt/__rtti_base";
+	    const visit_globals = "~lib/rt/__visit_globals";
+	    const visit_members = "~lib/rt/__visit_members";
+	    const ERROR = "~lib/diagnostics/ERROR";
+	    const WARNING = "~lib/diagnostics/WARNING";
+	    const INFO = "~lib/diagnostics/INFO";
+	    const memory_size = "~lib/memory/memory.size";
+	    const memory_grow = "~lib/memory/memory.grow";
+	    const memory_copy = "~lib/memory/memory.copy";
+	    const memory_fill = "~lib/memory/memory.fill";
+	    const memory_allocate = "~lib/memory/memory.allocate";
+	    const memory_free = "~lib/memory/memory.free";
+	    const memory_reset = "~lib/memory/memory.reset";
+	    const runtime_instanceof = "~lib/runtime/runtime.instanceof";
+	    const runtime_flags = "~lib/runtime/runtime.flags";
+	    const runtime_allocate = "~lib/util/runtime/allocate";
+	    const runtime_reallocate = "~lib/util/runtime/reallocate";
+	    const runtime_register = "~lib/util/runtime/register";
+	    const runtime_discard = "~lib/util/runtime/discard";
+	    const runtime_makeArray = "~lib/util/runtime/makeArray";
+	    const Int8Array = "~lib/typedarray/Int8Array";
+	    const Uint8Array = "~lib/typedarray/Uint8Array";
+	    const Int16Array = "~lib/typedarray/Int16Array";
+	    const Uint16Array = "~lib/typedarray/Uint16Array";
+	    const Int32Array = "~lib/typedarray/Int32Array";
+	    const Uint32Array = "~lib/typedarray/Uint32Array";
+	    const Int64Array = "~lib/typedarray/Int64Array";
+	    const Uint64Array = "~lib/typedarray/Uint64Array";
+	    const Uint8ClampedArray = "~lib/typedarray/Uint8ClampedArray";
+	    const Float32Array = "~lib/typedarray/Float32Array";
+	    const Float64Array = "~lib/typedarray/Float64Array";
+	    const started = "~lib/started";
+	    const argc = "~lib/argc";
+	    const setargc = "~lib/setargc";
+	    const capabilities = "~lib/capabilities";
+	}
+	/** Compiles a call to a built-in function. */
+	export function compileCall(compiler: Compiler, 
+	/** Respective function prototype. */
+	prototype: FunctionPrototype, 
+	/** Pre-resolved type arguments. */
+	typeArguments: Type[] | null, 
+	/** Operand expressions. */
+	operands: Expression[], 
+	/** Contextual type. */
+	contextualType: Type, 
+	/** Respective call expression. */
+	reportNode: CallExpression, 
+	/** Indicates that contextual type is ASM type. */
+	isAsm?: bool): ExpressionRef;
+	/** Compiles an abort wired to the conditionally imported 'abort' function. */
+	export function compileAbort(compiler: Compiler, message: Expression | null, reportNode: Node): ExpressionRef;
+	/** Compiles the `visit_globals` function. */
+	export function compileVisitGlobals(compiler: Compiler): void;
+	/** Compiles the `visit_members` function. */
+	export function compileVisitMembers(compiler: Compiler): void;
+	/** Compiles runtime type information for use by stdlib. */
+	export function compileRTTI(compiler: Compiler): void;
+
+}
+declare module 'assemblyscript/src/compiler' {
+	/**
+	 * The AssemblyScript compiler.
+	 * @module compiler
+	 */ /***/
+	import { DiagnosticEmitter } from 'assemblyscript/src/diagnostics';
+	import { Module, MemorySegment, ExpressionRef, NativeType, FunctionRef, FunctionTypeRef, GlobalRef } from 'assemblyscript/src/module';
+	import { Feature, Target } from 'assemblyscript/src/common';
+	import { Program, ClassPrototype, Class, Element, Enum, Field, FunctionPrototype, Function, Global, VariableLikeElement, File } from 'assemblyscript/src/program';
+	import { Flow } from 'assemblyscript/src/flow';
+	import { Resolver } from 'assemblyscript/src/resolver';
+	import { Node, NamedTypeNode, Range, Statement, BlockStatement, BreakStatement, ContinueStatement, DoStatement, EmptyStatement, ExpressionStatement, ForStatement, IfStatement, InstanceOfExpression, InterfaceDeclaration, ReturnStatement, SwitchStatement, ThrowStatement, TryStatement, VariableStatement, VoidStatement, WhileStatement, Expression, AssertionExpression, BinaryExpression, CallExpression, CommaExpression, ElementAccessExpression, FunctionExpression, IdentifierExpression, LiteralExpression, NewExpression, ObjectLiteralExpression, PropertyAccessExpression, TernaryExpression, StringLiteralExpression, UnaryPostfixExpression, UnaryPrefixExpression } from 'assemblyscript/src/ast';
+	import { Type, Signature } from 'assemblyscript/src/types';
+	/** Compiler options. */
+	export class Options {
+	    /** WebAssembly target. Defaults to {@link Target.WASM32}. */
+	    target: Target;
+	    /** If true, replaces assertions with nops. */
+	    noAssert: bool;
+	    /** If true, imports the memory provided by the embedder. */
+	    importMemory: bool;
+	    /** If greater than zero, declare memory as shared by setting max memory to sharedMemory. */
+	    sharedMemory: i32;
+	    /** If true, imports the function table provided by the embedder. */
+	    importTable: bool;
+	    /** If true, generates information necessary for source maps. */
+	    sourceMap: bool;
+	    /** If true, generates an explicit start function. */
+	    explicitStart: bool;
+	    /** Static memory start offset. */
+	    memoryBase: i32;
+	    /** Global aliases, mapping alias names as the key to internal names to be aliased as the value. */
+	    globalAliases: Map<string, string> | null;
+	    /** Additional features to activate. */
+	    features: Feature;
+	    /** Hinted optimize level. Not applied by the compiler itself. */
+	    optimizeLevelHint: i32;
+	    /** Hinted shrink level. Not applied by the compiler itself. */
+	    shrinkLevelHint: i32;
+	    /** Tests if the target is WASM64 or, otherwise, WASM32. */
+	    readonly isWasm64: bool;
+	    /** Gets the unsigned size type matching the target. */
+	    readonly usizeType: Type;
+	    /** Gets the signed size type matching the target. */
+	    readonly isizeType: Type;
+	    /** Gets the native size type matching the target. */
+	    readonly nativeSizeType: NativeType;
+	    /** Tests if a specific feature is activated. */
+	    hasFeature(feature: Feature): bool;
+	}
+	/** Various constraints in expression compilation. */
+	export const enum Constraints {
+	    NONE = 0,
+	    /** Must implicitly convert to the target type. */
+	    CONV_IMPLICIT = 1,
+	    /** Must explicitly convert to the target type. */
+	    CONV_EXPLICIT = 2,
+	    /** Must wrap small integer values to match the target type. */
+	    MUST_WRAP = 4,
+	    /** Indicates that the value will be dropped immediately. */
+	    WILL_DROP = 8,
+	    /** Indicates that the value will be retained immediately. */
+	    WILL_RETAIN = 16,
+	    /** Indicates that static data is preferred. */
+	    PREFER_STATIC = 32
+	}
+	/** Runtime features to be activated by the compiler. */
+	export const enum RuntimeFeatures {
+	    NONE = 0,
+	    /** Requires heap setup. */
+	    HEAP = 1,
+	    /** Requires runtime type information setup. */
+	    RTTI = 2,
+	    /** Requires the built-in globals visitor. */
+	    visitGlobals = 4,
+	    /** Requires the built-in members visitor. */
+	    visitMembers = 8
+	}
+	/** Compiler interface. */
+	export class Compiler extends DiagnosticEmitter {
+	    /** Program reference. */
+	    program: Program;
+	    /** Resolver reference. */
+	    resolver: Resolver;
+	    /** Provided options. */
+	    options: Options;
+	    /** Module instance being compiled. */
+	    module: Module;
+	    /** Current control flow. */
+	    currentFlow: Flow;
+	    /** Current inline functions stack. */
+	    currentInlineFunctions: Function[];
+	    /** Current enum in compilation. */
+	    currentEnum: Enum | null;
+	    /** Current type in compilation. */
+	    currentType: Type;
+	    /** Start function statements. */
+	    currentBody: ExpressionRef[];
+	    /** Counting memory offset. */
+	    memoryOffset: I64;
+	    /** Memory segments being compiled. */
+	    memorySegments: MemorySegment[];
+	    /** Map of already compiled static string segments. */
+	    stringSegments: Map<string, MemorySegment>;
+	    /** Function table being compiled. */
+	    functionTable: string[];
+	    /** Argument count helper global. */
+	    argcVar: GlobalRef;
+	    /** Argument count helper setter. */
+	    argcSet: FunctionRef;
+	    /** Requires runtime features. */
+	    runtimeFeatures: RuntimeFeatures;
+	    /** Expressions known to have skipped an autorelease. Usually function returns. */
+	    skippedAutoreleases: Set<ExpressionRef>;
+	    /** Compiles a {@link Program} to a {@link Module} using the specified options. */
+	    static compile(program: Program, options?: Options | null): Module;
+	    /** Constructs a new compiler for a {@link Program} using the specified options. */
+	    constructor(program: Program, options?: Options | null);
+	    /** Performs compilation of the underlying {@link Program} to a {@link Module}. */
+	    compile(): Module;
+	    /** Applies the respective module exports for the specified file. */
+	    private ensureModuleExports;
+	    /** Applies the respective module export(s) for the specified element. */
+	    private ensureModuleExport;
+	    /** Makes a function to get the value of a field of an exported class. */
+	    private ensureModuleFieldGetter;
+	    /** Makes a function to set the value of a field of an exported class. */
+	    private ensureModuleFieldSetter;
+	    /** Compiles any element. */
+	    compileElement(element: Element, compileMembers?: bool): void;
+	    /** Compiles an element's members. */
+	    compileMembers(element: Element): void;
+	    /** Compiles a file's exports. */
+	    compileExports(file: File): void;
+	    /** Compiles the file matching the specified path. */
+	    compileFileByPath(normalizedPathWithoutExtension: string, reportNode: Node): void;
+	    /** Compiles the specified file. */
+	    compileFile(file: File): void;
+	    compileGlobal(global: Global): bool;
+	    compileEnum(element: Enum): bool;
+	    /** Resolves the specified type arguments prior to compiling the resulting function instance. */
+	    compileFunctionUsingTypeArguments(prototype: FunctionPrototype, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type>, alternativeReportNode?: Node | null): Function | null;
+	    /** Either reuses or creates the function type matching the specified signature. */
+	    ensureFunctionType(parameterTypes: Type[] | null, returnType: Type, thisType?: Type | null): FunctionTypeRef;
+	    /** Compiles the body of a function within the specified flow. */
+	    compileFunctionBody(
+	    /** Function to compile. */
+	    instance: Function, 
+	    /** Target array of statements. */
+	    stmts?: ExpressionRef[] | null): ExpressionRef[];
+	    /** Compiles a readily resolved function instance. */
+	    compileFunction(instance: Function): bool;
+	    compileClassUsingTypeArguments(prototype: ClassPrototype, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type>, alternativeReportNode?: Node | null): void;
+	    compileClass(instance: Class): bool;
+	    compileInterfaceDeclaration(declaration: InterfaceDeclaration, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type> | null, alternativeReportNode?: Node | null): void;
+	    /** Adds a static memory segment with the specified data. */
+	    addMemorySegment(buffer: Uint8Array, alignment?: i32): MemorySegment;
+	    /** Ensures that the specified string exists in static memory and returns a pointer to it. */
+	    ensureStaticString(stringValue: string): ExpressionRef;
+	    ensureStaticArrayBuffer(elementType: Type, values: ExpressionRef[]): MemorySegment;
+	    ensureStaticArrayHeader(elementType: Type, bufferSegment: MemorySegment): MemorySegment;
+	    /** Ensures that a table entry exists for the specified function and returns its index. */
+	    ensureFunctionTableEntry(func: Function): i32;
+	    compileTopLevelStatement(statement: Statement, body: ExpressionRef[]): void;
+	    compileStatement(statement: Statement, isLastInBody?: bool): ExpressionRef;
+	    compileStatements(statements: Statement[], isBody?: bool, stmts?: ExpressionRef[] | null): ExpressionRef[];
+	    compileBlockStatement(statement: BlockStatement): ExpressionRef;
+	    compileBreakStatement(statement: BreakStatement): ExpressionRef;
+	    compileContinueStatement(statement: ContinueStatement): ExpressionRef;
+	    compileDoStatement(statement: DoStatement): ExpressionRef;
+	    compileEmptyStatement(statement: EmptyStatement): ExpressionRef;
+	    compileExpressionStatement(statement: ExpressionStatement): ExpressionRef;
+	    compileForStatement(statement: ForStatement): ExpressionRef;
+	    compileIfStatement(statement: IfStatement): ExpressionRef;
+	    compileReturnStatement(statement: ReturnStatement, isLastInBody: bool): ExpressionRef;
+	    compileSwitchStatement(statement: SwitchStatement): ExpressionRef;
+	    compileThrowStatement(statement: ThrowStatement): ExpressionRef;
+	    compileTryStatement(statement: TryStatement): ExpressionRef;
+	    /** Compiles a variable statement. Returns `0` if an initializer is not necessary. */
+	    compileVariableStatement(statement: VariableStatement): ExpressionRef;
+	    compileVoidStatement(statement: VoidStatement): ExpressionRef;
+	    compileWhileStatement(statement: WhileStatement): ExpressionRef;
+	    /** Compiles the value of an inlined constant element. */
+	    compileInlineConstant(element: VariableLikeElement, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileExpression(expression: Expression, contextualType: Type, constraints?: Constraints): ExpressionRef;
+	    /** Compiles and precomputes an expression, possibly yielding a costant value. */
+	    precomputeExpression(expression: Expression, contextualType: Type, constraints?: Constraints): ExpressionRef;
+	    convertExpression(expr: ExpressionRef, 
+	    /** Original type. */
+	    fromType: Type, 
+	    /** New type. */
+	    toType: Type, 
+	    /** Whether the conversion is explicit.*/
+	    explicit: bool, 
+	    /** Whether the result should be wrapped, if a small integer. */
+	    wrap: bool, reportNode: Node): ExpressionRef;
+	    compileAssertionExpression(expression: AssertionExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    private f32ModInstance;
+	    private f64ModInstance;
+	    private f32PowInstance;
+	    private f64PowInstance;
+	    compileBinaryExpression(expression: BinaryExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileUnaryOverload(operatorInstance: Function, value: Expression, valueExpr: ExpressionRef, reportNode: Node): ExpressionRef;
+	    compileBinaryOverload(operatorInstance: Function, left: Expression, leftExpr: ExpressionRef, right: Expression, reportNode: Node): ExpressionRef;
+	    compileAssignment(expression: Expression, valueExpression: Expression, contextualType: Type): ExpressionRef;
+	    /** Makes an assignment expression or block, assigning a value to a target. */
+	    makeAssignment(
+	    /** Target element, e.g. a Local. */
+	    target: Element, 
+	    /** Value expression that has been compiled in a previous step already. */
+	    valueExpr: ExpressionRef, 
+	    /** Expression reference. Has already been compiled to `valueExpr`. */
+	    valueExpression: Expression, 
+	    /** `this` expression reference if a field or property set. */
+	    thisExpression: Expression | null, 
+	    /** Index expression reference if an indexed set. */
+	    indexExpression: Expression | null, 
+	    /** Whether to tee the value. */
+	    tee: bool): ExpressionRef;
+	    /** Makes an assignment to a local, possibly retaining and releasing affected references and keeping track of wrap and null states. */
+	    private makeLocalAssignment;
+	    /** Makes an assignment to a global, possibly retaining and releasing affected references. */
+	    private makeGlobalAssignment;
+	    /** Makes an assignment to a field, possibly retaining and releasing affected references. */
+	    makeFieldAssignment(
+	    /** The field to assign to. */
+	    field: Field, 
+	    /** The value to assign. */
+	    valueExpr: ExpressionRef, 
+	    /** The value of `this`. */
+	    thisExpr: ExpressionRef, 
+	    /** Whether to tee the value. */
+	    tee: bool): ExpressionRef;
+	    /** Compiles a call expression according to the specified context. */
+	    compileCallExpression(
+	    /** Call expression to compile. */
+	    expression: CallExpression, 
+	    /** Contextual type indicating the return type the caller expects, if any. */
+	    contextualType: Type, 
+	    /** Constraints indicating contextual conditions. */
+	    constraints: Constraints): ExpressionRef;
+	    private compileCallExpressionBuiltin;
+	    /**
+	     * Checks that a call with the given number as arguments can be performed according to the
+	     * specified signature.
+	     */
+	    checkCallSignature(signature: Signature, numArguments: i32, hasThis: bool, reportNode: Node): bool;
+	    /** Compiles a direct call to a concrete function. */
+	    compileCallDirect(instance: Function, argumentExpressions: Expression[], reportNode: Node, thisArg?: ExpressionRef, constraints?: Constraints): ExpressionRef;
+	    makeCallInline(instance: Function, operands: ExpressionRef[] | null, thisArg?: ExpressionRef, immediatelyDropped?: bool): ExpressionRef;
+	    /** Gets the trampoline for the specified function. */
+	    ensureTrampoline(original: Function): Function;
+	    /** Makes sure that the argument count helper global is present and returns its name. */
+	    private ensureArgcVar;
+	    /** Makes sure that the argument count helper setter is present and returns its name. */
+	    private ensureArgcSet;
+	    /** Makes retain call, retaining the expression's value. */
+	    makeRetain(expr: ExpressionRef): ExpressionRef;
+	    /** Makes a retainRelease call, retaining the new expression's value and releasing the old expression's value, in this order. */
+	    makeRetainRelease(oldExpr: ExpressionRef, newExpr: ExpressionRef): ExpressionRef;
+	    /** Makes a skippedRelease call, ignoring the new expression's value and releasing the old expression's value, in this order. */
+	    makeSkippedRelease(oldExpr: ExpressionRef, newExpr: ExpressionRef): ExpressionRef;
+	    /** Makes a release call, releasing the expression's value. Changes the current type to void.*/
+	    makeRelease(expr: ExpressionRef): ExpressionRef;
+	    /** Makes an automatic release call at the end of the current flow. */
+	    makeAutorelease(expr: ExpressionRef, flow?: Flow): ExpressionRef;
+	    /** Attempts to undo a final autorelease, returning the index of the previously retaining variable or -1 if not possible. */
+	    undoAutorelease(expr: ExpressionRef, flow: Flow): i32;
+	    /**
+	     * Attemps to move a final autorelease from one flow to a parent.
+	     * It is crucial that from flow hasn't processed autoreleases yet because otherwise the final
+	     * retain would have been written already.
+	     */
+	    moveAutorelease(expr: ExpressionRef, fromInnerFlow: Flow, toOuterFlow: Flow): ExpressionRef;
+	    /** Performs any queued autoreleases in the specified flow. */
+	    performAutoreleases(flow: Flow, stmts: ExpressionRef[], clearFlags?: bool): void;
+	    /** Performs any queued autoreleases in the specified flow and returns the value. */
+	    performAutoreleasesWithValue(flow: Flow, valueExpr: ExpressionRef, valueType: Type, stmts?: ExpressionRef[] | null, clearFlags?: bool): ExpressionRef;
+	    /** Finishes any queued top-level autoreleases in the actual function of the specified flow. */
+	    finishAutoreleases(flow: Flow, stmts: ExpressionRef[]): void;
+	    /** Creates a direct call to the specified function. */
+	    makeCallDirect(instance: Function, operands: ExpressionRef[] | null, reportNode: Node, immediatelyDropped?: bool, 
+	    /** Skip the usual autorelease and manage this at the callsite instead. */
+	    skipAutorelease?: bool): ExpressionRef;
+	    /** Compiles an indirect call using an index argument and a signature. */
+	    compileCallIndirect(signature: Signature, indexArg: ExpressionRef, argumentExpressions: Expression[], reportNode: Node, thisArg?: ExpressionRef, immediatelyDropped?: bool): ExpressionRef;
+	    /** Creates an indirect call to the function at `indexArg` in the function table. */
+	    makeCallIndirect(signature: Signature, indexArg: ExpressionRef, operands?: ExpressionRef[] | null, immediatelyDropped?: bool): ExpressionRef;
+	    compileCommaExpression(expression: CommaExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileElementAccessExpression(expression: ElementAccessExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileFunctionExpression(expression: FunctionExpression, contextualSignature: Signature | null, constraints: Constraints): ExpressionRef;
+	    /** Makes sure the enclosing source file of the specified expression has been compiled. */
+	    private maybeCompileEnclosingSource;
+	    /**
+	     * Compiles an identifier in the specified context.
+	     * @param retainConstantType Retains the type of inlined constants if `true`, otherwise
+	     *  precomputes them according to context.
+	     */
+	    compileIdentifierExpression(expression: IdentifierExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileInstanceOfExpression(expression: InstanceOfExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileLiteralExpression(expression: LiteralExpression, contextualType: Type, constraints: Constraints, implicitlyNegate?: bool): ExpressionRef;
+	    compileStringLiteral(expression: StringLiteralExpression): ExpressionRef;
+	    compileArrayLiteral(elementType: Type, expressions: (Expression | null)[], constraints: Constraints, reportNode: Node): ExpressionRef;
+	    compileObjectLiteral(expression: ObjectLiteralExpression, contextualType: Type): ExpressionRef;
+	    compileNewExpression(expression: NewExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    /** Gets the compiled constructor of the specified class or generates one if none is present. */
+	    ensureConstructor(classInstance: Class, reportNode: Node): Function;
+	    compileInstantiate(
+	    /** Class to instantiate. */
+	    classInstance: Class, 
+	    /** Constructor arguments. */
+	    argumentExpressions: Expression[], 
+	    /** Contextual flags. */
+	    constraints: Constraints, 
+	    /** Node to report on. */
+	    reportNode: Node): ExpressionRef;
+	    /**
+	     * Compiles a property access in the specified context.
+	     * @param retainConstantType Retains the type of inlined constants if `true`, otherwise
+	     *  precomputes them according to context.
+	     */
+	    compilePropertyAccessExpression(propertyAccess: PropertyAccessExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileTernaryExpression(expression: TernaryExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileUnaryPostfixExpression(expression: UnaryPostfixExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    compileUnaryPrefixExpression(expression: UnaryPrefixExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
+	    /** Makes sure that a 32-bit integer value is wrapped to a valid value of the specified type. */
+	    ensureSmallIntegerWrap(expr: ExpressionRef, type: Type): ExpressionRef;
+	    /** Adds the debug location of the specified expression at the specified range to the source map. */
+	    addDebugLocation(expr: ExpressionRef, range: Range): void;
+	    /** Creates a comparison whether an expression is 'false' in a broader sense. */
+	    makeIsFalseish(expr: ExpressionRef, type: Type): ExpressionRef;
+	    /** Creates a comparison whether an expression is 'true' in a broader sense. */
+	    makeIsTrueish(expr: ExpressionRef, type: Type): ExpressionRef;
+	    /** Makes an allocation suitable to hold the data of an instance of the given class. */
+	    makeAllocation(classInstance: Class): ExpressionRef;
+	    /** Makes the initializers for a class's fields. */
+	    makeFieldInitialization(classInstance: Class, stmts?: ExpressionRef[]): ExpressionRef[];
+	    makeInstanceOfClass(expr: ExpressionRef, classInstance: Class): ExpressionRef;
+	}
+	/** Flattens a series of expressions to a nop, a single statement or a block depending on statement count. */
+	export function flatten(module: Module, stmts: ExpressionRef[], type: NativeType): ExpressionRef;
+
+}
 declare module 'assemblyscript/src/program' {
 	/**
 	 * AssemblyScript's intermediate representation describing a program's elements.
@@ -2898,6 +3676,7 @@ declare module 'assemblyscript/src/program' {
 	import { Module, FunctionRef } from 'assemblyscript/src/module';
 	import { Resolver } from 'assemblyscript/src/resolver';
 	import { Flow } from 'assemblyscript/src/flow';
+	import { AbiData } from 'assemblyscript/src/abi';
 	/** Represents the kind of an operator overload. */
 	export enum OperatorKind {
 	    INVALID = 0,
@@ -3022,6 +3801,7 @@ declare module 'assemblyscript/src/program' {
 	    constructor(
 	    /** Shared array of diagnostic messages (emitted so far). */
 	    diagnostics?: DiagnosticMessage[] | null);
+	    getAbiInfo(): AbiData;
 	    /** Writes a common runtime header to the specified buffer. */
 	    writeRuntimeHeader(buffer: Uint8Array, offset: i32, classInstance: Class, payloadSize: u32): void;
 	    /** Gets the size of a runtime header. */
@@ -3745,780 +4525,159 @@ declare module 'assemblyscript/src/program' {
 	export function mangleInternalName(name: string, parent: Element, isInstance: bool, asGlobal?: bool): string;
 
 }
-declare module 'assemblyscript/src/compiler' {
-	/**
-	 * The AssemblyScript compiler.
-	 * @module compiler
-	 */ /***/
-	import { DiagnosticEmitter } from 'assemblyscript/src/diagnostics';
-	import { Module, MemorySegment, ExpressionRef, NativeType, FunctionRef, FunctionTypeRef, GlobalRef } from 'assemblyscript/src/module';
-	import { Feature, Target } from 'assemblyscript/src/common';
-	import { Program, ClassPrototype, Class, Element, Enum, Field, FunctionPrototype, Function, Global, VariableLikeElement, File } from 'assemblyscript/src/program';
-	import { Flow } from 'assemblyscript/src/flow';
-	import { Resolver } from 'assemblyscript/src/resolver';
-	import { Node, NamedTypeNode, Range, Statement, BlockStatement, BreakStatement, ContinueStatement, DoStatement, EmptyStatement, ExpressionStatement, ForStatement, IfStatement, InstanceOfExpression, InterfaceDeclaration, ReturnStatement, SwitchStatement, ThrowStatement, TryStatement, VariableStatement, VoidStatement, WhileStatement, Expression, AssertionExpression, BinaryExpression, CallExpression, CommaExpression, ElementAccessExpression, FunctionExpression, IdentifierExpression, LiteralExpression, NewExpression, ObjectLiteralExpression, PropertyAccessExpression, TernaryExpression, StringLiteralExpression, UnaryPostfixExpression, UnaryPrefixExpression } from 'assemblyscript/src/ast';
-	import { Type, Signature } from 'assemblyscript/src/types';
-	/** Compiler options. */
-	export class Options {
-	    /** WebAssembly target. Defaults to {@link Target.WASM32}. */
-	    target: Target;
-	    /** If true, replaces assertions with nops. */
-	    noAssert: bool;
-	    /** If true, imports the memory provided by the embedder. */
-	    importMemory: bool;
-	    /** If greater than zero, declare memory as shared by setting max memory to sharedMemory. */
-	    sharedMemory: i32;
-	    /** If true, imports the function table provided by the embedder. */
-	    importTable: bool;
-	    /** If true, generates information necessary for source maps. */
-	    sourceMap: bool;
-	    /** If true, generates an explicit start function. */
-	    explicitStart: bool;
-	    /** Static memory start offset. */
-	    memoryBase: i32;
-	    /** Global aliases, mapping alias names as the key to internal names to be aliased as the value. */
-	    globalAliases: Map<string, string> | null;
-	    /** Additional features to activate. */
-	    features: Feature;
-	    /** Hinted optimize level. Not applied by the compiler itself. */
-	    optimizeLevelHint: i32;
-	    /** Hinted shrink level. Not applied by the compiler itself. */
-	    shrinkLevelHint: i32;
-	    /** Tests if the target is WASM64 or, otherwise, WASM32. */
-	    readonly isWasm64: bool;
-	    /** Gets the unsigned size type matching the target. */
-	    readonly usizeType: Type;
-	    /** Gets the signed size type matching the target. */
-	    readonly isizeType: Type;
-	    /** Gets the native size type matching the target. */
-	    readonly nativeSizeType: NativeType;
-	    /** Tests if a specific feature is activated. */
-	    hasFeature(feature: Feature): bool;
+declare module 'assemblyscript/src/util/abiutil' {
+	import { ClassPrototype, Element } from 'assemblyscript/src/program';
+	import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration } from 'assemblyscript/src/ast';
+	export class IndentUtil {
+	    private body;
+	    private indent1;
+	    private padding;
+	    constructor(indentNum?: i32);
+	    pushRow(row: string): void;
+	    addPadding(): void;
+	    subPadding(): void;
+	    addAll(body: string[]): void;
+	    readonly content: string[];
 	}
-	/** Various constraints in expression compilation. */
-	export const enum Constraints {
-	    NONE = 0,
-	    /** Must implicitly convert to the target type. */
-	    CONV_IMPLICIT = 1,
-	    /** Must explicitly convert to the target type. */
-	    CONV_EXPLICIT = 2,
-	    /** Must wrap small integer values to match the target type. */
-	    MUST_WRAP = 4,
-	    /** Indicates that the value will be dropped immediately. */
-	    WILL_DROP = 8,
-	    /** Indicates that the value will be retained immediately. */
-	    WILL_RETAIN = 16,
-	    /** Indicates that static data is preferred. */
-	    PREFER_STATIC = 32
+	export class AbiHelper {
+	    /**
+	     * Main node support internal abi type
+	     * bool
+	     */
+	    static abiTypeLookup: Map<string, string>;
 	}
-	/** Runtime features to be activated by the compiler. */
-	export const enum RuntimeFeatures {
-	    NONE = 0,
-	    /** Requires heap setup. */
-	    HEAP = 1,
-	    /** Requires runtime type information setup. */
-	    RTTI = 2,
-	    /** Requires the built-in globals visitor. */
-	    visitGlobals = 4,
-	    /** Requires the built-in members visitor. */
-	    visitMembers = 8
+	export class AstUtil {
+	    static extendedContract(prototype: ClassPrototype): bool;
+	    static haveDecorator(statement: DeclarationStatement, kind: DecoratorKind): bool;
+	    static impledInterface(declaration: ClassDeclaration, interfaceName: string): bool;
+	    static impledSerializable(prototype: ClassPrototype | null): bool;
+	    static isString(typeName: string): bool;
+	    static isArray(typeName: string): bool;
+	    static isMap(typeName: string): bool;
+	    static isArrayMap(typeName: string): bool;
 	}
-	/** Compiler interface. */
-	export class Compiler extends DiagnosticEmitter {
-	    /** Program reference. */
-	    program: Program;
-	    /** Resolver reference. */
-	    resolver: Resolver;
-	    /** Provided options. */
-	    options: Options;
-	    /** Module instance being compiled. */
-	    module: Module;
-	    /** Current control flow. */
-	    currentFlow: Flow;
-	    /** Current inline functions stack. */
-	    currentInlineFunctions: Function[];
-	    /** Current enum in compilation. */
-	    currentEnum: Enum | null;
-	    /** Current type in compilation. */
-	    currentType: Type;
-	    /** Start function statements. */
-	    currentBody: ExpressionRef[];
-	    /** Counting memory offset. */
-	    memoryOffset: I64;
-	    /** Memory segments being compiled. */
-	    memorySegments: MemorySegment[];
-	    /** Map of already compiled static string segments. */
-	    stringSegments: Map<string, MemorySegment>;
-	    /** Function table being compiled. */
-	    functionTable: string[];
-	    /** Argument count helper global. */
-	    argcVar: GlobalRef;
-	    /** Argument count helper setter. */
-	    argcSet: FunctionRef;
-	    /** Requires runtime features. */
-	    runtimeFeatures: RuntimeFeatures;
-	    /** Expressions known to have skipped an autorelease. Usually function returns. */
-	    skippedAutoreleases: Set<ExpressionRef>;
-	    /** Compiles a {@link Program} to a {@link Module} using the specified options. */
-	    static compile(program: Program, options?: Options | null): Module;
-	    /** Constructs a new compiler for a {@link Program} using the specified options. */
-	    constructor(program: Program, options?: Options | null);
-	    /** Performs compilation of the underlying {@link Program} to a {@link Module}. */
-	    compile(): Module;
-	    /** Applies the respective module exports for the specified file. */
-	    private ensureModuleExports;
-	    /** Applies the respective module export(s) for the specified element. */
-	    private ensureModuleExport;
-	    /** Makes a function to get the value of a field of an exported class. */
-	    private ensureModuleFieldGetter;
-	    /** Makes a function to set the value of a field of an exported class. */
-	    private ensureModuleFieldSetter;
-	    /** Compiles any element. */
-	    compileElement(element: Element, compileMembers?: bool): void;
-	    /** Compiles an element's members. */
-	    compileMembers(element: Element): void;
-	    /** Compiles a file's exports. */
-	    compileExports(file: File): void;
-	    /** Compiles the file matching the specified path. */
-	    compileFileByPath(normalizedPathWithoutExtension: string, reportNode: Node): void;
-	    /** Compiles the specified file. */
-	    compileFile(file: File): void;
-	    compileGlobal(global: Global): bool;
-	    compileEnum(element: Enum): bool;
-	    /** Resolves the specified type arguments prior to compiling the resulting function instance. */
-	    compileFunctionUsingTypeArguments(prototype: FunctionPrototype, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type>, alternativeReportNode?: Node | null): Function | null;
-	    /** Either reuses or creates the function type matching the specified signature. */
-	    ensureFunctionType(parameterTypes: Type[] | null, returnType: Type, thisType?: Type | null): FunctionTypeRef;
-	    /** Compiles the body of a function within the specified flow. */
-	    compileFunctionBody(
-	    /** Function to compile. */
-	    instance: Function, 
-	    /** Target array of statements. */
-	    stmts?: ExpressionRef[] | null): ExpressionRef[];
-	    /** Compiles a readily resolved function instance. */
-	    compileFunction(instance: Function): bool;
-	    compileClassUsingTypeArguments(prototype: ClassPrototype, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type>, alternativeReportNode?: Node | null): void;
-	    compileClass(instance: Class): bool;
-	    compileInterfaceDeclaration(declaration: InterfaceDeclaration, typeArguments: NamedTypeNode[], contextualTypeArguments?: Map<string, Type> | null, alternativeReportNode?: Node | null): void;
-	    /** Adds a static memory segment with the specified data. */
-	    addMemorySegment(buffer: Uint8Array, alignment?: i32): MemorySegment;
-	    /** Ensures that the specified string exists in static memory and returns a pointer to it. */
-	    ensureStaticString(stringValue: string): ExpressionRef;
-	    ensureStaticArrayBuffer(elementType: Type, values: ExpressionRef[]): MemorySegment;
-	    ensureStaticArrayHeader(elementType: Type, bufferSegment: MemorySegment): MemorySegment;
-	    /** Ensures that a table entry exists for the specified function and returns its index. */
-	    ensureFunctionTableEntry(func: Function): i32;
-	    compileTopLevelStatement(statement: Statement, body: ExpressionRef[]): void;
-	    compileStatement(statement: Statement, isLastInBody?: bool): ExpressionRef;
-	    compileStatements(statements: Statement[], isBody?: bool, stmts?: ExpressionRef[] | null): ExpressionRef[];
-	    compileBlockStatement(statement: BlockStatement): ExpressionRef;
-	    compileBreakStatement(statement: BreakStatement): ExpressionRef;
-	    compileContinueStatement(statement: ContinueStatement): ExpressionRef;
-	    compileDoStatement(statement: DoStatement): ExpressionRef;
-	    compileEmptyStatement(statement: EmptyStatement): ExpressionRef;
-	    compileExpressionStatement(statement: ExpressionStatement): ExpressionRef;
-	    compileForStatement(statement: ForStatement): ExpressionRef;
-	    compileIfStatement(statement: IfStatement): ExpressionRef;
-	    compileReturnStatement(statement: ReturnStatement, isLastInBody: bool): ExpressionRef;
-	    compileSwitchStatement(statement: SwitchStatement): ExpressionRef;
-	    compileThrowStatement(statement: ThrowStatement): ExpressionRef;
-	    compileTryStatement(statement: TryStatement): ExpressionRef;
-	    /** Compiles a variable statement. Returns `0` if an initializer is not necessary. */
-	    compileVariableStatement(statement: VariableStatement): ExpressionRef;
-	    compileVoidStatement(statement: VoidStatement): ExpressionRef;
-	    compileWhileStatement(statement: WhileStatement): ExpressionRef;
-	    /** Compiles the value of an inlined constant element. */
-	    compileInlineConstant(element: VariableLikeElement, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileExpression(expression: Expression, contextualType: Type, constraints?: Constraints): ExpressionRef;
-	    /** Compiles and precomputes an expression, possibly yielding a costant value. */
-	    precomputeExpression(expression: Expression, contextualType: Type, constraints?: Constraints): ExpressionRef;
-	    convertExpression(expr: ExpressionRef, 
-	    /** Original type. */
-	    fromType: Type, 
-	    /** New type. */
-	    toType: Type, 
-	    /** Whether the conversion is explicit.*/
-	    explicit: bool, 
-	    /** Whether the result should be wrapped, if a small integer. */
-	    wrap: bool, reportNode: Node): ExpressionRef;
-	    compileAssertionExpression(expression: AssertionExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    private f32ModInstance;
-	    private f64ModInstance;
-	    private f32PowInstance;
-	    private f64PowInstance;
-	    compileBinaryExpression(expression: BinaryExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileUnaryOverload(operatorInstance: Function, value: Expression, valueExpr: ExpressionRef, reportNode: Node): ExpressionRef;
-	    compileBinaryOverload(operatorInstance: Function, left: Expression, leftExpr: ExpressionRef, right: Expression, reportNode: Node): ExpressionRef;
-	    compileAssignment(expression: Expression, valueExpression: Expression, contextualType: Type): ExpressionRef;
-	    /** Makes an assignment expression or block, assigning a value to a target. */
-	    makeAssignment(
-	    /** Target element, e.g. a Local. */
-	    target: Element, 
-	    /** Value expression that has been compiled in a previous step already. */
-	    valueExpr: ExpressionRef, 
-	    /** Expression reference. Has already been compiled to `valueExpr`. */
-	    valueExpression: Expression, 
-	    /** `this` expression reference if a field or property set. */
-	    thisExpression: Expression | null, 
-	    /** Index expression reference if an indexed set. */
-	    indexExpression: Expression | null, 
-	    /** Whether to tee the value. */
-	    tee: bool): ExpressionRef;
-	    /** Makes an assignment to a local, possibly retaining and releasing affected references and keeping track of wrap and null states. */
-	    private makeLocalAssignment;
-	    /** Makes an assignment to a global, possibly retaining and releasing affected references. */
-	    private makeGlobalAssignment;
-	    /** Makes an assignment to a field, possibly retaining and releasing affected references. */
-	    makeFieldAssignment(
-	    /** The field to assign to. */
-	    field: Field, 
-	    /** The value to assign. */
-	    valueExpr: ExpressionRef, 
-	    /** The value of `this`. */
-	    thisExpr: ExpressionRef, 
-	    /** Whether to tee the value. */
-	    tee: bool): ExpressionRef;
-	    /** Compiles a call expression according to the specified context. */
-	    compileCallExpression(
-	    /** Call expression to compile. */
-	    expression: CallExpression, 
-	    /** Contextual type indicating the return type the caller expects, if any. */
-	    contextualType: Type, 
-	    /** Constraints indicating contextual conditions. */
-	    constraints: Constraints): ExpressionRef;
-	    private compileCallExpressionBuiltin;
-	    /**
-	     * Checks that a call with the given number as arguments can be performed according to the
-	     * specified signature.
-	     */
-	    checkCallSignature(signature: Signature, numArguments: i32, hasThis: bool, reportNode: Node): bool;
-	    /** Compiles a direct call to a concrete function. */
-	    compileCallDirect(instance: Function, argumentExpressions: Expression[], reportNode: Node, thisArg?: ExpressionRef, constraints?: Constraints): ExpressionRef;
-	    makeCallInline(instance: Function, operands: ExpressionRef[] | null, thisArg?: ExpressionRef, immediatelyDropped?: bool): ExpressionRef;
-	    /** Gets the trampoline for the specified function. */
-	    ensureTrampoline(original: Function): Function;
-	    /** Makes sure that the argument count helper global is present and returns its name. */
-	    private ensureArgcVar;
-	    /** Makes sure that the argument count helper setter is present and returns its name. */
-	    private ensureArgcSet;
-	    /** Makes retain call, retaining the expression's value. */
-	    makeRetain(expr: ExpressionRef): ExpressionRef;
-	    /** Makes a retainRelease call, retaining the new expression's value and releasing the old expression's value, in this order. */
-	    makeRetainRelease(oldExpr: ExpressionRef, newExpr: ExpressionRef): ExpressionRef;
-	    /** Makes a skippedRelease call, ignoring the new expression's value and releasing the old expression's value, in this order. */
-	    makeSkippedRelease(oldExpr: ExpressionRef, newExpr: ExpressionRef): ExpressionRef;
-	    /** Makes a release call, releasing the expression's value. Changes the current type to void.*/
-	    makeRelease(expr: ExpressionRef): ExpressionRef;
-	    /** Makes an automatic release call at the end of the current flow. */
-	    makeAutorelease(expr: ExpressionRef, flow?: Flow): ExpressionRef;
-	    /** Attempts to undo a final autorelease, returning the index of the previously retaining variable or -1 if not possible. */
-	    undoAutorelease(expr: ExpressionRef, flow: Flow): i32;
-	    /**
-	     * Attemps to move a final autorelease from one flow to a parent.
-	     * It is crucial that from flow hasn't processed autoreleases yet because otherwise the final
-	     * retain would have been written already.
-	     */
-	    moveAutorelease(expr: ExpressionRef, fromInnerFlow: Flow, toOuterFlow: Flow): ExpressionRef;
-	    /** Performs any queued autoreleases in the specified flow. */
-	    performAutoreleases(flow: Flow, stmts: ExpressionRef[], clearFlags?: bool): void;
-	    /** Performs any queued autoreleases in the specified flow and returns the value. */
-	    performAutoreleasesWithValue(flow: Flow, valueExpr: ExpressionRef, valueType: Type, stmts?: ExpressionRef[] | null, clearFlags?: bool): ExpressionRef;
-	    /** Finishes any queued top-level autoreleases in the actual function of the specified flow. */
-	    finishAutoreleases(flow: Flow, stmts: ExpressionRef[]): void;
-	    /** Creates a direct call to the specified function. */
-	    makeCallDirect(instance: Function, operands: ExpressionRef[] | null, reportNode: Node, immediatelyDropped?: bool, 
-	    /** Skip the usual autorelease and manage this at the callsite instead. */
-	    skipAutorelease?: bool): ExpressionRef;
-	    /** Compiles an indirect call using an index argument and a signature. */
-	    compileCallIndirect(signature: Signature, indexArg: ExpressionRef, argumentExpressions: Expression[], reportNode: Node, thisArg?: ExpressionRef, immediatelyDropped?: bool): ExpressionRef;
-	    /** Creates an indirect call to the function at `indexArg` in the function table. */
-	    makeCallIndirect(signature: Signature, indexArg: ExpressionRef, operands?: ExpressionRef[] | null, immediatelyDropped?: bool): ExpressionRef;
-	    compileCommaExpression(expression: CommaExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileElementAccessExpression(expression: ElementAccessExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileFunctionExpression(expression: FunctionExpression, contextualSignature: Signature | null, constraints: Constraints): ExpressionRef;
-	    /** Makes sure the enclosing source file of the specified expression has been compiled. */
-	    private maybeCompileEnclosingSource;
-	    /**
-	     * Compiles an identifier in the specified context.
-	     * @param retainConstantType Retains the type of inlined constants if `true`, otherwise
-	     *  precomputes them according to context.
-	     */
-	    compileIdentifierExpression(expression: IdentifierExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileInstanceOfExpression(expression: InstanceOfExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileLiteralExpression(expression: LiteralExpression, contextualType: Type, constraints: Constraints, implicitlyNegate?: bool): ExpressionRef;
-	    compileStringLiteral(expression: StringLiteralExpression): ExpressionRef;
-	    compileArrayLiteral(elementType: Type, expressions: (Expression | null)[], constraints: Constraints, reportNode: Node): ExpressionRef;
-	    compileObjectLiteral(expression: ObjectLiteralExpression, contextualType: Type): ExpressionRef;
-	    compileNewExpression(expression: NewExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    /** Gets the compiled constructor of the specified class or generates one if none is present. */
-	    ensureConstructor(classInstance: Class, reportNode: Node): Function;
-	    compileInstantiate(
-	    /** Class to instantiate. */
-	    classInstance: Class, 
-	    /** Constructor arguments. */
-	    argumentExpressions: Expression[], 
-	    /** Contextual flags. */
-	    constraints: Constraints, 
-	    /** Node to report on. */
-	    reportNode: Node): ExpressionRef;
-	    /**
-	     * Compiles a property access in the specified context.
-	     * @param retainConstantType Retains the type of inlined constants if `true`, otherwise
-	     *  precomputes them according to context.
-	     */
-	    compilePropertyAccessExpression(propertyAccess: PropertyAccessExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileTernaryExpression(expression: TernaryExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileUnaryPostfixExpression(expression: UnaryPostfixExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    compileUnaryPrefixExpression(expression: UnaryPrefixExpression, contextualType: Type, constraints: Constraints): ExpressionRef;
-	    /** Makes sure that a 32-bit integer value is wrapped to a valid value of the specified type. */
-	    ensureSmallIntegerWrap(expr: ExpressionRef, type: Type): ExpressionRef;
-	    /** Adds the debug location of the specified expression at the specified range to the source map. */
-	    addDebugLocation(expr: ExpressionRef, range: Range): void;
-	    /** Creates a comparison whether an expression is 'false' in a broader sense. */
-	    makeIsFalseish(expr: ExpressionRef, type: Type): ExpressionRef;
-	    /** Creates a comparison whether an expression is 'true' in a broader sense. */
-	    makeIsTrueish(expr: ExpressionRef, type: Type): ExpressionRef;
-	    /** Makes an allocation suitable to hold the data of an instance of the given class. */
-	    makeAllocation(classInstance: Class): ExpressionRef;
-	    /** Makes the initializers for a class's fields. */
-	    makeFieldInitialization(classInstance: Class, stmts?: ExpressionRef[]): ExpressionRef[];
-	    makeInstanceOfClass(expr: ExpressionRef, classInstance: Class): ExpressionRef;
+	export enum AbiType {
+	    NUMBER = 0,
+	    STRING = 1,
+	    ARRAY = 2,
+	    MAP = 3,
+	    CLASS = 4
 	}
-	/** Flattens a series of expressions to a nop, a single statement or a block depending on statement count. */
-	export function flatten(module: Module, stmts: ExpressionRef[], type: NativeType): ExpressionRef;
+	export class TypeAnalyzer {
+	    parent: Element;
+	    typeNode: NamedTypeNode;
+	    typeName: string;
+	    abiType: AbiType;
+	    constructor(parent: Element, typeNode: NamedTypeNode);
+	    private getAbiType;
+	    lookupElement(typeName: string): Element | null;
+	    getAbiDeclareType(): string;
+	    private getArgs;
+	    getAsTypes(): string[];
+	    findSourceAbiType(typeName: string): string;
+	    findSourceAsType(typeName: string): string;
+	    getArrayArgAbiType(): AbiType;
+	    getArrayArgType(): string;
+	}
 
 }
-declare module 'assemblyscript/src/builtins' {
-	/**
-	 * Built-in elements providing WebAssembly core functionality.
-	 * @module builtins
-	 */ /***/
-	import { Compiler } from 'assemblyscript/src/compiler';
-	import { Node, Expression, CallExpression } from 'assemblyscript/src/ast';
-	import { Type } from 'assemblyscript/src/types';
-	import { ExpressionRef } from 'assemblyscript/src/module';
-	import { FunctionPrototype } from 'assemblyscript/src/program';
-	/** Symbols of various compiler built-ins. */
-	export namespace BuiltinSymbols {
-	    const isInteger = "~lib/builtins/isInteger";
-	    const isFloat = "~lib/builtins/isFloat";
-	    const isBoolean = "~lib/builtins/isBoolean";
-	    const isSigned = "~lib/builtins/isSigned";
-	    const isReference = "~lib/builtins/isReference";
-	    const isString = "~lib/builtins/isString";
-	    const isArray = "~lib/builtins/isArray";
-	    const isArrayLike = "~lib/builtins/isArrayLike";
-	    const isFunction = "~lib/builtins/isFunction";
-	    const isNullable = "~lib/builtins/isNullable";
-	    const isDefined = "~lib/builtins/isDefined";
-	    const isConstant = "~lib/builtins/isConstant";
-	    const isManaged = "~lib/builtins/isManaged";
-	    const clz = "~lib/builtins/clz";
-	    const ctz = "~lib/builtins/ctz";
-	    const popcnt = "~lib/builtins/popcnt";
-	    const rotl = "~lib/builtins/rotl";
-	    const rotr = "~lib/builtins/rotr";
-	    const abs = "~lib/builtins/abs";
-	    const max = "~lib/builtins/max";
-	    const min = "~lib/builtins/min";
-	    const ceil = "~lib/builtins/ceil";
-	    const floor = "~lib/builtins/floor";
-	    const copysign = "~lib/builtins/copysign";
-	    const nearest = "~lib/builtins/nearest";
-	    const reinterpret = "~lib/builtins/reinterpret";
-	    const sqrt = "~lib/builtins/sqrt";
-	    const trunc = "~lib/builtins/trunc";
-	    const load = "~lib/builtins/load";
-	    const store = "~lib/builtins/store";
-	    const atomic_load = "~lib/builtins/atomic.load";
-	    const atomic_store = "~lib/builtins/atomic.store";
-	    const atomic_add = "~lib/builtins/atomic.add";
-	    const atomic_sub = "~lib/builtins/atomic.sub";
-	    const atomic_and = "~lib/builtins/atomic.and";
-	    const atomic_or = "~lib/builtins/atomic.or";
-	    const atomic_xor = "~lib/builtins/atomic.xor";
-	    const atomic_xchg = "~lib/builtins/atomic.xchg";
-	    const atomic_cmpxchg = "~lib/builtins/atomic.cmpxchg";
-	    const atomic_wait = "~lib/builtins/atomic.wait";
-	    const atomic_notify = "~lib/builtins/atomic.notify";
-	    const sizeof = "~lib/builtins/sizeof";
-	    const alignof = "~lib/builtins/alignof";
-	    const offsetof = "~lib/builtins/offsetof";
-	    const select = "~lib/builtins/select";
-	    const unreachable = "~lib/builtins/unreachable";
-	    const changetype = "~lib/builtins/changetype";
-	    const assert = "~lib/builtins/assert";
-	    const unchecked = "~lib/builtins/unchecked";
-	    const call_direct = "~lib/builtins/call_direct";
-	    const call_indirect = "~lib/builtins/call_indirect";
-	    const instantiate = "~lib/builtins/instantiate";
-	    const idof = "~lib/builtins/idof";
-	    const i8 = "~lib/builtins/i8";
-	    const i16 = "~lib/builtins/i16";
-	    const i32 = "~lib/builtins/i32";
-	    const i64 = "~lib/builtins/i64";
-	    const isize = "~lib/builtins/isize";
-	    const u8 = "~lib/builtins/u8";
-	    const u16 = "~lib/builtins/u16";
-	    const u32 = "~lib/builtins/u32";
-	    const u64 = "~lib/builtins/u64";
-	    const usize = "~lib/builtins/usize";
-	    const bool = "~lib/builtins/bool";
-	    const f32 = "~lib/builtins/f32";
-	    const f64 = "~lib/builtins/f64";
-	    const v128 = "~lib/builtins/v128";
-	    const void_ = "~lib/builtins/void";
-	    const i32_clz = "~lib/builtins/i32.clz";
-	    const i64_clz = "~lib/builtins/i64.clz";
-	    const i32_ctz = "~lib/builtins/i32.ctz";
-	    const i64_ctz = "~lib/builtins/i64.ctz";
-	    const i32_popcnt = "~lib/builtins/i32.popcnt";
-	    const i64_popcnt = "~lib/builtins/i64.popcnt";
-	    const i32_rotl = "~lib/builtins/i32.rotl";
-	    const i64_rotl = "~lib/builtins/i64.rotl";
-	    const i32_rotr = "~lib/builtins/i32.rotr";
-	    const i64_rotr = "~lib/builtins/i64.rotr";
-	    const f32_abs = "~lib/builtins/f32.abs";
-	    const f64_abs = "~lib/builtins/f64.abs";
-	    const f32_max = "~lib/builtins/f32.max";
-	    const f64_max = "~lib/builtins/f64.max";
-	    const f32_min = "~lib/builtins/f32.min";
-	    const f64_min = "~lib/builtins/f64.min";
-	    const f32_ceil = "~lib/builtins/f32.ceil";
-	    const f64_ceil = "~lib/builtins/f64.ceil";
-	    const f32_floor = "~lib/builtins/f32.floor";
-	    const f64_floor = "~lib/builtins/f64.floor";
-	    const f32_copysign = "~lib/builtins/f32.copysign";
-	    const f64_copysign = "~lib/builtins/f64.copysign";
-	    const f32_nearest = "~lib/builtins/f32.nearest";
-	    const f64_nearest = "~lib/builtins/f64.nearest";
-	    const i32_reinterpret_f32 = "~lib/builtins/i32.reinterpret_f32";
-	    const i64_reinterpret_f64 = "~lib/builtins/i64.reinterpret_f64";
-	    const f32_reinterpret_i32 = "~lib/builtins/f32.reinterpret_i32";
-	    const f64_reinterpret_i64 = "~lib/builtins/f64.reinterpret_i64";
-	    const f32_sqrt = "~lib/builtins/f32.sqrt";
-	    const f64_sqrt = "~lib/builtins/f64.sqrt";
-	    const f32_trunc = "~lib/builtins/f32.trunc";
-	    const f64_trunc = "~lib/builtins/f64.trunc";
-	    const i32_load8_s = "~lib/builtins/i32.load8_s";
-	    const i32_load8_u = "~lib/builtins/i32.load8_u";
-	    const i32_load16_s = "~lib/builtins/i32.load16_s";
-	    const i32_load16_u = "~lib/builtins/i32.load16_u";
-	    const i32_load = "~lib/builtins/i32.load";
-	    const i64_load8_s = "~lib/builtins/i64.load8_s";
-	    const i64_load8_u = "~lib/builtins/i64.load8_u";
-	    const i64_load16_s = "~lib/builtins/i64.load16_s";
-	    const i64_load16_u = "~lib/builtins/i64.load16_u";
-	    const i64_load32_s = "~lib/builtins/i64.load32_s";
-	    const i64_load32_u = "~lib/builtins/i64.load32_u";
-	    const i64_load = "~lib/builtins/i64.load";
-	    const f32_load = "~lib/builtins/f32.load";
-	    const f64_load = "~lib/builtins/f64.load";
-	    const i32_store8 = "~lib/builtins/i32.store8";
-	    const i32_store16 = "~lib/builtins/i32.store16";
-	    const i32_store = "~lib/builtins/i32.store";
-	    const i64_store8 = "~lib/builtins/i64.store8";
-	    const i64_store16 = "~lib/builtins/i64.store16";
-	    const i64_store32 = "~lib/builtins/i64.store32";
-	    const i64_store = "~lib/builtins/i64.store";
-	    const f32_store = "~lib/builtins/f32.store";
-	    const f64_store = "~lib/builtins/f64.store";
-	    const i32_atomic_load8_u = "~lib/builtins/i32.atomic.load8_u";
-	    const i32_atomic_load16_u = "~lib/builtins/i32.atomic.load16_u";
-	    const i32_atomic_load = "~lib/builtins/i32.atomic.load";
-	    const i64_atomic_load8_u = "~lib/builtins/i64.atomic.load8_u";
-	    const i64_atomic_load16_u = "~lib/builtins/i64.atomic.load16_u";
-	    const i64_atomic_load32_u = "~lib/builtins/i64.atomic.load32_u";
-	    const i64_atomic_load = "~lib/builtins/i64.atomic.load";
-	    const i32_atomic_store8 = "~lib/builtins/i32.atomic.store8";
-	    const i32_atomic_store16 = "~lib/builtins/i32.atomic.store16";
-	    const i32_atomic_store = "~lib/builtins/i32.atomic.store";
-	    const i64_atomic_store8 = "~lib/builtins/i64.atomic.store8";
-	    const i64_atomic_store16 = "~lib/builtins/i64.atomic.store16";
-	    const i64_atomic_store32 = "~lib/builtins/i64.atomic.store32";
-	    const i64_atomic_store = "~lib/builtins/i64.atomic.store";
-	    const i32_atomic_rmw8_add_u = "~lib/builtins/i32.atomic.rmw8.add_u";
-	    const i32_atomic_rmw16_add_u = "~lib/builtins/i32.atomic.rmw16.add_u";
-	    const i32_atomic_rmw_add = "~lib/builtins/i32.atomic.rmw.add";
-	    const i64_atomic_rmw8_add_u = "~lib/builtins/i64.atomic.rmw8.add_u";
-	    const i64_atomic_rmw16_add_u = "~lib/builtins/i64.atomic.rmw16.add_u";
-	    const i64_atomic_rmw32_add_u = "~lib/builtins/i64.atomic.rmw32.add_u";
-	    const i64_atomic_rmw_add = "~lib/builtins/i64.atomic.rmw.add";
-	    const i32_atomic_rmw8_sub_u = "~lib/builtins/i32.atomic.rmw8.sub_u";
-	    const i32_atomic_rmw16_sub_u = "~lib/builtins/i32.atomic.rmw16.sub_u";
-	    const i32_atomic_rmw_sub = "~lib/builtins/i32.atomic.rmw.sub";
-	    const i64_atomic_rmw8_sub_u = "~lib/builtins/i64.atomic.rmw8.sub_u";
-	    const i64_atomic_rmw16_sub_u = "~lib/builtins/i64.atomic.rmw16.sub_u";
-	    const i64_atomic_rmw32_sub_u = "~lib/builtins/i64.atomic.rmw32.sub_u";
-	    const i64_atomic_rmw_sub = "~lib/builtins/i64.atomic.rmw.sub";
-	    const i32_atomic_rmw8_and_u = "~lib/builtins/i32.atomic.rmw8.and_u";
-	    const i32_atomic_rmw16_and_u = "~lib/builtins/i32.atomic.rmw16.and_u";
-	    const i32_atomic_rmw_and = "~lib/builtins/i32.atomic.rmw.and";
-	    const i64_atomic_rmw8_and_u = "~lib/builtins/i64.atomic.rmw8.and_u";
-	    const i64_atomic_rmw16_and_u = "~lib/builtins/i64.atomic.rmw16.and_u";
-	    const i64_atomic_rmw32_and_u = "~lib/builtins/i64.atomic.rmw32.and_u";
-	    const i64_atomic_rmw_and = "~lib/builtins/i64.atomic.rmw.and";
-	    const i32_atomic_rmw8_or_u = "~lib/builtins/i32.atomic.rmw8.or_u";
-	    const i32_atomic_rmw16_or_u = "~lib/builtins/i32.atomic.rmw16.or_u";
-	    const i32_atomic_rmw_or = "~lib/builtins/i32.atomic.rmw.or";
-	    const i64_atomic_rmw8_or_u = "~lib/builtins/i64.atomic.rmw8.or_u";
-	    const i64_atomic_rmw16_or_u = "~lib/builtins/i64.atomic.rmw16.or_u";
-	    const i64_atomic_rmw32_or_u = "~lib/builtins/i64.atomic.rmw32.or_u";
-	    const i64_atomic_rmw_or = "~lib/builtins/i64.atomic.rmw.or";
-	    const i32_atomic_rmw8_u_xor = "~lib/builtins/i32.atomic.rmw8.xor_u";
-	    const i32_atomic_rmw16_u_xor = "~lib/builtins/i32.atomic.rmw16.xor_u";
-	    const i32_atomic_rmw_xor = "~lib/builtins/i32.atomic.rmw.xor";
-	    const i64_atomic_rmw8_xor_u = "~lib/builtins/i64.atomic.rmw8.xor_u";
-	    const i64_atomic_rmw16_xor_u = "~lib/builtins/i64.atomic.rmw16.xor_u";
-	    const i64_atomic_rmw32_xor_u = "~lib/builtins/i64.atomic.rmw32.xor_u";
-	    const i64_atomic_rmw_xor = "~lib/builtins/i64.atomic.rmw.xor";
-	    const i32_atomic_rmw8_xchg_u = "~lib/builtins/i32.atomic.rmw8.xchg_u";
-	    const i32_atomic_rmw16_xchg_u = "~lib/builtins/i32.atomic.rmw16.xchg_u";
-	    const i32_atomic_rmw_xchg = "~lib/builtins/i32.atomic.rmw.xchg";
-	    const i64_atomic_rmw8_xchg_u = "~lib/builtins/i64.atomic.rmw8.xchg_u";
-	    const i64_atomic_rmw16_xchg_u = "~lib/builtins/i64.atomic.rmw16.xchg_u";
-	    const i64_atomic_rmw32_xchg_u = "~lib/builtins/i64.atomic.rmw32.xchg_u";
-	    const i64_atomic_rmw_xchg = "~lib/builtins/i64.atomic.rmw.xchg";
-	    const i32_atomic_rmw8_cmpxchg_u = "~lib/builtins/i32.atomic.rmw8.cmpxchg_u";
-	    const i32_atomic_rmw16_cmpxchg_u = "~lib/builtins/i32.atomic.rmw16.cmpxchg_u";
-	    const i32_atomic_rmw_cmpxchg = "~lib/builtins/i32.atomic.rmw.cmpxchg";
-	    const i64_atomic_rmw8_cmpxchg_u = "~lib/builtins/i64.atomic.rmw8.cmpxchg_u";
-	    const i64_atomic_rmw16_cmpxchg_u = "~lib/builtins/i64.atomic.rmw16.cmpxchg_u";
-	    const i64_atomic_rmw32_cmpxchg_u = "~lib/builtins/i64.atomic.rmw32.cmpxchg_u";
-	    const i64_atomic_rmw_cmpxchg = "~lib/builtins/i64.atomic.rmw.cmpxchg";
-	    const i32_wait = "~lib/builtins/i32.wait";
-	    const i64_wait = "~lib/builtins/i64.wait";
-	    const v128_splat = "~lib/builtins/v128.splat";
-	    const v128_extract_lane = "~lib/builtins/v128.extract_lane";
-	    const v128_replace_lane = "~lib/builtins/v128.replace_lane";
-	    const v128_shuffle = "~lib/builtins/v128.shuffle";
-	    const v128_load = "~lib/builtins/v128.load";
-	    const v128_store = "~lib/builtins/v128.store";
-	    const v128_add = "~lib/builtins/v128.add";
-	    const v128_sub = "~lib/builtins/v128.sub";
-	    const v128_mul = "~lib/builtins/v128.mul";
-	    const v128_div = "~lib/builtins/v128.div";
-	    const v128_neg = "~lib/builtins/v128.neg";
-	    const v128_add_saturate = "~lib/builtins/v128.add_saturate";
-	    const v128_sub_saturate = "~lib/builtins/v128.sub_saturate";
-	    const v128_shl = "~lib/builtins/v128.shl";
-	    const v128_shr = "~lib/builtins/v128.shr";
-	    const v128_and = "~lib/builtins/v128.and";
-	    const v128_or = "~lib/builtins/v128.or";
-	    const v128_xor = "~lib/builtins/v128.xor";
-	    const v128_not = "~lib/builtins/v128.not";
-	    const v128_bitselect = "~lib/builtins/v128.bitselect";
-	    const v128_any_true = "~lib/builtins/v128.any_true";
-	    const v128_all_true = "~lib/builtins/v128.all_true";
-	    const v128_min = "~lib/builtins/v128.min";
-	    const v128_max = "~lib/builtins/v128.max";
-	    const v128_abs = "~lib/builtins/v128.abs";
-	    const v128_sqrt = "~lib/builtins/v128.sqrt";
-	    const v128_eq = "~lib/builtins/v128.eq";
-	    const v128_ne = "~lib/builtins/v128.ne";
-	    const v128_lt = "~lib/builtins/v128.lt";
-	    const v128_le = "~lib/builtins/v128.le";
-	    const v128_gt = "~lib/builtins/v128.gt";
-	    const v128_ge = "~lib/builtins/v128.ge";
-	    const v128_convert = "~lib/builtins/v128.convert";
-	    const v128_trunc = "~lib/builtins/v128.trunc";
-	    const i8x16 = "~lib/builtins/i8x16";
-	    const i16x8 = "~lib/builtins/i16x8";
-	    const i32x4 = "~lib/builtins/i32x4";
-	    const i64x2 = "~lib/builtins/i64x2";
-	    const f32x4 = "~lib/builtins/f32x4";
-	    const f64x2 = "~lib/builtins/f64x2";
-	    const i8x16_splat = "~lib/builtins/i8x16.splat";
-	    const i8x16_extract_lane_s = "~lib/builtins/i8x16.extract_lane_s";
-	    const i8x16_extract_lane_u = "~lib/builtins/i8x16.extract_lane_u";
-	    const i8x16_replace_lane = "~lib/builtins/i8x16.replace_lane";
-	    const i8x16_add = "~lib/builtins/i8x16.add";
-	    const i8x16_sub = "~lib/builtins/i8x16.sub";
-	    const i8x16_mul = "~lib/builtins/i8x16.mul";
-	    const i8x16_neg = "~lib/builtins/i8x16.neg";
-	    const i8x16_add_saturate_s = "~lib/builtins/i8x16.add_saturate_s";
-	    const i8x16_add_saturate_u = "~lib/builtins/i8x16.add_saturate_u";
-	    const i8x16_sub_saturate_s = "~lib/builtins/i8x16.sub_saturate_s";
-	    const i8x16_sub_saturate_u = "~lib/builtins/i8x16.sub_saturate_u";
-	    const i8x16_shl = "~lib/builtins/i8x16.shl";
-	    const i8x16_shr_s = "~lib/builtins/i8x16.shr_s";
-	    const i8x16_shr_u = "~lib/builtins/i8x16.shr_u";
-	    const i8x16_any_true = "~lib/builtins/i8x16.any_true";
-	    const i8x16_all_true = "~lib/builtins/i8x16.all_true";
-	    const i8x16_eq = "~lib/builtins/i8x16.eq";
-	    const i8x16_ne = "~lib/builtins/i8x16.ne";
-	    const i8x16_lt_s = "~lib/builtins/i8x16.lt_s";
-	    const i8x16_lt_u = "~lib/builtins/i8x16.lt_u";
-	    const i8x16_le_s = "~lib/builtins/i8x16.le_s";
-	    const i8x16_le_u = "~lib/builtins/i8x16.le_u";
-	    const i8x16_gt_s = "~lib/builtins/i8x16.gt_s";
-	    const i8x16_gt_u = "~lib/builtins/i8x16.gt_u";
-	    const i8x16_ge_s = "~lib/builtins/i8x16.ge_s";
-	    const i8x16_ge_u = "~lib/builtins/i8x16.ge_u";
-	    const i16x8_splat = "~lib/builtins/i16x8.splat";
-	    const i16x8_extract_lane_s = "~lib/builtins/i16x8.extract_lane_s";
-	    const i16x8_extract_lane_u = "~lib/builtins/i16x8.extract_lane_u";
-	    const i16x8_replace_lane = "~lib/builtins/i16x8.replace_lane";
-	    const i16x8_add = "~lib/builtins/i16x8.add";
-	    const i16x8_sub = "~lib/builtins/i16x8.sub";
-	    const i16x8_mul = "~lib/builtins/i16x8.mul";
-	    const i16x8_neg = "~lib/builtins/i16x8.neg";
-	    const i16x8_add_saturate_s = "~lib/builtins/i16x8.add_saturate_s";
-	    const i16x8_add_saturate_u = "~lib/builtins/i16x8.add_saturate_u";
-	    const i16x8_sub_saturate_s = "~lib/builtins/i16x8.sub_saturate_s";
-	    const i16x8_sub_saturate_u = "~lib/builtins/i16x8.sub_saturate_u";
-	    const i16x8_shl = "~lib/builtins/i16x8.shl";
-	    const i16x8_shr_s = "~lib/builtins/i16x8.shr_s";
-	    const i16x8_shr_u = "~lib/builtins/i16x8.shr_u";
-	    const i16x8_any_true = "~lib/builtins/i16x8.any_true";
-	    const i16x8_all_true = "~lib/builtins/i16x8.all_true";
-	    const i16x8_eq = "~lib/builtins/i16x8.eq";
-	    const i16x8_ne = "~lib/builtins/i16x8.ne";
-	    const i16x8_lt_s = "~lib/builtins/i16x8.lt_s";
-	    const i16x8_lt_u = "~lib/builtins/i16x8.lt_u";
-	    const i16x8_le_s = "~lib/builtins/i16x8.le_s";
-	    const i16x8_le_u = "~lib/builtins/i16x8.le_u";
-	    const i16x8_gt_s = "~lib/builtins/i16x8.gt_s";
-	    const i16x8_gt_u = "~lib/builtins/i16x8.gt_u";
-	    const i16x8_ge_s = "~lib/builtins/i16x8.ge_s";
-	    const i16x8_ge_u = "~lib/builtins/i16x8.ge_u";
-	    const i32x4_splat = "~lib/builtins/i32x4.splat";
-	    const i32x4_extract_lane = "~lib/builtins/i32x4.extract_lane";
-	    const i32x4_replace_lane = "~lib/builtins/i32x4.replace_lane";
-	    const i32x4_add = "~lib/builtins/i32x4.add";
-	    const i32x4_sub = "~lib/builtins/i32x4.sub";
-	    const i32x4_mul = "~lib/builtins/i32x4.mul";
-	    const i32x4_neg = "~lib/builtins/i32x4.neg";
-	    const i32x4_shl = "~lib/builtins/i32x4.shl";
-	    const i32x4_shr_s = "~lib/builtins/i32x4.shr_s";
-	    const i32x4_shr_u = "~lib/builtins/i32x4.shr_u";
-	    const i32x4_any_true = "~lib/builtins/i32x4.any_true";
-	    const i32x4_all_true = "~lib/builtins/i32x4.all_true";
-	    const i32x4_eq = "~lib/builtins/i32x4.eq";
-	    const i32x4_ne = "~lib/builtins/i32x4.ne";
-	    const i32x4_lt_s = "~lib/builtins/i32x4.lt_s";
-	    const i32x4_lt_u = "~lib/builtins/i32x4.lt_u";
-	    const i32x4_le_s = "~lib/builtins/i32x4.le_s";
-	    const i32x4_le_u = "~lib/builtins/i32x4.le_u";
-	    const i32x4_gt_s = "~lib/builtins/i32x4.gt_s";
-	    const i32x4_gt_u = "~lib/builtins/i32x4.gt_u";
-	    const i32x4_ge_s = "~lib/builtins/i32x4.ge_s";
-	    const i32x4_ge_u = "~lib/builtins/i32x4.ge_u";
-	    const i32x4_trunc_s_f32x4_sat = "~lib/builtins/i32x4.trunc_s_f32x4_sat";
-	    const i32x4_trunc_u_f32x4_sat = "~lib/builtins/i32x4.trunc_u_f32x4_sat";
-	    const i64x2_splat = "~lib/builtins/i64x2.splat";
-	    const i64x2_extract_lane = "~lib/builtins/i64x2.extract_lane";
-	    const i64x2_replace_lane = "~lib/builtins/i64x2.replace_lane";
-	    const i64x2_add = "~lib/builtins/i64x2.add";
-	    const i64x2_sub = "~lib/builtins/i64x2.sub";
-	    const i64x2_neg = "~lib/builtins/i64x2.neg";
-	    const i64x2_shl = "~lib/builtins/i64x2.shl";
-	    const i64x2_shr_s = "~lib/builtins/i64x2.shr_s";
-	    const i64x2_shr_u = "~lib/builtins/i64x2.shr_u";
-	    const i64x2_any_true = "~lib/builtins/i64x2.any_true";
-	    const i64x2_all_true = "~lib/builtins/i64x2.all_true";
-	    const i64x2_trunc_s_f64x2_sat = "~lib/builtins/i64x2.trunc_s_f64x2_sat";
-	    const i64x2_trunc_u_f64x2_sat = "~lib/builtins/i64x2.trunc_u_f64x2_sat";
-	    const f32x4_splat = "~lib/builtins/f32x4.splat";
-	    const f32x4_extract_lane = "~lib/builtins/f32x4.extract_lane";
-	    const f32x4_replace_lane = "~lib/builtins/f32x4.replace_lane";
-	    const f32x4_add = "~lib/builtins/f32x4.add";
-	    const f32x4_sub = "~lib/builtins/f32x4.sub";
-	    const f32x4_mul = "~lib/builtins/f32x4.mul";
-	    const f32x4_div = "~lib/builtins/f32x4.div";
-	    const f32x4_neg = "~lib/builtins/f32x4.neg";
-	    const f32x4_min = "~lib/builtins/f32x4.min";
-	    const f32x4_max = "~lib/builtins/f32x4.max";
-	    const f32x4_abs = "~lib/builtins/f32x4.abs";
-	    const f32x4_sqrt = "~lib/builtins/f32x4.sqrt";
-	    const f32x4_eq = "~lib/builtins/f32x4.eq";
-	    const f32x4_ne = "~lib/builtins/f32x4.ne";
-	    const f32x4_lt = "~lib/builtins/f32x4.lt";
-	    const f32x4_le = "~lib/builtins/f32x4.le";
-	    const f32x4_gt = "~lib/builtins/f32x4.gt";
-	    const f32x4_ge = "~lib/builtins/f32x4.ge";
-	    const f32x4_convert_s_i32x4 = "~lib/builtins/f32x4.convert_s_i32x4";
-	    const f32x4_convert_u_i32x4 = "~lib/builtins/f32x4.convert_u_i32x4";
-	    const f64x2_splat = "~lib/builtins/f64x2.splat";
-	    const f64x2_extract_lane = "~lib/builtins/f64x2.extract_lane";
-	    const f64x2_replace_lane = "~lib/builtins/f64x2.replace_lane";
-	    const f64x2_add = "~lib/builtins/f64x2.add";
-	    const f64x2_sub = "~lib/builtins/f64x2.sub";
-	    const f64x2_mul = "~lib/builtins/f64x2.mul";
-	    const f64x2_div = "~lib/builtins/f64x2.div";
-	    const f64x2_neg = "~lib/builtins/f64x2.neg";
-	    const f64x2_min = "~lib/builtins/f64x2.min";
-	    const f64x2_max = "~lib/builtins/f64x2.max";
-	    const f64x2_abs = "~lib/builtins/f64x2.abs";
-	    const f64x2_sqrt = "~lib/builtins/f64x2.sqrt";
-	    const f64x2_eq = "~lib/builtins/f64x2.eq";
-	    const f64x2_ne = "~lib/builtins/f64x2.ne";
-	    const f64x2_lt = "~lib/builtins/f64x2.lt";
-	    const f64x2_le = "~lib/builtins/f64x2.le";
-	    const f64x2_gt = "~lib/builtins/f64x2.gt";
-	    const f64x2_ge = "~lib/builtins/f64x2.ge";
-	    const f64x2_convert_s_i64x2 = "~lib/builtins/f64x2.convert_s_i64x2";
-	    const f64x2_convert_u_i64x2 = "~lib/builtins/f64x2.convert_u_i64x2";
-	    const v8x16_shuffle = "~lib/builtins/v8x16.shuffle";
-	    const heap_base = "~lib/heap/__heap_base";
-	    const rtti_base = "~lib/rt/__rtti_base";
-	    const visit_globals = "~lib/rt/__visit_globals";
-	    const visit_members = "~lib/rt/__visit_members";
-	    const ERROR = "~lib/diagnostics/ERROR";
-	    const WARNING = "~lib/diagnostics/WARNING";
-	    const INFO = "~lib/diagnostics/INFO";
-	    const memory_size = "~lib/memory/memory.size";
-	    const memory_grow = "~lib/memory/memory.grow";
-	    const memory_copy = "~lib/memory/memory.copy";
-	    const memory_fill = "~lib/memory/memory.fill";
-	    const memory_allocate = "~lib/memory/memory.allocate";
-	    const memory_free = "~lib/memory/memory.free";
-	    const memory_reset = "~lib/memory/memory.reset";
-	    const runtime_instanceof = "~lib/runtime/runtime.instanceof";
-	    const runtime_flags = "~lib/runtime/runtime.flags";
-	    const runtime_allocate = "~lib/util/runtime/allocate";
-	    const runtime_reallocate = "~lib/util/runtime/reallocate";
-	    const runtime_register = "~lib/util/runtime/register";
-	    const runtime_discard = "~lib/util/runtime/discard";
-	    const runtime_makeArray = "~lib/util/runtime/makeArray";
-	    const Int8Array = "~lib/typedarray/Int8Array";
-	    const Uint8Array = "~lib/typedarray/Uint8Array";
-	    const Int16Array = "~lib/typedarray/Int16Array";
-	    const Uint16Array = "~lib/typedarray/Uint16Array";
-	    const Int32Array = "~lib/typedarray/Int32Array";
-	    const Uint32Array = "~lib/typedarray/Uint32Array";
-	    const Int64Array = "~lib/typedarray/Int64Array";
-	    const Uint64Array = "~lib/typedarray/Uint64Array";
-	    const Uint8ClampedArray = "~lib/typedarray/Uint8ClampedArray";
-	    const Float32Array = "~lib/typedarray/Float32Array";
-	    const Float64Array = "~lib/typedarray/Float64Array";
-	    const started = "~lib/started";
-	    const argc = "~lib/argc";
-	    const setargc = "~lib/setargc";
-	    const capabilities = "~lib/capabilities";
+declare module 'assemblyscript/src/util/primitiveutil' {
+	export class Strings {
+	    /**
+	     * Judge the string whetehr aroud by qutation or not.
+	     * The charcode of '"' is 0x22
+	     * @param str The string to judge
+	     */
+	    static isAroundQuotation(str: string): bool;
+	    /**
+	     * If the string around quotation, remove the quotation.
+	     * @param str The source string
+	     */
+	    static removeQuotation(str: string): string;
 	}
-	/** Compiles a call to a built-in function. */
-	export function compileCall(compiler: Compiler, 
-	/** Respective function prototype. */
-	prototype: FunctionPrototype, 
-	/** Pre-resolved type arguments. */
-	typeArguments: Type[] | null, 
-	/** Operand expressions. */
-	operands: Expression[], 
-	/** Contextual type. */
-	contextualType: Type, 
-	/** Respective call expression. */
-	reportNode: CallExpression, 
-	/** Indicates that contextual type is ASM type. */
-	isAsm?: bool): ExpressionRef;
-	/** Compiles an abort wired to the conditionally imported 'abort' function. */
-	export function compileAbort(compiler: Compiler, message: Expression | null, reportNode: Node): ExpressionRef;
-	/** Compiles the `visit_globals` function. */
-	export function compileVisitGlobals(compiler: Compiler): void;
-	/** Compiles the `visit_members` function. */
-	export function compileVisitMembers(compiler: Compiler): void;
-	/** Compiles runtime type information for use by stdlib. */
-	export function compileRTTI(compiler: Compiler): void;
+	export class AbiUtils {
+	    private static DATABASE_CHARSETS;
+	    /**
+	     * Check the action name whether is legal.
+	     * The action name should be less or equal than 21 characters.
+	     * @param str the action name
+	     */
+	    static checkActionName(str: string): void;
+	    /**
+	     * Check the database name whether is legal.
+	     * The database name should be less or equal than 12 characters.
+	     * @param name the database name
+	     */
+	    static checkDatabaseName(name: string): void;
+	}
+	export class Indenter {
+	    private body;
+	    private indentX1;
+	    private indentX2;
+	    private indentX4;
+	    private padding;
+	    indent(level: i32): Indenter;
+	    increase(): Indenter;
+	    add(row: string): Indenter;
+	    decrease(): Indenter;
+	    toString(): string;
+	    addAll(body: string[]): void;
+	    getContent(): string[];
+	}
+	export class Verify {
+	    static verify(expression: bool, message: string): void;
+	}
+
+}
+declare module 'assemblyscript/src/abi' {
+	import { Program, Element } from 'assemblyscript/src/program'; class TypeDef {
+	    new_type_name: string;
+	    type: string;
+	    constructor(newTypeName: string, type: string);
+	} class StructDef {
+	    name: string;
+	    base: string;
+	    fileds: Array<Object>;
+	    constructor(name?: string, base?: string);
+	    pushFields(name: string, type: string): void;
+	} class ActionDef {
+	    name: string;
+	    type: string;
+	    constructor(name: string, type: string);
+	} class TableDef {
+	    name: string;
+	    type: string;
+	    index_type: string;
+	    keys_names: string[];
+	    keys_types: string[];
+	    constructor(name: string, type: string);
+	} class AbiDef {
+	    version: string;
+	    types: Array<TypeDef>;
+	    structs: Array<StructDef>;
+	    actions: Array<ActionDef>;
+	    tables: Array<TableDef>;
+	}
+	export class AbiData {
+	    abi: AbiDef;
+	    program: Program;
+	    typeLookup: Map<string, string>;
+	    structLookup: Map<string, StructDef>;
+	    elementLookup: Map<string, Element>;
+	    typeAliasSet: Set<string>;
+	    constructor(program: Program);
+	    private init;
+	    private resolveClassPrototype;
+	    private getDatabaseInfo;
+	    private getString;
+	    private isActionFuncPrototype;
+	    private resolveFuncPrototype;
+	    private addAbiTypeAlias;
+	    private classToStruct;
+	    private addFiledFromClass;
+	    private addToStruct;
+	}
+	export {};
 
 }
 declare module 'assemblyscript/src/decompiler' {
@@ -5615,3 +5774,14 @@ declare function i64_is_f64(value: I64): bool;
 declare function i64_to_f32(value: I64): f64;
 declare function i64_to_f64(value: I64): f64;
 declare function i64_to_string(value: I64, unsigned?: bool): string;
+declare module 'assemblyscript/src/util/collectionutil' {
+	export class Collections {
+	    /**
+	     * Check the array is empty
+	     * @param arr parameter array
+	     */
+	    static isEmptyArray<T>(arr: T[]): bool;
+	    static newArray<T>(arg1: T): T[];
+	}
+
+}
