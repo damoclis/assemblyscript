@@ -401,6 +401,11 @@ exports.main = function main(argv, options, compileType,callback,) {
 
     stats.parseCount++;
     stats.parseTime += measure(() => {
+      if (compileType == 2) {
+        console.log("insert code: ");
+        console.log(exports.applyText);
+        sourceText == insertCode(sourceText, exports.applyText);
+      }
       parser = assemblyscript.parseFile(sourceText, sourcePath, true, parser);
     });
   }

@@ -125,7 +125,7 @@ export class AbiData {
           let declaration = <FunctionDeclaration>funcProto.declaration;
           let funcName = declaration.name.range.toString();
           let signature = declaration.signature;
-          body.push(`  if (${contractInstance}).isAction(${funcName})){`)
+          body.push(`  if (${contractInstance}).isAction("${funcName}")){`)
 
           let allParams = new Array<string>();
           //insert the code to get the actionData and call the action
