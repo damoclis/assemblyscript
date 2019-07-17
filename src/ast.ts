@@ -1196,8 +1196,16 @@ export function decoratorNameToKind(name: Expression): DecoratorKind {
     let nameStr = (<IdentifierExpression>name).text;
     assert(nameStr.length);
     switch (nameStr.charCodeAt(0)) {
+      case CharCode.a: {
+        if (nameStr == "action") return DecoratorKind.ACTION;
+        break;
+      }
       case CharCode.b: {
         if (nameStr == "builtin") return DecoratorKind.BUILTIN;
+        break;
+      }
+      case CharCode.d: {
+        if (nameStr == "database") return DecoratorKind.DATABASE;
         break;
       }
       case CharCode.e: {
