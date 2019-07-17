@@ -581,6 +581,24 @@ exports.main = function main(argv, options, compileType,callback,) {
       }
     }
 
+    //Write abi.file
+    if (args.abiFile != null) {
+      let abi;
+      if (args.abiFile && args.abiFile.length) {
+        stats.emitCount++;
+        stats.emitTime += measure(() => {
+          abi = JSON.stringify(exports.abiInfo.abi, undefined, 2);
+        });
+        writeFile(args.abiFile, abi, baseDir);
+      } else if (!hasStdout) {
+        stats.emitCount++;
+        stats.emitTime += measure(() => {
+          abi = JSON.stringify(exports.abiInfo.abi, undefined, 2);
+        });
+        writeStdout(abi);
+      }
+    }
+
     // Write binary
     if (args.binaryFile != null) {
       let sourceMapURL = args.sourceMap != null

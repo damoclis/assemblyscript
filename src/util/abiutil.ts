@@ -5,7 +5,7 @@ import { Signature } from "../types";
 export class IndentUtil{
     private body: Array<string> = new Array<string>();
     private indent1: string = "  ";
-    private padding: string;
+    private padding: string="";
 
     constructor(indentNum: i32=0) {
         while (indentNum >= 0) {

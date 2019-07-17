@@ -64,6 +64,11 @@
     "type":"b",
     "alias":"l"
   },
+  "abiFile":{
+    "descripton": "Specifies the text output file (.abi)",
+    "type":"s",
+    "alias":"g"
+  },
   "asmjsFile": {
     "description": "Specifies the asm.js output file (.js).",
     "type": "s",
