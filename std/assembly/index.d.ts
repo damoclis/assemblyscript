@@ -1570,11 +1570,7 @@ declare function action(target: any, propertyKey?:any, descriptor?:any): void;
 declare function database(...args:any[]): any;
 
 /** Object serializable interface */
-interface Serializable { 
-    deserialize(ds: DataStream): void;
-    serialize(ds : DataStream) : void;
-    key(): string;
-}
+interface Serializable { }
 
 
 declare class DataStream {
