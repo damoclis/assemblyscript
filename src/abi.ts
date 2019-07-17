@@ -103,6 +103,7 @@ export class AbiData {
     //resolve the database decorator for every class
     this.getDatabaseInfo(prototype);
     if (prototype.instanceMembers && AstUtil.extendedContract(prototype)) {
+      console.log("find the class extended Contract!");
       let body = new Array<string>();
       let actionDecorate = false;
       let contractName = prototype.name;
