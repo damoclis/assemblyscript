@@ -8,7 +8,7 @@ export class IndentUtil{
     private padding: string="";
 
     constructor(indentNum: i32=0) {
-        while (indentNum >= 0) {
+        while (indentNum > 0) {
             this.padding += this.indent1;
             indentNum--;
         }
