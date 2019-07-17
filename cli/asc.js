@@ -120,8 +120,7 @@ exports.compileString = (sources, options) => {
 }
 
 /** Runs the command line utility using the specified arguments array. */
-exports.main = function main(argv, options, callback, compileType) {
-  console.log("compileType is ", compileType);
+exports.main = function main(argv, options, compileType,callback,) {
   if (typeof options === "function") {
     callback = options;
     options = {};
@@ -348,6 +347,11 @@ exports.main = function main(argv, options, callback, compileType) {
       }
       stats.parseCount++;
       stats.parseTime += measure(() => {
+        if (compileType == 2) {
+          console.log("insert code: ");
+          console.log(exports.applyText);
+          sourceText == insertCode(sourceText, exports.applyText);
+        }
         assemblyscript.parseFile(sourceText, sourcePath, false, parser);
       });
     }
@@ -557,9 +561,9 @@ exports.main = function main(argv, options, callback, compileType) {
     });
   }
 
-  {
+  if(compileType==1){
     exports.abiInfo = program.getAbiInfo();
-    
+    exports.applyText = exports.abiInfo.code;
   }
 
   // Prepare output
@@ -921,3 +925,13 @@ exports.tscOptions = {
   types: [],
   allowJs: false
 };
+
+
+function insertCode(sourceText, applyText) {
+  let resultCode = new Array();
+  resultCode.push(sourceText);
+  if (!applyText) {
+    resultCode.push(applyText);
+  }
+  return resultCode.join(EOL);
+}
