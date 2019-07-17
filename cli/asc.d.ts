@@ -74,7 +74,7 @@ export function compileString(sources: { [key: string]: string } | string, optio
 }
 
 /** Runs the command line utility using the specified arguments array. */
-export function main(argv: string[], options: CompilerOptions, callback?: (err: Error | null) => number): number;
+export function main(argv: string[], options: CompilerOptions,compileType:number,callback?: (err: Error | null) => number): number;
 export function main(argv: string[], callback?: (err: Error | null) => number): number;
 
 /** Checks diagnostics emitted so far for errors. */

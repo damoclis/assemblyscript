@@ -80,6 +80,7 @@ export class AbiData {
     //Todo: serializeGenerator
 
     let indenter = new IndentUtil();
+    indenter.pushRow("export function apply():void{")
 
     for (let [key, element] of this.program.elementsByName) {
       if (element.kind == ElementKind.CLASS_PROTOTYPE) {
@@ -92,6 +93,7 @@ export class AbiData {
       }
     }
 
+    indenter.pushRow("}");
     this.code = indenter.content.join("\n");
     console.log(this.code);
     console.log("init done!");
@@ -308,6 +310,7 @@ export class AbiData {
       this.structLookup.set(struct.name, struct);
     }
   }
+
 
 
 

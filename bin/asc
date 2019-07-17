@@ -10,7 +10,7 @@ if (/\basc$/.test(process.argv[1])) {
     const pOpts = opts.options;
 
     if (pOpts.dispatch){
-        process.exitCode = asc.main(process.argv.slice(2));
+        process.exitCode = asc.main(process.argv.slice(2),null,1,null);
         console.log("finish");
     } else {
         console.log("dispatch is false");

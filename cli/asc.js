@@ -120,7 +120,8 @@ exports.compileString = (sources, options) => {
 }
 
 /** Runs the command line utility using the specified arguments array. */
-exports.main = function main(argv, options, callback) {
+exports.main = function main(argv, options, callback, compileType) {
+  console.log("compileType is ", compileType);
   if (typeof options === "function") {
     callback = options;
     options = {};
