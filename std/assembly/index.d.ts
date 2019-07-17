@@ -1564,10 +1564,10 @@ declare function lazy(...args: any[]): any;
 declare function start(...args: any[]): any;
 
 /** Annotates a function or method as action of contract */
-declare function action(...args: any[]): any;
+declare function action(target: any, propertyKey?:any, descriptor?:any): void;
 
 /** Annotates a class as the type of the database */
-declare function database(constructor: Function): void;
+declare function database(target: Function, propertyKey:any, descriptor?:any): any;
 
 /** Object serializable interface */
 interface Serializable { 
