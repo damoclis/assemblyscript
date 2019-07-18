@@ -350,7 +350,7 @@ exports.main = function main(argv, options, compileType,callback,) {
         if (compileType == 2) {
           console.log("insert code: ");
           console.log(exports.applyText);
-          sourceText == insertCode(sourceText, exports.applyText);
+          sourceText = insertCode(sourceText, exports.applyText);
         }
         assemblyscript.parseFile(sourceText, sourcePath, false, parser);
       });
@@ -404,7 +404,7 @@ exports.main = function main(argv, options, compileType,callback,) {
       if (compileType == 2) {
         console.log("insert code: ");
         console.log(exports.applyText);
-        sourceText == insertCode(sourceText, exports.applyText);
+        sourceText = insertCode(sourceText, exports.applyText);
       }
       parser = assemblyscript.parseFile(sourceText, sourcePath, true, parser);
     });
