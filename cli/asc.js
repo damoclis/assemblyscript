@@ -953,7 +953,7 @@ exports.tscOptions = {
 function insertCode(sourceText, applyText) {
   let resultCode = new Array();
   resultCode.push(sourceText);
-  if (!applyText) {
+  if (applyText) {
     resultCode.push(applyText);
   }
   return resultCode.join(EOL);
