@@ -102,7 +102,7 @@
       ""
     ],
     "type": "s",
-    "default": "full"
+    "default": "none"
   },
   "debug": {
     "description": "Enables debug information in emitted binaries.",
@@ -112,7 +112,7 @@
   "noAssert": {
     "description": "Replaces assertions with just their value without trapping.",
     "type": "b",
-    "default": false
+    "default": true
   },
   "noEmit": {
     "description": "Performs compilation as usual but does not emit code.",
