@@ -17,8 +17,8 @@ if (/\bdsc$/.test(process.argv[1])) {
     const pOpts = opts.options;
 
     if (pOpts.dispatch){
-        process.exitCode = asc.main(process.argv.slice(2), null, 1, null);
-        process.exitCode = asc.main(process.argv.slice(2), null, 2, null);
+        process.exitCode = asc.main(argv, null, 1, null);
+        process.exitCode = asc.main(argv, null, 2, null);
         console.log("finish");
     } else {
         console.log("dispatch is false");
