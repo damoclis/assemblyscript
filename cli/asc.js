@@ -594,7 +594,7 @@ exports.main = function main(argv, options, compileType,callback,) {
         stats.emitTime += measure(() => {
           abi = JSON.stringify(exports.abiInfo.abi, undefined, 2);
         });
-        writeFile(args.abiFile, abi, baseDir);
+        writeFile(args.abi, abi, baseDir);
       } else if (!hasStdout) {
         stats.emitCount++;
         stats.emitTime += measure(() => {
