@@ -62,9 +62,10 @@
   "dispatch":{
     "decsription": "use the dispatch mode.",
     "type":"b",
-    "alias":"l"
+    "alias":"l",
+    "default":true
   },
-  "abiFile":{
+  "abi":{
     "descripton": "Specifies the text output file (.abi)",
     "type":"s",
     "alias":"g"

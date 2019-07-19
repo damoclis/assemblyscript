@@ -173,7 +173,8 @@ export class AbiData {
           if (returnTypeInfo.typeName == "void") {
             body.push(`    ${contractInstance}.${funcName}(${allParams.join(",")});`);
           } else {
-            //todo...
+            body.push(`    let result=${contractInstance}.${funcName}(${allParams.join(",")});`);
+            
           }
 
           body.push("  }");

@@ -6,6 +6,11 @@ const options=require("../cli/asc.json")
 const asc = require("../cli/asc.js")
 if (/\bdsc$/.test(process.argv[1])) {
     const argv = process.argv.slice(2);
+
+    //加入--use abort=
+    argv.push("--use", "abort=");
+
+
     const opts = optionsUtil.parse(argv, options);
     const pOpts = opts.options;
 
