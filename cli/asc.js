@@ -587,9 +587,9 @@ exports.main = function main(argv, options, compileType,callback,) {
     }
 
     //Write abi.file
-    if (args.abiFile != null) {
+    if (args.abi != null) {
       let abi;
-      if (args.abiFile && args.abiFile.length) {
+      if (args.abi && args.abi.length) {
         stats.emitCount++;
         stats.emitTime += measure(() => {
           abi = JSON.stringify(exports.abiInfo.abi, undefined, 2);
