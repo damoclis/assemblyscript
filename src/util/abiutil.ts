@@ -60,11 +60,11 @@ export class AbiHelper {
       ["string", "string"],
       ["String", "string"],
       ["bytes", "bytes"],
-        ["hash160", "hash160"],
-        ["hash256", "hash256"],
-        ["hash512", "hash512"],
-        ["publicKey", "publicKey"],
-      ["signature","signature"]
+        ["hash160", "string"],
+        ["hash256", "string"],
+        ["hash512", "string"],
+        ["publicKey", "string"],
+      ["signature","string"]
     ]);
   }
 

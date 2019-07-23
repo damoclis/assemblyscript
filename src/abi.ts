@@ -1,7 +1,7 @@
 //refer to EOS's and Ultrain's doc
 
 import { Program, Element, ElementKind, ClassPrototype, FunctionPrototype } from "./program";
-import {IndentUtil, AstUtil, TypeAnalyzer, AbiType} from "./util/abiutil";
+import {IndentUtil, AstUtil, TypeAnalyzer, AbiType, AbiHelper} from "./util/abiutil";
 import { indent } from "./util";
 import { DecoratorKind, FunctionDeclaration,ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode, BreakStatement, Expression} from "./ast";
 import { Strings } from "./util/primitiveutil";
@@ -169,12 +169,23 @@ export class AbiData {
           }
 
           //insert the return code 
+          //Todo: array type?
           let returnTypeInfo = new TypeAnalyzer(funcProto, <NamedTypeNode>signature.returnType);
           if (returnTypeInfo.typeName == "void") {
             body.push(`    ${contractInstance}.${funcName}(${allParams.join(",")});`);
           } else {
+            //only support builtin type to return
+            if (AbiHelper.abiTypeLookup.get(returnTypeInfo.typeName) == null) {
+              throw new Error("only support to return builtin type");
+            }
             body.push(`    let result=${contractInstance}.${funcName}(${allParams.join(",")});`);
-            
+            if (returnTypeInfo.abiType == AbiType.NUMBER) {
+              body.push(`    ${contractInstance}.ReturnU64(<u64>result)`);
+            }else if (returnTypeInfo.abiType == AbiType.STRING) {
+              body.push(`    ${contractInstance}.ReturnString(result)`);
+            } else {
+              body.push(`    ${contractInstance}.ReturnBytes(result.bytes)`)
+            }
           }
 
           body.push("  }");
