@@ -181,11 +181,11 @@ export class AbiData {
             }
             body.push(`    let result=${contractInstance}.${funcName}(${allParams.join(",")});`);
             if (returnTypeInfo.abiType == AbiType.NUMBER) {
-              body.push(`    ${contractInstance}.ReturnU64(<u64>result)`);
+              body.push(`    ${contractInstance}.ReturnU64(<u64>result);`);
             }else if (returnTypeInfo.abiType == AbiType.STRING) {
-              body.push(`    ${contractInstance}.ReturnString(result)`);
+              body.push(`    ${contractInstance}.ReturnString(result);`);
             } else {
-              body.push(`    ${contractInstance}.ReturnBytes(result.bytes)`)
+              body.push(`    ${contractInstance}.ReturnBytes(result.bytes);`)
             }
           }
 
