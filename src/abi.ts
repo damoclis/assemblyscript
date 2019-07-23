@@ -174,6 +174,7 @@ export class AbiData {
           if (returnTypeInfo.typeName == "void") {
             body.push(`    ${contractInstance}.${funcName}(${allParams.join(",")});`);
           } else {
+            console.log("return type is " + returnTypeInfo.typeName);
             //only support builtin type to return
             if (AbiHelper.abiTypeLookup.get(returnTypeInfo.typeName) == null) {
               throw new Error("only support to return builtin type");

@@ -64,7 +64,9 @@ export class AbiHelper {
         ["hash256", "string"],
         ["hash512", "string"],
         ["publicKey", "string"],
-      ["signature","string"]
+        ["signature", "string"],
+        ["Address", "address"],
+        ["Asset", "asset"],
     ]);
   }
 
