@@ -54,6 +54,7 @@ export class InsertPoint {
     static toSortedMap(insertPoints: Array<InsertPoint>): Map<string, Array<InsertPoint>> {
 
         var map = new Map<string, Array<InsertPoint>>();
+        let a = map.keys();
         for (let insertPoint of insertPoints) {
             let normalizedPath = insertPoint.normalizedPath;
             let insertPointArr: Array<InsertPoint> | null = map.get(normalizedPath);
@@ -78,7 +79,8 @@ export class InsertPoint {
     }
 
     get line(): i32 {
-        return (this.range.column == 0) ? this.range.atEnd.line - 1 : this.range.atEnd.line;
+        //return (this.range.column == 0) ? this.range.atEnd.line - 1 : this.range.atEnd.line;
+        return this.range.line +1 ;
     }
     get normalizedPath(): string {
         return this.range.source.normalizedPath;
@@ -294,10 +296,12 @@ export class SerializePoint extends InsertPoint {
     classDeclaration: ClassDeclaration;
 
     constructor(range: Range) {
-        super(range.atEnd);
+        super(range.atStart);
         this.serialize.indent(2).add(`serialize(ds: DataStream): void {`);
         this.deserialize.indent(2).add(`deserialize(ds: DataStream): void {`);
         this.primaryKey.indent(2).add(`key(): string {`);
+        console.log(`This class declaration is ${range.toString}`);
+        console.log(`at line ${range.line}`)
     }
 
     get indentity(): string {

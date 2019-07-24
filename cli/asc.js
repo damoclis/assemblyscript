@@ -965,7 +965,8 @@ function insertSerialzeCode(sourcePath, sourceText) {
     throw new Error(colorsUtil.stderr.yellow("WARN: ") + "unknown abi information" + EOL);
   }
   let insertPoints = exports.abiInfo.insertPoints;
-  var concretePath = path.resolve(exports.baseDir, sourcePath);
+  //var concretePath = path.resolve(exports.baseDir, sourcePath);
+  var concretePath = sourcePath;
   if (insertPoints.has(concretePath)) {
     let serializeArray = insertPoints.get(concretePath);
     let data = sourceText.split("\n");
