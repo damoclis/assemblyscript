@@ -352,3 +352,7 @@
 //         return this.insertPoints;
 //     }
 // }
+
+export class SerializeInserter{
+    
+}
