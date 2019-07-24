@@ -38,7 +38,6 @@ export class Bytes extends Uint8Array {
         let b = this;
         let hexTable = "0123456789abcdef".split('');
         let hex = "";
-        let rb = b.swapEndian()
         for (let i = 0; i < rb.length; i++) {
             let byte: u8 = rb[i];
             hex += hexTable[byte >> 4]
