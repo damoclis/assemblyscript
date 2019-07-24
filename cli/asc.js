@@ -206,6 +206,7 @@ exports.main = function main(argv, options, compileType,callback,) {
 
   // Set up base directory
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
+  exports.baseDir = baseDir;
 
   // Set up transforms
   const transforms = [];
@@ -963,7 +964,7 @@ function insertSerialzeCode(sourcePath, sourceText) {
   if (!exports.abiInfo) {
     throw new Error(colorsUtil.stderr.yellow("WARN: ") + "unknown abi information" + EOL);
   }
-  let insertPointsLookup = exports.abiInfo.insertPoints;
+  let insertPoints = exports.abiInfo.insertPoints;
   var concretePath = path.resolve(exports.baseDir, sourcePath);
   if (insertPoints.has(concretePath)) {
     let serializeArray = insertPoints.get(concretePath);
