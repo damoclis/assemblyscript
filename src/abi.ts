@@ -5,6 +5,7 @@ import {IndentUtil, AstUtil, TypeAnalyzer, AbiType, AbiHelper} from "./util/abiu
 import { indent } from "./util";
 import { DecoratorKind, FunctionDeclaration,ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode, BreakStatement, Expression} from "./ast";
 import { Strings } from "./util/primitiveutil";
+import { SerializeInserter, InsertPoint, SerializePoint } from "./inserter";
 
 
 
@@ -70,6 +71,7 @@ export class AbiData {
   structLookup: Map<string, StructDef> = new Map();
   elementLookup: Map<string, Element> = new Map();  //save the element with the kind Class_Prototype
   typeAliasSet: Set<string> = new Set<string>();
+  insertPoints: Map<string, Array<InsertPoint>> = new Map<string, Array<InsertPoint>>();
 
   constructor(program: Program) {
     this.program = program;
@@ -77,7 +79,9 @@ export class AbiData {
   }
 
   private init(): void {
-    //Todo: serializeGenerator
+    let serializeInserter: SerializeInserter = new SerializeInserter(this.program);
+    let serializePoints = serializeInserter.getInsertPoints();
+    this.insertPoints = InsertPoint.toSortedMap(serializePoints);
 
     let indenter = new IndentUtil();
     indenter.pushRow("export function apply():void{")

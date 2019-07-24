@@ -4527,7 +4527,7 @@ declare module 'assemblyscript/src/program' {
 }
 declare module 'assemblyscript/src/util/abiutil' {
 	import { ClassPrototype, Element } from 'assemblyscript/src/program';
-	import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration } from 'assemblyscript/src/ast';
+	import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration, Node } from 'assemblyscript/src/ast';
 	export class IndentUtil {
 	    private body;
 	    private indent1;
@@ -4547,6 +4547,11 @@ declare module 'assemblyscript/src/util/abiutil' {
 	    static abiTypeLookup: Map<string, string>;
 	}
 	export class AstUtil {
+	    /**
+	 * Get the node internal name
+	 * @param node The program node
+	 */
+	    static getInternalName(node: Node): string;
 	    static extendedContract(prototype: ClassPrototype): bool;
 	    static haveDecorator(statement: DeclarationStatement, kind: DecoratorKind): bool;
 	    static impledInterface(declaration: ClassDeclaration, interfaceName: string): bool;
@@ -4629,8 +4634,61 @@ declare module 'assemblyscript/src/util/primitiveutil' {
 	}
 
 }
+declare module 'assemblyscript/src/util/collectionutil' {
+	export class Collections {
+	    /**
+	     * Check the array is empty
+	     * @param arr parameter array
+	     */
+	    static isEmptyArray<T>(arr: T[]): bool;
+	    static newArray<T>(arg1: T): T[];
+	}
+
+}
+declare module 'assemblyscript/src/inserter' {
+	import { ClassDeclaration } from 'assemblyscript/src/ast';
+	import { Program } from 'assemblyscript/src/program';
+	import { Range } from 'assemblyscript/src/tokenizer';
+	import { Indenter } from 'assemblyscript/src/util/primitiveutil';
+	export class InsertPoint {
+	    protected range: Range;
+	    protected insertCode: string;
+	    protected code: string[];
+	    private static descComparator;
+	    static toSortedMap(insertPoints: Array<InsertPoint>): Map<string, Array<InsertPoint>>;
+	    constructor(range: Range, insertCode?: string);
+	    readonly line: i32;
+	    readonly normalizedPath: string;
+	    readonly indentity: string;
+	    toString(): string;
+	    addInsertCode(code: string): void;
+	    getCodes(): string;
+	}
+	export class SerializePoint extends InsertPoint {
+	    serialize: Indenter;
+	    deserialize: Indenter;
+	    primaryKey: Indenter;
+	    needSerialize: bool;
+	    needDeserialize: bool;
+	    needPrimaryid: bool;
+	    classDeclaration: ClassDeclaration;
+	    constructor(range: Range);
+	    readonly indentity: string;
+	    getCodes(): string;
+	}
+	export class SerializeInserter {
+	    program: Program;
+	    private serializeClassname;
+	    private insertPoints;
+	    constructor(program: Program);
+	    private resolve;
+	    getInsertPoints(): InsertPoint[];
+	}
+
+}
 declare module 'assemblyscript/src/abi' {
-	import { Program, Element } from 'assemblyscript/src/program'; class TypeDef {
+	import { Program, Element } from 'assemblyscript/src/program';
+	import { InsertPoint } from 'assemblyscript/src/inserter'; class TypeDef {
 	    new_type_name: string;
 	    type: string;
 	    constructor(newTypeName: string, type: string);
@@ -4666,6 +4724,7 @@ declare module 'assemblyscript/src/abi' {
 	    structLookup: Map<string, StructDef>;
 	    elementLookup: Map<string, Element>;
 	    typeAliasSet: Set<string>;
+	    insertPoints: Map<string, Array<InsertPoint>>;
 	    constructor(program: Program);
 	    private init;
 	    private resolveClassPrototype;
@@ -5775,14 +5834,3 @@ declare function i64_is_f64(value: I64): bool;
 declare function i64_to_f32(value: I64): f64;
 declare function i64_to_f64(value: I64): f64;
 declare function i64_to_string(value: I64, unsigned?: bool): string;
-declare module 'assemblyscript/src/util/collectionutil' {
-	export class Collections {
-	    /**
-	     * Check the array is empty
-	     * @param arr parameter array
-	     */
-	    static isEmptyArray<T>(arr: T[]): bool;
-	    static newArray<T>(arg1: T): T[];
-	}
-
-}

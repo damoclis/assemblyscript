@@ -1,5 +1,5 @@
 import { ClassPrototype, Element, ElementKind, TypeDefinition, Class } from "../program";
-import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration } from "../ast";
+import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration, Node } from "../ast";
 import { Signature } from "../types";
 
 export class IndentUtil{
@@ -71,6 +71,17 @@ export class AbiHelper {
   }
 
 export class AstUtil{
+        /**
+     * Get the node internal name
+     * @param node The program node
+     */
+    static getInternalName(node: Node): string {
+        var internalPath = node.range.source.internalPath;
+        var name = node.range.toString();
+        var internalName = `${internalPath}/${name}`;
+        return internalName.replace(",", "_");
+    }
+
     static extendedContract(prototype: ClassPrototype): bool{
         let basePrototype: ClassPrototype | null = prototype.basePrototype;
         if (basePrototype && basePrototype.name == "Contract") {

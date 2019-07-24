@@ -348,7 +348,8 @@ exports.main = function main(argv, options, compileType,callback,) {
       stats.parseCount++;
       stats.parseTime += measure(() => {
         if (compileType == 2) {
-          sourceText = insertCode(sourceText, exports.applyText);
+          sourceText = insertSerialzeCode(sourcePath, sourceText);
+          sourceText = insertApplyCode(sourceText, exports.applyText);
         }
         assemblyscript.parseFile(sourceText, sourcePath, false, parser);
       });
@@ -400,9 +401,10 @@ exports.main = function main(argv, options, compileType,callback,) {
     stats.parseCount++;
     stats.parseTime += measure(() => {
       if (compileType == 2) {
-        console.log("insert code: ");
-        console.log(exports.applyText);
-        sourceText = insertCode(sourceText, exports.applyText);
+        sourceText = insertSerialzeCode(sourcePath, sourceText);
+        sourceText = insertApplyCode(sourceText, exports.applyText);
+        console.log("The code is :\n");
+        console.log(sourceText)
       }
       parser = assemblyscript.parseFile(sourceText, sourcePath, true, parser);
     });
@@ -948,11 +950,32 @@ exports.tscOptions = {
 };
 
 
-function insertCode(sourceText, applyText) {
+function insertApplyCode(sourceText, applyText) {
   let resultCode = new Array();
   resultCode.push(sourceText);
   if (applyText) {
     resultCode.push(applyText);
   }
   return resultCode.join(EOL);
+}
+
+function insertSerialzeCode(sourcePath, sourceText) {
+  if (!exports.abiInfo) {
+    throw new Error(colorsUtil.stderr.yellow("WARN: ") + "unknown abi information" + EOL);
+  }
+  let insertPointsLookup = exports.abiInfo.insertPoints;
+  var concretePath = path.resolve(exports.baseDir, sourcePath);
+  if (insertPoints.has(concretePath)) {
+    let serializeArray = insertPoints.get(concretePath);
+    let data = sourceText.split("\n");
+    for (let serialize of serializeArray) {
+      data.splice(serialize.line , 0, serialize.getCodes());
+      if (false) {
+        console.log(`Path: ${sourcePath} line: ${serialize.line}. Insert code:${EOL}${serialize.getCodes()}`);
+      }
+    }
+    return data.join(EOL);
+  } else {
+    return sourceText;
+  }
 }
