@@ -142,7 +142,9 @@ class SerializeGenerator {
                         this.needDeserialize = false;
                     }
                     if (fnName == this.PRIMARY_METHOD_NAME) {
-                        throw new Error("Use key decorator instead!")
+                        if (AstUtil.haveDecorator(this.classPrototype.declaration, DecoratorKind.DATABASE)) {
+                            throw new Error(`Class is ${this.classPrototype}. Don't use key function!Use key decorator instead!`)
+                        }
                         this.needPrimaryid = false;
                     }
                 }
