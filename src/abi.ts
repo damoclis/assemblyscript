@@ -260,6 +260,10 @@ export class AbiData {
             }
           }
         }
+        //throw error is there is no key decorator
+        if (countOfPkDecorator == 0) {
+          throw new Error("At least one key decorator should be offered!")
+        }
 
         this.abi.tables.push(new TableDef(name, type,key_name));
 

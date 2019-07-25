@@ -142,6 +142,7 @@ class SerializeGenerator {
                         this.needDeserialize = false;
                     }
                     if (fnName == this.PRIMARY_METHOD_NAME) {
+                        throw new Error("Use key decorator instead!")
                         this.needPrimaryid = false;
                     }
                 }
