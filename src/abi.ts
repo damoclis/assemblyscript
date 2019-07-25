@@ -156,13 +156,14 @@ export class AbiData {
                   if (typeInfo.typeName == "Bytes") {
                     body.push(`    let size=ds.readVarint32();`);
                     body.push(`    let ${paramName}=new Bytes(size);`);
-                    body.push(`    for(var i=0;i<size;i++){`);
+                    body.push(`    for(var i:u32=0;i<size;i++){`);
                     body.push(`      var temp=ds.read<u8>();`);
                     body.push(`      ${paramName}[i]=temp;`);
                     body.push(`    }`);
+                  } else {
+                    body.push(`    let ${paramName}=new ${typeInfo.typeName}();`)
+                    body.push(`    ${paramName}.deserialize(ds)`);
                   }
-                  body.push(`    let ${paramName}=new ${typeInfo.typeName}();`)
-                  body.push(`    ${paramName}.deserialize(ds)`);
               }
             } else {  //if the param type is Array
               let argAbiType = typeInfo.getArrayArgAbiType();
