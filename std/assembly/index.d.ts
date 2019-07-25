@@ -1567,7 +1567,10 @@ declare function start(...args: any[]): any;
 declare function action(target: any, propertyKey?:any, descriptor?:any): void;
 
 /** Annotates a class as the type of the database */
-declare function database(...args:any[]): any;
+declare function database(...args: any[]): any;
+
+/** Annotates a field as the primary key */
+declare function key(...args: any[]): any;
 
 /** Object serializable interface */
 interface Serializable { 

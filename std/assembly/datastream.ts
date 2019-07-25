@@ -224,14 +224,14 @@ export class DataStream {
     }
 
     writeString(str: string): void {
-        var len = String.UTF8.byteLength(str);
+        var len:u32= <u32>(String.UTF8.byteLength(str));
         this.writeVarint32(len);
         if (len == 0) return;
 
         if (!this.isMeasureMode()) {
             let buf = String.UTF8.encode(str);
             let ptr = changetype<usize>(buf);
-            memory.copy(this.buffer + this.pos, <usize>ptr, len);
+            memory.copy(this.buffer + this.pos, ptr, len);
         }
         this.pos += len;
     }

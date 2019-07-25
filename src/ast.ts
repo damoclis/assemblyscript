@@ -1186,7 +1186,8 @@ export enum DecoratorKind {
   EXTERNAL,
   BUILTIN,
   LAZY,
-  UNSAFE
+  UNSAFE,
+  KEY
 }
 
 /** Returns the kind of the specified decorator. Defaults to {@link DecoratorKind.CUSTOM}. */
@@ -1218,6 +1219,10 @@ export function decoratorNameToKind(name: Expression): DecoratorKind {
       }
       case CharCode.i: {
         if (nameStr == "inline") return DecoratorKind.INLINE;
+        break;
+      }
+      case CharCode.k: {
+        if (nameStr == "key") return DecoratorKind.KEY;
         break;
       }
       case CharCode.l: {
