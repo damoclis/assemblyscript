@@ -229,7 +229,8 @@ export class DataStream {
         if (len == 0) return;
 
         if (!this.isMeasureMode()) {
-            let ptr = changetype<usize>(str);
+            let buf = String.UTF8.encode(str);
+            let ptr = changetype<usize>(buf);
             memory.copy(this.buffer + this.pos, <usize>ptr, len);
         }
         this.pos += len;

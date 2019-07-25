@@ -47,7 +47,7 @@ class TableDef{
   type: string;
   index_type: string = "i64";
   keys_names: string[] = ["currency"];
-  keys_types: string[] = ["uint64"];
+  keys_types: string[] = ["string"];
   constructor(name: string, type: string) {
     this.name = name;
     this.type = type;
