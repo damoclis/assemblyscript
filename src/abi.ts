@@ -170,7 +170,7 @@ export class AbiData {
               let argTypeName = typeInfo.getArrayArgType();
               switch (argAbiType) {
                 case AbiType.NUMBER:
-                  body.push(`    let ${paramName}=ds.readvector<${argTypeName}>();`);
+                  body.push(`    let ${paramName}=ds.readVector<${argTypeName}>();`);
                   break;
                 case AbiType.STRING:
                   body.push(`    let ${paramName}=ds.readStringVector();`);
