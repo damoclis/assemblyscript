@@ -4696,7 +4696,7 @@ declare module 'assemblyscript/src/abi' {
 	} class StructDef {
 	    name: string;
 	    base: string;
-	    fileds: Array<Object>;
+	    fields: Array<Object>;
 	    constructor(name?: string, base?: string);
 	    pushFields(name: string, type: string): void;
 	} class ActionDef {

@@ -22,14 +22,14 @@ class TypeDef {
 class StructDef {
   name: string;
   base: string;
-  fileds: Array<Object> = new Array<Object>();
+  fields: Array<Object> = new Array<Object>();
   constructor(name: string = "", base: string = "") {
     this.name = name;
     this.base = base;
   }
 
   pushFields(name: string, type: string) {
-    this.fileds.push({ "name": name, "type": type });
+    this.fields.push({ "name": name, "type": type });
   }
 }
 
