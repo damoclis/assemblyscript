@@ -1585,8 +1585,11 @@ declare class DataStream {
   len: u32;
   pos: u32;
   static measure<T extends Serializable>(obj: T): u32;
+  static fromArray<T>(from: T[]): DataStream;
+  static measureComplexVector<T extends Serializable>(arr: T[]): u32 
 
   constructor(buffer: u32, len: u32);
+  pointer(): usize
   size(): u32;
   readVarint32(): u32;
   writeVarint32(value: u32): void;
@@ -1602,6 +1605,7 @@ declare class DataStream {
   readString(): string;
   writeString(str: string): void;
   writeDouble(d: f64): void;
+  readDouble(): f64;
 }
 
 declare class Bytes extends Uint8Array{ 
