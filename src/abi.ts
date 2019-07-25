@@ -145,13 +145,22 @@ export class AbiData {
                   body.push(`    let ${paramName}=ds.readString();`);
                   break;
                 case AbiType.NUMBER:
-                  body.push(`    let ${paramName}=ds.read<${typeInfo.typeName}>()`);
+                  body.push(`    let ${paramName}=ds.read<${typeInfo.typeName}>();`);
                   break;
                 default:
                   //first resolve the calss type.
                   let ele = funcProto.lookup(typeInfo.typeName);
                   let classProto = <ClassPrototype>ele;
                   this.classToStruct(classProto);
+                  //Bytes special treatments
+                  if (typeInfo.typeName == "Bytes") {
+                    body.push(`    let size=ds.readVarint32();`);
+                    body.push(`    let ${paramName}=new Bytes(size);`);
+                    body.push(`    for(var i=0;i<size;i++){`);
+                    body.push(`      var temp=ds.read<u8>();`);
+                    body.push(`      ${paramName}[i]=temp;`);
+                    body.push(`    }`);
+                  }
                   body.push(`    let ${paramName}=new ${typeInfo.typeName}();`)
                   body.push(`    ${paramName}.deserialize(ds)`);
               }

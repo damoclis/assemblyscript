@@ -59,7 +59,7 @@ export class AbiHelper {
       ["boolean", "bool"],
       ["string", "string"],
       ["String", "string"],
-      ["bytes", "bytes"],
+      ["Bytes", "bytes"],
         ["hash160", "string"],
         ["hash256", "string"],
         ["hash512", "string"],

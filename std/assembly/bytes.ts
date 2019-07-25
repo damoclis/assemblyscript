@@ -1,6 +1,6 @@
 import { DataStream } from "./datastream"
 
-export class Bytes extends Uint8Array {
+export class Bytes extends Uint8Array implements Serializable {
     static fromHex(hex: string): Bytes {
         if (hex.substr(0, 2) == "0x") {
             hex = hex.substr(2);
@@ -93,6 +93,23 @@ export class Bytes extends Uint8Array {
     toString(): string {
         let bytes = this;
         return String.UTF8.decode(bytes.buffer);
+    }
+
+    serialize(ds: DataStream) :void {
+        let b = this;
+        ds.writeVarint32(b.length);
+        for (var i = 0; i < b.length; i++){
+            ds.write<u8>(b[i])
+        };
+    }
+
+    //Not used 
+    deserialize(ds: DataStream) :void{
+
+    }
+
+    key(): string{
+        return "";
     }
 
 }
