@@ -199,15 +199,15 @@ class SerializeGenerator {
 
 
 
-                // if (commonType && commonType.kind == NodeKind.NAMEDTYPE && AstUtil.haveSpecifyDecorator(fieldDeclaration, DecoratorKind.PRIMARYID)) {
-                //     countOfPkDecorator++;
-                //     Verify.verify(countOfPkDecorator <= 1, `Class ${this.classPrototype.name} should have only one primaryid decorator field.`);
-                //     let typeNodeAnalyzer: TypeNodeAnalyzer = new TypeNodeAnalyzer(this.classPrototype,  <TypeNode>commonType);
-                //     if (!typeNodeAnalyzer.isPrimaryType()) {
-                //         throw new Error(`Class ${this.classPrototype.name} member ${fieldName}'s type should be id_type or refer to id_type.`);
-                //     }
-                //     serializePoint.primaryKey.indent(4).add(`return this.${fieldName};`);
-                // }
+                if (commonType && commonType.kind == NodeKind.NAMEDTYPE && AstUtil.haveDecorator(fieldDeclaration, DecoratorKind.KEY)) {
+                    countOfPkDecorator++;
+                    Verify.verify(countOfPkDecorator <= 1, `Class ${this.classPrototype.name} should have only one primaryid decorator field.`);
+                    let typeAnalyzer: TypeAnalyzer = new TypeAnalyzer(this.classPrototype,  <NamedTypeNode>commonType);
+                    if (typeAnalyzer.abiType!=AbiType.STRING) {
+                        throw new Error(`Class ${this.classPrototype.name} member ${fieldName}'s type should be string.`);
+                    }
+                    serializePoint.primaryKey.indent(4).add(`return this.${fieldName};`);
+                }
             }
         }
 

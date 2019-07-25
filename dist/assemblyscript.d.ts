@@ -882,7 +882,8 @@ declare module 'assemblyscript/src/ast' {
 	    EXTERNAL = 11,
 	    BUILTIN = 12,
 	    LAZY = 13,
-	    UNSAFE = 14
+	    UNSAFE = 14,
+	    KEY = 15
 	}
 	/** Returns the kind of the specified decorator. Defaults to {@link DecoratorKind.CUSTOM}. */
 	export function decoratorNameToKind(name: Expression): DecoratorKind;
@@ -4708,7 +4709,7 @@ declare module 'assemblyscript/src/abi' {
 	    index_type: string;
 	    keys_names: string[];
 	    keys_types: string[];
-	    constructor(name: string, type: string);
+	    constructor(name: string, type: string, key_name: string);
 	} class AbiDef {
 	    version: string;
 	    types: Array<TypeDef>;

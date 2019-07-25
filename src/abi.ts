@@ -1,15 +1,15 @@
 //refer to EOS's and Ultrain's doc
 
-import { Program, Element, ElementKind, ClassPrototype, FunctionPrototype } from "./program";
-import {IndentUtil, AstUtil, TypeAnalyzer, AbiType, AbiHelper} from "./util/abiutil";
+import { Program, Element, ElementKind, ClassPrototype, FunctionPrototype, FieldPrototype } from "./program";
+import { IndentUtil, AstUtil, TypeAnalyzer, AbiType, AbiHelper } from "./util/abiutil";
 import { indent } from "./util";
-import { DecoratorKind, FunctionDeclaration,ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode, BreakStatement, Expression} from "./ast";
+import { DecoratorKind, FunctionDeclaration, ParameterNode, NamedTypeNode, DeclarationStatement, ClassDeclaration, NodeKind, FieldDeclaration, TypeNode, BreakStatement, Expression } from "./ast";
 import { Strings } from "./util/primitiveutil";
 import { SerializeInserter, InsertPoint, SerializePoint } from "./inserter";
 
 
 
-class TypeDef{
+class TypeDef {
   new_type_name: string;
   type: string;
   constructor(newTypeName: string, type: string) {
@@ -19,11 +19,11 @@ class TypeDef{
 }
 
 
-class StructDef{
+class StructDef {
   name: string;
   base: string;
   fileds: Array<Object> = new Array<Object>();
-  constructor(name: string="", base: string="") {
+  constructor(name: string = "", base: string = "") {
     this.name = name;
     this.base = base;
   }
@@ -33,7 +33,7 @@ class StructDef{
   }
 }
 
-class ActionDef{
+class ActionDef {
   name: string;
   type: string;
   constructor(name: string, type: string) {
@@ -42,19 +42,20 @@ class ActionDef{
   }
 }
 
-class TableDef{
+class TableDef {
   name: string;
   type: string;
   index_type: string = "i64";
-  keys_names: string[] = ["currency"];
+  keys_names: string[] = [];
   keys_types: string[] = ["string"];
-  constructor(name: string, type: string) {
+  constructor(name: string, type: string,key_name:string) {
     this.name = name;
     this.type = type;
+    this.keys_names.push(key_name);
   }
 }
 
-class AbiDef{
+class AbiDef {
   version: string = "Damoclis VM:1.0";
   types: Array<TypeDef> = new Array<TypeDef>();
   structs: Array<StructDef> = new Array<StructDef>();
@@ -117,7 +118,7 @@ export class AbiData {
 
       body.push(`  let ${contractInstance}=new ${contractName}();`);
       body.push(`  let ds = ${contractInstance}.getDataStream();`);
-      
+
 
       //resolve the func with the action decorator
       for (let [key, instance] of prototype.instanceMembers) {
@@ -196,7 +197,7 @@ export class AbiData {
             body.push(`    let result=${contractInstance}.${funcName}(${allParams.join(",")});`);
             if (returnTypeInfo.abiType == AbiType.NUMBER) {
               body.push(`    ${contractInstance}.ReturnU64(<u64>result);`);
-            }else if (returnTypeInfo.abiType == AbiType.STRING) {
+            } else if (returnTypeInfo.abiType == AbiType.STRING) {
               body.push(`    ${contractInstance}.ReturnString(result);`);
             } else {
               body.push(`    ${contractInstance}.ReturnBytes(result.bytes);`)
@@ -216,21 +217,52 @@ export class AbiData {
   }
 
   //resolve the database decorators
-  private getDatabaseInfo(prototype: ClassPrototype) :void{
+  private getDatabaseInfo(prototype: ClassPrototype): void {
     let decorators = prototype.decoratorNodes;
     if (!decorators) {
       return;
     }
+    let countOfPkDecorator = 0;
+    let key_name: string = "";
     for (let decorator of decorators) {
       //Decorator argument must have only one argument
       if (decorator.decoratorKind == DecoratorKind.DATABASE && decorator.arguments) {
         if (decorator.arguments.length != 1) {
           throw new Error("Database decorator must have only one argument!");
         }
-        let type = prototype.name;  
+        let type = prototype.name;
         let name = this.getString(prototype, decorator.arguments[0]);
-        this.abi.tables.push(new TableDef(name, type));
-        
+
+
+        if (!prototype.instanceMembers) {
+          throw new Error(`database class should have at least one key decorator`);
+        }
+
+
+        //get primary key
+        for (let [fieldName, element] of prototype.instanceMembers) {
+          if (element.kind == ElementKind.FIELD_PROTOTYPE) {
+            let fieldPrototype: FieldPrototype = <FieldPrototype>element;
+            let fieldDeclaration: FieldDeclaration = <FieldDeclaration>fieldPrototype.declaration;
+            let commonType: TypeNode | null = fieldDeclaration.type;
+
+
+            if (commonType && commonType.kind == NodeKind.NAMEDTYPE && AstUtil.haveDecorator(fieldDeclaration, DecoratorKind.KEY)) {
+              countOfPkDecorator++;
+              if (countOfPkDecorator > 1) {
+                throw new Error(`Class ${prototype.name} should have only one primaryid decorator field.`);
+              }
+              let typeAnalyzer: TypeAnalyzer = new TypeAnalyzer(prototype, <NamedTypeNode>commonType);
+              if (typeAnalyzer.abiType != AbiType.STRING) {
+                throw new Error(`Class ${prototype.name} member ${fieldName}'s type should be string.`);
+              }
+              key_name = fieldName;
+            }
+          }
+        }
+
+        this.abi.tables.push(new TableDef(name, type,key_name));
+
         this.classToStruct(prototype);
       }
     }
@@ -239,7 +271,7 @@ export class AbiData {
   //get the string:
   //1. delete the quotation
   //Todo: 2. get the string from the constant
-  private getString(ele: Element, expr: Expression): string{
+  private getString(ele: Element, expr: Expression): string {
     let arg: string = expr.range.toString();
     if (Strings.isAroundQuotation(arg)) {
       return arg.substring(1, arg.length - 1);
@@ -247,7 +279,7 @@ export class AbiData {
     return "";
   }
 
-  private isActionFuncPrototype(element: Element): bool{
+  private isActionFuncPrototype(element: Element): bool {
     if (element.kind == ElementKind.FUNCTION_PROTOTYPE) {
       let funcPrototype = <FunctionPrototype>element;
       return AstUtil.haveDecorator(funcPrototype.declaration, DecoratorKind.ACTION);
@@ -256,7 +288,7 @@ export class AbiData {
   }
 
 
-  private resolveFuncPrototype(prototype: FunctionPrototype):void{
+  private resolveFuncPrototype(prototype: FunctionPrototype): void {
     let declaration = <FunctionDeclaration>prototype.declaration;
     let funcName = declaration.name.range.toString();
     let signature = declaration.signature;
@@ -274,11 +306,11 @@ export class AbiData {
     }
 
     this.addToStruct(struct);
-    let action: ActionDef = new ActionDef(funcName,funcName);
+    let action: ActionDef = new ActionDef(funcName, funcName);
     this.abi.actions.push(action);
   }
 
-  private addAbiTypeAlias(typeInfo: TypeAnalyzer): void{
+  private addAbiTypeAlias(typeInfo: TypeAnalyzer): void {
     let asTypes = typeInfo.getAsTypes();
     for (let asType of asTypes) {
       if (this.typeAliasSet.has(asType)) {
@@ -302,7 +334,7 @@ export class AbiData {
 
   }
 
-  private classToStruct(prototype: ClassPrototype): void{
+  private classToStruct(prototype: ClassPrototype): void {
     if (!this.typeLookup.get(prototype.name)) {
       let struct = new StructDef();
       struct.name = prototype.name;
@@ -311,7 +343,7 @@ export class AbiData {
     }
   }
 
-  private addFiledFromClass(prototype: ClassPrototype, struct: StructDef): void{
+  private addFiledFromClass(prototype: ClassPrototype, struct: StructDef): void {
     let members: DeclarationStatement[] = (<ClassDeclaration>prototype.declaration).members;
     if (prototype.basePrototype && AstUtil.impledSerializable(prototype.basePrototype)) {
       this.addFiledFromClass(prototype.basePrototype, struct);
@@ -331,7 +363,7 @@ export class AbiData {
     }
   }
 
-  private addToStruct(struct: StructDef): void{
+  private addToStruct(struct: StructDef): void {
     if (!this.structLookup.has(struct.name)) {
       this.abi.structs.push(struct);
       this.structLookup.set(struct.name, struct);
