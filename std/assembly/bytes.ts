@@ -112,4 +112,8 @@ export class Bytes extends Uint8Array implements Serializable {
         return "";
     }
 
+    get bytes(): Bytes{
+        return this;
+    }
+
 }
