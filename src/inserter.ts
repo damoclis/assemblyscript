@@ -54,7 +54,6 @@ export class InsertPoint {
     static toSortedMap(insertPoints: Array<InsertPoint>): Map<string, Array<InsertPoint>> {
 
         var map = new Map<string, Array<InsertPoint>>();
-        let a = map.keys();
         for (let insertPoint of insertPoints) {
             let normalizedPath = insertPoint.normalizedPath;
             let insertPointArr: Array<InsertPoint> | null = map.get(normalizedPath);
@@ -154,8 +153,6 @@ class SerializeGenerator {
 
     checkSerializable(typeNode: TypeNode): void {
         var internalName = AstUtil.getInternalName(typeNode);
-        console.log("The internalName is :\n");
-        console.log(internalName);
         var element: Element | null = this.classPrototype.program.elementsByName.get(internalName);
 
         // var element = this.classPrototype.lookup(typeNode.range.toString());

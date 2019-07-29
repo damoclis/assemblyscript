@@ -569,6 +569,14 @@ exports.main = function main(argv, options, compileType,callback,) {
 
   if(compileType==1){
     exports.abiInfo = program.getAbiInfo();
+
+    //add concrete file path to be used in insertSerializaCode
+    let lookup = exports.abiInfo.insertPoints;
+    for (let [filePath, obj] of lookup) {
+      let concretePath = path.resolve(baseDir, filePath);
+      lookup.set(concretePath, obj);
+    }
+
     exports.applyText = exports.abiInfo.code;
   }
 
@@ -965,8 +973,7 @@ function insertSerialzeCode(sourcePath, sourceText) {
     throw new Error(colorsUtil.stderr.yellow("WARN: ") + "unknown abi information" + EOL);
   }
   let insertPoints = exports.abiInfo.insertPoints;
-  //var concretePath = path.resolve(exports.baseDir, sourcePath);
-  var concretePath = sourcePath;
+  var concretePath = path.resolve(exports.baseDir, sourcePath);
   if (insertPoints.has(concretePath)) {
     let serializeArray = insertPoints.get(concretePath);
     let data = sourceText.split("\n");
