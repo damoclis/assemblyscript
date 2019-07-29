@@ -154,6 +154,8 @@ class SerializeGenerator {
 
     checkSerializable(typeNode: TypeNode): void {
         var internalName = AstUtil.getInternalName(typeNode);
+        console.log("The internalName is :\n");
+        console.log(internalName);
         var element: Element | null = this.classPrototype.program.elementsByName.get(internalName);
 
         // var element = this.classPrototype.lookup(typeNode.range.toString());
