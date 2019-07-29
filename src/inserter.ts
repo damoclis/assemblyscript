@@ -277,7 +277,7 @@ class SerializeGenerator {
                 indent.add(`this.${fieldName} = ds.read<${typeAnalyzer.typeName}>();`);
             } else {
                 indent.add(`if (!this.${fieldName}) {`);
-                indent.increase().add(`this.${fieldName} = { } as ${typeAnalyzer.typeName()};`);
+                indent.increase().add(`this.${fieldName} = { } as ${typeAnalyzer.typeName};`);
                 indent.decrease().add(`}`);
                 indent.add(`this.${fieldName}.deserialize(ds);`);
             }
