@@ -211,6 +211,10 @@ class SerializeGenerator {
                         let asType = typeAnalyzer.typeName;
                         let element = typeAnalyzer.parent.lookup(asType);
                         console.log("key filed type is : " + asType);
+                        console.log("abiType is: " + typeAnalyzer.abiType);
+                        if (!element) {
+                            console.log("element is NULL");
+                        }
                         if (typeAnalyzer.abiType == AbiType.CLASS && element && AstUtil.impledToString(<ClassPrototype>element)) {
                             serializePoint.primaryKey.indent(4).add(`return this.${fieldName}.toString();`);
                         } else {
