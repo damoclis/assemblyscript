@@ -1,5 +1,5 @@
-import { ClassPrototype, Element, ElementKind, TypeDefinition, Class } from "../program";
-import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration, Node } from "../ast";
+import { ClassPrototype, Element, ElementKind, TypeDefinition, Class, FunctionPrototype } from "../program";
+import { DeclarationStatement, DecoratorKind, NamedTypeNode, ClassDeclaration, Node, FunctionDeclaration } from "../ast";
 import { Signature } from "../types";
 
 export class IndentUtil{
@@ -124,6 +124,32 @@ export class AstUtil{
         return impled || parentImpled;
     }
 
+    static impledToString(clzPrototype: ClassPrototype): bool{
+        let result = false;
+        // if instanceMembers is NULL
+        if (!clzPrototype.instanceMembers) {
+            return result;
+        }
+        for (let [key, instance] of clzPrototype.instanceMembers) {
+            if (instance.kind == ElementKind.FUNCTION_PROTOTYPE) {
+                let funcProto = <FunctionPrototype>instance;
+                let declaration = <FunctionDeclaration>funcProto.declaration;
+                let funcName = declaration.name.text;
+                let returnType = declaration.signature.returnType;
+                //judge the function name
+                if (funcName == "toString") {
+                    let typeAnalyzer = new TypeAnalyzer(funcProto, <NamedTypeNode>returnType);
+                    //judge the return type
+                    if (typeAnalyzer.abiType == AbiType.STRING) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     static isString(typeName: string): bool{
         return typeName == "string" || typeName == "String";
     }
@@ -141,6 +167,8 @@ export class AstUtil{
     static isArrayMap(typeName: string): bool {
         return "ArrayMap" == typeName;
     }
+
+
 }
 
 export enum AbiType{
@@ -276,4 +304,6 @@ export class TypeAnalyzer{
     getArrayArgType(): string{
         return this.getArgs()[0];
     }
+
+
 }

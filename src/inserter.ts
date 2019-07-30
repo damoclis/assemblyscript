@@ -37,7 +37,8 @@ import {
 
 import {
     Indenter,
-    Verify
+    Verify,
+    AbiUtils
 } from "./util/primitiveutil";
 import { AbiHelper } from "./util/abiutil";
 
@@ -205,8 +206,15 @@ class SerializeGenerator {
                     countOfPkDecorator++;
                     Verify.verify(countOfPkDecorator <= 1, `Class ${this.classPrototype.name} should have only one primaryid decorator field.`);
                     let typeAnalyzer: TypeAnalyzer = new TypeAnalyzer(this.classPrototype,  <NamedTypeNode>commonType);
-                    if (typeAnalyzer.abiType!=AbiType.STRING) {
-                        throw new Error(`Class ${this.classPrototype.name} member ${fieldName}'s type should be string.`);
+                    if (typeAnalyzer.abiType != AbiType.STRING) {
+                        //if this field type is not string, test if it implements toString()
+                        let asType = typeAnalyzer.typeName;
+                        let element = typeAnalyzer.parent.lookup(asType);
+                        if (typeAnalyzer.abiType == AbiType.CLASS && element && AstUtil.impledToString(<ClassPrototype>element)) {
+                            serializePoint.primaryKey.indent(4).add(`return this.${fieldName}.toString();`);
+                        } else {
+                            throw new Error(`Class ${this.classPrototype.name} member ${fieldName}'s type should be string.`);
+                        }
                     }
                     serializePoint.primaryKey.indent(4).add(`return this.${fieldName};`);
                 }

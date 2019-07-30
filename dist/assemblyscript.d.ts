@@ -4557,6 +4557,7 @@ declare module 'assemblyscript/src/util/abiutil' {
 	    static haveDecorator(statement: DeclarationStatement, kind: DecoratorKind): bool;
 	    static impledInterface(declaration: ClassDeclaration, interfaceName: string): bool;
 	    static impledSerializable(prototype: ClassPrototype | null): bool;
+	    static impledToString(clzPrototype: ClassPrototype): bool;
 	    static isString(typeName: string): bool;
 	    static isArray(typeName: string): bool;
 	    static isMap(typeName: string): bool;
