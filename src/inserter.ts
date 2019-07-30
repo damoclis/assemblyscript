@@ -210,6 +210,7 @@ class SerializeGenerator {
                         //if this field type is not string, test if it implements toString()
                         let asType = typeAnalyzer.typeName;
                         let element = typeAnalyzer.parent.lookup(asType);
+                        console.log("key filed type is : " + asType);
                         if (typeAnalyzer.abiType == AbiType.CLASS && element && AstUtil.impledToString(<ClassPrototype>element)) {
                             serializePoint.primaryKey.indent(4).add(`return this.${fieldName}.toString();`);
                         } else {
