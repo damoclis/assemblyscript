@@ -257,7 +257,7 @@ export class AbiData {
                 //if this field type is not string, test if it implements toString()
                 let asType = typeAnalyzer.typeName;
                 let element = typeAnalyzer.parent.lookup(asType);
-                if (typeAnalyzer.abiType == AbiType.CLASS && element && AstUtil.impledToString(<ClassPrototype>element)) {
+                if (typeAnalyzer.abiType != AbiType.CLASS || !element || !AstUtil.impledToString(<ClassPrototype>element)) {
                     throw new Error(`Class ${prototype.name} member ${fieldName}'s type should be string or have toString() method.`);
                 }
               }
