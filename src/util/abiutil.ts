@@ -161,7 +161,7 @@ export class AstUtil{
 
 
     static isMap(typeName: string): bool {
-        return typeName == "Map" || typeName == "ArrayMap";
+        return typeName == "Map" || typeName == "ArrayMap" || typeName == "HashMap";
     }
 
     static isArrayMap(typeName: string): bool {
@@ -227,7 +227,9 @@ export class TypeAnalyzer{
                 return `${this.getArgs()[0]}[]`;
             }
             case AbiType.MAP: {
-                if (AstUtil.isArrayMap(this.typeName)) {
+                if (this.typeName == "HashMap") {
+                    return `HashMap<${this.getArgs().join(",")}>`;
+                }else if (AstUtil.isArrayMap(this.typeName)) {
                     return `${this.getArgs().join(",")}[]{}`;
                 }else {
                     return `${this.getArgs().join(",")}{}`;    
