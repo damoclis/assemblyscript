@@ -291,7 +291,14 @@ class SerializeGenerator {
                 indent.add(`this.${fieldName} = ds.read<${typeAnalyzer.typeName}>();`);
             } else {
                 indent.add(`if (!this.${fieldName}) {`);
-                indent.increase().add(`this.${fieldName} = { } as ${typeAnalyzer.typeName};`);
+                
+                //test if it is generics
+                let args = typeAnalyzer.getArgs();
+                if (args.length == 0) {
+                    indent.increase().add(`this.${fieldName} = { } as ${typeAnalyzer.typeName};`);
+                } else {
+                    indent.increase().add(`this.${fieldName} = { } as ${typeAnalyzer.typeName}<${args.join(",")}>;`);
+                }
                 indent.decrease().add(`}`);
                 indent.add(`this.${fieldName}.deserialize(ds);`);
             }
