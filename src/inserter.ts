@@ -80,7 +80,7 @@ export class InsertPoint {
 
     get line(): i32 {
         //return (this.range.column == 0) ? this.range.atEnd.line - 1 : this.range.atEnd.line;
-        return this.range.line -1 ;
+        return this.range.line -2 ;
     }
     get normalizedPath(): string {
         return this.range.source.normalizedPath;
