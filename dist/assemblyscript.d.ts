@@ -4579,7 +4579,7 @@ declare module 'assemblyscript/src/util/abiutil' {
 	    private getAbiType;
 	    lookupElement(typeName: string): Element | null;
 	    getAbiDeclareType(): string;
-	    private getArgs;
+	    getArgs(): string[];
 	    getAsTypes(): string[];
 	    findSourceAbiType(typeName: string): string;
 	    findSourceAsType(typeName: string): string;

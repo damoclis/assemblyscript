@@ -241,7 +241,7 @@ export class TypeAnalyzer{
         }
     }
 
-    private getArgs(): string[]{
+    getArgs(): string[]{
         let args = this.typeNode.typeArguments;
         let argType = new Array<string>();
         if (args) {
