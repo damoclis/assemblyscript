@@ -69,6 +69,9 @@ exports.sourceMapRoot = "assemblyscript:///";
 /** Prefix used for library files. */
 exports.libraryPrefix = assemblyscript.LIBRARY_PREFIX;
 
+/** Node modules path */
+exports.nodeModulesPrefix = "./node_modules/";
+
 /** Default Binaryen optimization level. */
 exports.defaultOptimizeLevel = 3;
 
@@ -243,7 +246,10 @@ exports.main = function main(argv, options, compileType,callback,) {
       );
     });
   });
+  
   const customLibDirs = [];
+  args.lib = (!args.lib) ? exports.nodeModulesPrefix : exports.nodeModulesPrefix + "," + args.lib;
+
   if (args.lib) {
     let lib = args.lib;
     if (typeof lib === "string") lib = lib.split(",");
