@@ -12,7 +12,7 @@
  */
 
 // Use "." instead of "/" as cwd in browsers
-if (process.browser) process.cwd = function() { return "."; };
+if (process.browser) process.cwd = function () { return "."; };
 
 const fs = require("fs");
 const path = require("path");
@@ -83,7 +83,7 @@ exports.libraryFiles = exports.isBundle ? BUNDLE_LIBRARY : (() => { // set up if
   const libDir = path.join(__dirname, "..", "std", "assembly");
   const libFiles = require("glob").sync("**/!(*.d).ts", { cwd: libDir });
   const bundled = {};
-  libFiles.forEach(file => bundled[file.replace(/\.ts$/, "")] = fs.readFileSync(path.join(libDir, file), "utf8" ));
+  libFiles.forEach(file => bundled[file.replace(/\.ts$/, "")] = fs.readFileSync(path.join(libDir, file), "utf8"));
   return bundled;
 })();
 
@@ -123,7 +123,7 @@ exports.compileString = (sources, options) => {
 }
 
 /** Runs the command line utility using the specified arguments array. */
-exports.main = function main(argv, options, compileType,callback,) {
+exports.main = function main(argv, options, compileType, callback, ) {
   if (typeof options === "function") {
     callback = options;
     options = {};
@@ -147,7 +147,7 @@ exports.main = function main(argv, options, compileType,callback,) {
   argv = opts.arguments;
   if (args.noColors) {
     colorsUtil.stdout.supported =
-    colorsUtil.stderr.supported = false;
+      colorsUtil.stderr.supported = false;
   } else {
     colorsUtil.stdout = colorsUtil.from(stdout);
     colorsUtil.stderr = colorsUtil.from(stderr);
@@ -258,7 +258,7 @@ exports.main = function main(argv, options, compileType,callback,) {
       let libDir = customLibDirs[i];
       let libFiles;
       if (libDir.endsWith(".ts")) {
-        libFiles = [ path.basename(libDir) ];
+        libFiles = [path.basename(libDir)];
         libDir = path.dirname(libDir);
       } else {
         libFiles = listFiles(libDir);
@@ -299,13 +299,23 @@ exports.main = function main(argv, options, compileType,callback,) {
         } else {
           for (let i = 0, k = customLibDirs.length; i < k; ++i) {
             sourceText = readFile(plainName + ".ts", customLibDirs[i]);
+            dir = "./";
+            //search for the node_modules position
+            while (sourceText == null) {
+              //catch the file root
+              if (path.resolve(dir) == path.resolve('/')) {
+                break;
+              }
+              dir = "../" + dir;
+              sourceText = readFile(plainName + ".ts", dir + customLibDirs[i]);
+            }
             if (sourceText !== null) {
               sourcePath = exports.libraryPrefix + plainName + ".ts";
               break;
             } else {
-              //search for the node_modules position
               sourceText = readFile(indexName + ".ts", customLibDirs[i]);
               dir = "./";
+              //search for the node_modules position
               while (sourceText == null) {
                 //catch the file root
                 if (path.resolve(dir) == path.resolve('/')) {
@@ -322,7 +332,7 @@ exports.main = function main(argv, options, compileType,callback,) {
           }
         }
 
-      // Otherwise try nextFile.ts, nextFile/index.ts, ~lib/nextFile.ts, ~lib/nextFile/index.ts
+        // Otherwise try nextFile.ts, nextFile/index.ts, ~lib/nextFile.ts, ~lib/nextFile/index.ts
       } else {
         const plainName = sourcePath;
         const indexName = sourcePath + "/index";
@@ -534,12 +544,12 @@ exports.main = function main(argv, options, compileType,callback,) {
   if (args.trapMode === "clamp") {
     stats.optimizeCount++;
     stats.optimizeTime += measure(() => {
-      module.runPasses([ "trap-mode-clamp" ]);
+      module.runPasses(["trap-mode-clamp"]);
     });
   } else if (args.trapMode === "js") {
     stats.optimizeCount++;
     stats.optimizeTime += measure(() => {
-      module.runPasses([ "trap-mode-js" ]);
+      module.runPasses(["trap-mode-js"]);
     });
   } else if (args.trapMode !== "allow") {
     module.dispose();
@@ -583,7 +593,7 @@ exports.main = function main(argv, options, compileType,callback,) {
     });
   }
 
-  if(compileType==1){
+  if (compileType == 1) {
     exports.abiInfo = program.getAbiInfo();
 
     //add concrete file path to be used in insertSerializaCode
@@ -794,7 +804,7 @@ exports.main = function main(argv, options, compileType,callback,) {
       stats.writeTime += measure(() => {
         mkdirp(path.join(baseDir, path.dirname(filename)));
         if (typeof contents === "string") {
-          fs.writeFileSync(path.join(baseDir, filename), contents, { encoding: "utf8" } );
+          fs.writeFileSync(path.join(baseDir, filename), contents, { encoding: "utf8" });
         } else {
           fs.writeFileSync(path.join(baseDir, filename), contents);
         }
@@ -919,13 +929,13 @@ function printRTTI(program, output) {
 exports.printRTTI = printRTTI;
 
 var allocBuffer = typeof global !== "undefined" && global.Buffer
-  ? global.Buffer.allocUnsafe || function(len) { return new global.Buffer(len); }
-  : function(len) { return new Uint8Array(len) };
+  ? global.Buffer.allocUnsafe || function (len) { return new global.Buffer(len); }
+  : function (len) { return new Uint8Array(len) };
 
 /** Creates a memory stream that can be used in place of stdout/stderr. */
 function createMemoryStream(fn) {
   var stream = [];
-  stream.write = function(chunk) {
+  stream.write = function (chunk) {
     if (fn) fn(chunk);
     if (typeof chunk === "string") {
       let buffer = allocBuffer(utf8.length(chunk));
@@ -934,10 +944,10 @@ function createMemoryStream(fn) {
     }
     this.push(chunk);
   };
-  stream.reset = function() {
+  stream.reset = function () {
     stream.length = 0;
   };
-  stream.toBuffer = function() {
+  stream.toBuffer = function () {
     var offset = 0, i = 0, k = this.length;
     while (i < k) offset += this[i++].length;
     var buffer = allocBuffer(offset);
@@ -949,7 +959,7 @@ function createMemoryStream(fn) {
     }
     return buffer;
   };
-  stream.toString = function() {
+  stream.toString = function () {
     var buffer = this.toBuffer();
     return utf8.read(buffer, 0, buffer.length);
   };
@@ -994,7 +1004,7 @@ function insertSerialzeCode(sourcePath, sourceText) {
     let serializeArray = insertPoints.get(concretePath);
     let data = sourceText.split("\n");
     for (let serialize of serializeArray) {
-      data.splice(serialize.line , 0, serialize.getCodes());
+      data.splice(serialize.line, 0, serialize.getCodes());
       if (false) {
         console.log(`Path: ${sourcePath} line: ${serialize.line}. Insert code:${EOL}${serialize.getCodes()}`);
       }
