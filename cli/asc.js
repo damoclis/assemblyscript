@@ -246,7 +246,7 @@ exports.main = function main(argv, options, compileType,callback,) {
       );
     });
   });
-  
+
   const customLibDirs = [];
   args.lib = (!args.lib) ? exports.nodeModulesPrefix : exports.nodeModulesPrefix + "," + args.lib;
 
@@ -303,7 +303,17 @@ exports.main = function main(argv, options, compileType,callback,) {
               sourcePath = exports.libraryPrefix + plainName + ".ts";
               break;
             } else {
+              //search for the node_modules position
               sourceText = readFile(indexName + ".ts", customLibDirs[i]);
+              dir = "./";
+              while (sourceText == null) {
+                //catch the file root
+                if (path.resolve(dir) == path.resolve('/')) {
+                  break;
+                }
+                dir = "../" + dir;
+                sourceText = readFile(indexName + ".ts", dir + customLibDirs[i]);
+              }
               if (sourceText !== null) {
                 sourcePath = exports.libraryPrefix + indexName + ".ts";
                 break;
