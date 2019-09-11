@@ -194,7 +194,7 @@ export class DataStream {
         let len = this.readVarint32();
         if (len == 0) return new Array<T>();
 
-        let arr = new Array<T>(len);
+        let arr = Array.create<T>(len);
         for (let i: u32 = 0; i < len; i++) {
             arr[i] = {} as T;
             arr[i].deserialize(this);
