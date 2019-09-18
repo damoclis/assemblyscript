@@ -2,19 +2,21 @@ import { DataStream } from "./datastream"
 
 export class Bytes extends Uint8Array implements Serializable {
     static fromHex(hex: string): Bytes {
-        if (hex.substr(0, 2) == "0x") {
-            hex = hex.substr(2);
+        if (hex.substring(0, 2) == "0x") {
+            hex = hex.substring(2);
         }
 
-        let len = hex.length % 2 == 0 ? hex.length / 2 : hex.length / 2 + 1
+        //if the length%2!=0  add a '0' in the first position
+        if (hex.length % 2 != 0) {
+            hex = "0" + hex;
+        }
+
+        let len = hex.length / 2;
         let bytes = new Bytes(len);
-        let i = 0;
-        while (hex.length) {
-            let shex = hex.substr(hex.length - 2, hex.length);
-            bytes[i++] = parseInt(shex, 16);
-            hex = hex.substr(0, hex.length - 2);
+        for (let i = 0; i < len; i++) {
+            let str = hex.substring(i * 2, i * 2 + 2);
+            bytes[i] = (u8)(parseInt(str, 16))
         }
-
         return bytes
     }
 
@@ -95,24 +97,24 @@ export class Bytes extends Uint8Array implements Serializable {
         return String.UTF8.decode(bytes.buffer);
     }
 
-    serialize(ds: DataStream) :void {
+    serialize(ds: DataStream): void {
         let b = this;
         ds.writeVarint32(b.length);
-        for (var i = 0; i < b.length; i++){
+        for (var i = 0; i < b.length; i++) {
             ds.write<u8>(b[i])
         };
     }
 
     //Not used 
-    deserialize(ds: DataStream) :void{
+    deserialize(ds: DataStream): void {
 
     }
 
-    key(): string{
+    key(): string {
         return "";
     }
 
-    get bytes(): Bytes{
+    get bytes(): Bytes {
         return this;
     }
 
