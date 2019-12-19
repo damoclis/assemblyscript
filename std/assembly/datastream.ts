@@ -151,7 +151,7 @@ export class DataStream {
         let len = this.readVarint32();
         if (len == 0) return new Array<string>();
 
-        let arr = new Array<string>(len);
+        let arr = Array.create<string>(len);
         for(let i: u32 = 0; i < len; i++) {
             arr[i] = this.readString();
         }
